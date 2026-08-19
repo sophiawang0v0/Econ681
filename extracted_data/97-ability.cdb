@@ -1,0 +1,640 @@
+R00001.00    [PUBID]                                        Survey Year: 1997
+  PRIMARY VARIABLE
+
+             PUBID, YOUTH CASE IDENTIFICATION CODE
+ 
+COMMENT: YOUTH CASE IDENTIFICATION CODE
+ 
+       0           0
+     998           1 TO 999
+     999        1000 TO 1999
+     997        2000 TO 2999
+     996        3000 TO 3999
+     998        4000 TO 4999
+     996        5000 TO 5999
+     994        6000 TO 6999
+     994        7000 TO 7999
+     989        8000 TO 8999
+      23        9000 TO 9999
+  -------
+    8984
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    8984   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:           9022        Mean:              4504.3
+ 
+Lead In: R72976.00[Default]
+Default Next Question: R05363.00
+--------------------------------------------------------------------------------
+R05364.01    [KEY!BDATE_M]                                  Survey Year: 1997
+  PRIMARY VARIABLE
+
+             KEY!BDATE, RS BIRTHDATE MONTH/YEAR (SYMBOL)
+ 
+COMMENT: Birthdate of Youth
+ 
+     816           1: January
+     693           2: February
+     760           3: March
+     659           4: April
+     689           5: May
+     720           6: June
+     762           7: July
+     782           8: August
+     839           9: September
+     765          10: October
+     763          11: November
+     736          12: December
+  -------
+    8984
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    8984   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:             12        Mean:                6.56
+ 
+Earliest (NonMissing): JANUARY/1980
+Latest   (NonMissing): DECEMBER/1984
+ 
+Lead In: None.
+Default Next Question: R05364.02
+--------------------------------------------------------------------------------
+R05364.02    [KEY!BDATE_Y]                                  Survey Year: 1997
+  PRIMARY VARIABLE
+
+             KEY!BDATE, RS BIRTHDATE MONTH/YEAR (SYMBOL)
+ 
+COMMENT: Birthdate of Youth
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    8984   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:           1980        Max:           1984        Mean:             1982.01
+ 
+Earliest (NonMissing): JANUARY/1980
+Latest   (NonMissing): DECEMBER/1984
+ 
+Lead In: R05364.01[Default]
+Default Next Question: R05366.00
+--------------------------------------------------------------------------------
+R97052.00    [ASVAB_GS_ABILITY_EST_POS]                     Survey Year: XRND
+  PRIMARY VARIABLE
+
+             FINAL POSITIVE ABILITY ESTIMATE FOR GS CAT-ASVAB SUBTEST
+ 
+The Positive Final Ability Estimate for General Science CAT-ASVAB subtest.
+ 
+COMMENT: ASVAB Test
+ 
+NOTE: Please see appendix 10 in the codebook supplement for more information on 
+the ASVAB.
+NOTE:  3 IMPLIED DECIMAL PLACES
+ 
+    1341           0 TO 500
+     606         501 TO 1000
+     250        1001 TO 1500
+      79        1501 TO 2000
+       8        2001 TO 2500
+       1        2501 TO 3000
+       0        3001 TO 3500
+  -------
+    2285
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    2285   VALID SKIP(-4)    6699     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:           2573        Mean:              514.25
+ 
+Lead In: R97051.00[Default]
+Default Next Question: R97053.00
+--------------------------------------------------------------------------------
+R97053.00    [ASVAB_AR_ABILITY_EST_POS]                     Survey Year: XRND
+  PRIMARY VARIABLE
+
+             FINAL POSITIVE ABILITY ESTIMATE FOR AR CAT-ASVAB SUBTEST
+ 
+The Positive Final Ability Estimate for Arithmetic Reasoning CAT-ASVAB subtest.
+ 
+COMMENT: ASVAB Test
+ 
+NOTE: Please see appendix 10 in the codebook supplement for more information on 
+the ASVAB.
+NOTE:  3 IMPLIED DECIMAL PLACES
+ 
+    1319           0 TO 500
+     582         501 TO 1000
+     392        1001 TO 1500
+      75        1501 TO 2000
+      14        2001 TO 2500
+       0        2501 TO 3000
+       0        3001 TO 3500
+  -------
+    2382
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      14
+TOTAL =========>    2396   VALID SKIP(-4)    6588     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:           2365        Mean:              556.05
+ 
+Lead In: R97052.00[Default]
+Default Next Question: R97054.00
+--------------------------------------------------------------------------------
+R97054.00    [ASVAB_WK_ABILITY_EST_POS]                     Survey Year: XRND
+  PRIMARY VARIABLE
+
+             FINAL POSITIVE ABILITY ESTIMATE FOR WK CAT-ASVAB SUBTEST
+ 
+The Positive Final Ability Estimate for Word Knowledge CAT-ASVAB subtest.
+ 
+COMMENT: ASVAB Test
+ 
+NOTE: Please see appendix 10 in the codebook supplement for more information on 
+the ASVAB.
+NOTE:  3 IMPLIED DECIMAL PLACES
+ 
+    1258           0 TO 500
+     520         501 TO 1000
+     152        1001 TO 1500
+      52        1501 TO 2000
+       9        2001 TO 2500
+       1        2501 TO 3000
+       0        3001 TO 3500
+  -------
+    1992
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      17
+TOTAL =========>    2009   VALID SKIP(-4)    6975     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:           2547        Mean:              483.32
+ 
+Lead In: R97053.00[Default]
+Default Next Question: R97055.00
+--------------------------------------------------------------------------------
+R97055.00    [ASVAB_PC_ABILITY_EST_POS]                     Survey Year: XRND
+  PRIMARY VARIABLE
+
+             FINAL POSITIVE ABILITY ESTIMATE FOR PC CAT-ASVAB SUBTEST
+ 
+The Positive Final Ability Estimate for Paragraph Comprehension CAT-ASVAB 
+subtest.
+ 
+COMMENT: ASVAB Test
+ 
+NOTE: Please see appendix 10 in the codebook supplement for more information on 
+the ASVAB.
+NOTE:  3 IMPLIED DECIMAL PLACES
+ 
+    1212           0 TO 500
+    1047         501 TO 1000
+     411        1001 TO 1500
+      79        1501 TO 2000
+       0        2001 TO 2500
+       0        2501 TO 3000
+       0        3001 TO 3500
+  -------
+    2749
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      24
+TOTAL =========>    2773   VALID SKIP(-4)    6211     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:           1828        Mean:              610.48
+ 
+Lead In: R97054.00[Default]
+Default Next Question: R97056.00
+--------------------------------------------------------------------------------
+R97056.00    [ASVAB_NO_ABILITY_EST_POS]                     Survey Year: XRND
+  PRIMARY VARIABLE
+
+             FINAL POSITIVE ABILITY ESTIMATE FOR NO CAT-ASVAB SUBTEST
+ 
+The Positive Final Ability Estimate for Numerical Operations CAT-ASVAB subtest. 
+This test was administered in a non-adaptive format [all respondents answer the 
+same items in the same order] and the final ability estimate is a rate score.  
+For more information on how this was calculated, please see the NLSY97 User's 
+Guide.
+ 
+COMMENT: ASVAB Test
+ 
+NOTE: Please see appendix 10 in the codebook supplement for more information on 
+the ASVAB.
+NOTE:  3 IMPLIED DECIMAL PLACES
+ 
+     195           0 TO 5000
+     924        5001 TO 10000
+    1865       10001 TO 15000
+    2039       15001 TO 20000
+    1390       20001 TO 25000
+     463       25001 TO 30000
+      78       30001 TO 35000
+      10       35001 TO 40000
+       1       40001 TO 45000
+       0       45001 TO 50000
+  -------
+    6965
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     119
+TOTAL =========>    7084   VALID SKIP(-4)    1900     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:          43346        Mean:            16290.28
+ 
+Lead In: R97055.00[Default]
+Default Next Question: R97057.00
+--------------------------------------------------------------------------------
+R97057.00    [ASVAB_CS_ABILITY_EST_POS]                     Survey Year: XRND
+  PRIMARY VARIABLE
+
+             FINAL POSITIVE ABILITY ESTIMATE FOR CS CAT-ASVAB SUBTEST
+ 
+The Positive Final Ability Estimate for Coding Speed CAT-ASVAB subtest.  The 
+Positive Final Ability Estimate for Numerical Operations CAT-ASVAB subtest.  
+This test was administered in a non-adaptive format [all respondents answer the 
+same items in the same order] and the final ability estimate is a rate score.  
+For more information on how this was calculated, please see the NLSY97 User's 
+Guide.
+ 
+COMMENT: ASVAB Test
+ 
+NOTE: Please see appendix 10 in the codebook supplement for more information on 
+the ASVAB.
+NOTE:  3 IMPLIED DECIMAL PLACES
+ 
+    2677           0 TO 5000
+    3228        5001 TO 10000
+     835       10001 TO 15000
+      15       15001 TO 20000
+       0       20001 TO 25000
+       0       25001 TO 30000
+       0       30001 TO 35000
+       0       35001 TO 40000
+       0       40001 TO 45000
+       0       45001 TO 50000
+  -------
+    6755
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     117
+TOTAL =========>    6872   VALID SKIP(-4)    2112     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:          18530        Mean:              6267.1
+ 
+Lead In: R97056.00[Default]
+Default Next Question: R97058.00
+--------------------------------------------------------------------------------
+R97060.00    [ASVAB_MK_ABILITY_EST_POS]                     Survey Year: XRND
+  PRIMARY VARIABLE
+
+             FINAL POSITIVE ABILITY ESTIMATE FOR MK CAT-ASVAB SUBTEST
+ 
+The Positive Final Ability Estimate for Mathematics Knowledge CAT-ASVAB subtest.
+ 
+COMMENT: ASVAB Test
+ 
+NOTE: Please see appendix 10 in the codebook supplement for more information on 
+the ASVAB.
+NOTE:  3 IMPLIED DECIMAL PLACES
+ 
+    1301           0 TO 500
+     950         501 TO 1000
+     606        1001 TO 1500
+     279        1501 TO 2000
+      61        2001 TO 2500
+      12        2501 TO 3000
+       0        3001 TO 3500
+  -------
+    3209
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      34
+TOTAL =========>    3243   VALID SKIP(-4)    5741     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:           2678        Mean:              748.35
+ 
+Lead In: R97059.00[Default]
+Default Next Question: R97061.00
+--------------------------------------------------------------------------------
+R97061.00    [ASVAB_MC_ABILITY_EST_POS]                     Survey Year: XRND
+  PRIMARY VARIABLE
+
+             FINAL POSITIVE ABILITY ESTIMATE FOR MC CAT-ASVAB SUBTEST
+ 
+The Positive Final Ability Estimate for Mechanical Comprehension CAT-ASVAB 
+subtest.
+ 
+COMMENT: ASVAB Test
+ 
+NOTE: Please see appendix 10 in the codebook supplement for more information on 
+the ASVAB.
+NOTE:  3 IMPLIED DECIMAL PLACES
+ 
+    1149           0 TO 500
+     303         501 TO 1000
+      68        1001 TO 1500
+      27        1501 TO 2000
+       4        2001 TO 2500
+       1        2501 TO 3000
+       0        3001 TO 3500
+  -------
+    1552
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      60
+TOTAL =========>    1612   VALID SKIP(-4)    7372     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:           2745        Mean:              373.38
+ 
+Lead In: R97060.00[Default]
+Default Next Question: R97062.00
+--------------------------------------------------------------------------------
+R97064.00    [ASVAB_GS_ABILITY_EST_NEG]                     Survey Year: XRND
+  PRIMARY VARIABLE
+
+             FINAL NEGATIVE ABILITY ESTIMATE FOR GS CAT-ASVAB SUBTEST
+ 
+The Negative Final Ability Estimate for General Science CAT-ASVAB subtest.
+ 
+COMMENT: ASVAB Test
+ 
+NOTE: Please see appendix 10 in the codebook supplement for more information on 
+the ASVAB.
+NOTE:  3 IMPLIED DECIMAL PLACES
+ 
+    1475           0 TO 500
+    1445         501 TO 1000
+    1089        1001 TO 1500
+     631        1501 TO 2000
+     197        2001 TO 2500
+      10        2501 TO 3000
+       0        3001 TO 3500
+  -------
+    4847
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    4847   VALID SKIP(-4)    4137     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:           2679        Mean:              891.59
+ 
+Lead In: R97063.00[Default]
+Default Next Question: R97065.00
+--------------------------------------------------------------------------------
+R97065.00    [ASVAB_AR_ABILITY_EST_NEG]                     Survey Year: XRND
+  PRIMARY VARIABLE
+
+             FINAL NEGATIVE ABILITY ESTIMATE FOR AR CAT-ASVAB SUBTEST
+ 
+The Negative Final Ability Estimate for Arithmetic Reasoning CAT-ASVAB subtest.
+ 
+COMMENT: ASVAB Test
+ 
+NOTE: Please see appendix 10 in the codebook supplement for more information on 
+the ASVAB.
+NOTE:  3 IMPLIED DECIMAL PLACES
+ 
+    1655           0 TO 500
+    1271         501 TO 1000
+     717        1001 TO 1500
+     447        1501 TO 2000
+     374        2001 TO 2500
+     245        2501 TO 3000
+      22        3001 TO 3500
+  -------
+    4731
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      14
+TOTAL =========>    4745   VALID SKIP(-4)    4239     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:           3210        Mean:              968.73
+ 
+Lead In: R97064.00[Default]
+Default Next Question: R97066.00
+--------------------------------------------------------------------------------
+R97066.00    [ASVAB_WK_ABILITY_EST_NEG]                     Survey Year: XRND
+  PRIMARY VARIABLE
+
+             FINAL NEGATIVE ABILITY ESTIMATE FOR WK CAT-ASVAB SUBTEST
+ 
+The Negative Final Ability Estimate for Word Knowledge CAT-ASVAB subtest.
+ 
+COMMENT: ASVAB Test
+ 
+NOTE: Please see appendix 10 in the codebook supplement for more information on 
+the ASVAB.
+NOTE:  3 IMPLIED DECIMAL PLACES
+ 
+    1274           0 TO 500
+    1367         501 TO 1000
+    1209        1001 TO 1500
+     695        1501 TO 2000
+     324        2001 TO 2500
+     217        2501 TO 3000
+      32        3001 TO 3500
+  -------
+    5118
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      17
+TOTAL =========>    5135   VALID SKIP(-4)    3849     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:           3210        Mean:             1063.71
+ 
+Lead In: R97065.00[Default]
+Default Next Question: R97067.00
+--------------------------------------------------------------------------------
+R97067.00    [ASVAB_PC_ABILITY_EST_NEG]                     Survey Year: XRND
+  PRIMARY VARIABLE
+
+             FINAL NEGATIVE ABILITY ESTIMATE FOR PC CAT-ASVAB SUBTEST
+ 
+The Negative Final Ability Estimate for Paragraph Comprehension CAT-ASVAB 
+subtest.
+ 
+COMMENT: ASVAB Test
+ 
+NOTE: Please see appendix 10 in the codebook supplement for more information on 
+the ASVAB.
+NOTE:  3 IMPLIED DECIMAL PLACES
+ 
+    1314           0 TO 500
+    1149         501 TO 1000
+     890        1001 TO 1500
+     699        1501 TO 2000
+     302        2001 TO 2500
+       0        2501 TO 3000
+       0        3001 TO 3500
+  -------
+    4354
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      24
+TOTAL =========>    4378   VALID SKIP(-4)    4606     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:           2401        Mean:              949.44
+ 
+Lead In: R97066.00[Default]
+Default Next Question: R97068.00
+--------------------------------------------------------------------------------
+R97068.00    [ASVAB_NO_ABILITY_EST_NEG]                     Survey Year: XRND
+  PRIMARY VARIABLE
+
+             FINAL NEGATIVE ABILITY ESTIMATE FOR NO CAT-ASVAB SUBTEST
+ 
+The Negative Final Ability Estimate for Numerical Operations CAT-ASVAB subtest. 
+This test was administered in a non-adaptive format [all respondents answer the 
+same items in the same order] and the final ability estimate is a rate score.  
+For more information on how this was calculated, please see the NLSY97 User's 
+Guide.
+ 
+COMMENT: ASVAB Test
+ 
+NOTE: Please see appendix 10 in the codebook supplement for more information on 
+the ASVAB.
+NOTE:  3 IMPLIED DECIMAL PLACES
+ 
+      13           0 TO 1000
+      11        1001 TO 2000
+       6        2001 TO 3000
+       4        3001 TO 4000
+       3        4001 TO 5000
+       2        5001 TO 6000
+       2        6001 TO 7000
+       1        7001 TO 8000
+       0        8001 TO 9000
+       1        9001 TO 10000
+  -------
+      43
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     119
+TOTAL =========>     162   VALID SKIP(-4)    8822     NON-INTERVIEW(-5)       0
+ 
+Min:             54        Max:           9239        Mean:             2387.42
+ 
+Lead In: R97067.00[Default]
+Default Next Question: R97069.00
+--------------------------------------------------------------------------------
+R97069.00    [ASVAB_CS_ABILITY_EST_NEG]                     Survey Year: XRND
+  PRIMARY VARIABLE
+
+             FINAL NEGATIVE ABILITY ESTIMATE FOR CS CAT-ASVAB SUBTEST
+ 
+The Negative Final Ability Estimate for Coding Speed CAT-ASVAB subtest.  This 
+test was administered in a non-adaptive format [all respondents answer the same 
+items in the same order] and the final ability estimate is a rate score.  For 
+more information on how this was calculated, please see the NLSY97 User's Guide.
+ 
+COMMENT: ASVAB Test
+ 
+NOTE: Please see appendix 10 in the codebook supplement for more information on 
+the ASVAB.
+NOTE:  3 IMPLIED DECIMAL PLACES
+ 
+      85           0 TO 1000
+      59        1001 TO 2000
+      39        2001 TO 3000
+      19        3001 TO 4000
+      26        4001 TO 5000
+       7        5001 TO 6000
+       9        6001 TO 7000
+       2        7001 TO 8000
+       4        8001 TO 9000
+       5        9001 TO 10000
+  -------
+     255
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     117
+TOTAL =========>     372   VALID SKIP(-4)    8612     NON-INTERVIEW(-5)       0
+ 
+Min:             18        Max:           9999        Mean:             2367.57
+ 
+Lead In: R97068.00[Default]
+Default Next Question: R97070.00
+--------------------------------------------------------------------------------
+R97072.00    [ASVAB_MK_ABILITY_EST_NEG]                     Survey Year: XRND
+  PRIMARY VARIABLE
+
+             FINAL NEGATIVE ABILITY ESTIMATE FOR MK CAT-ASVAB SUBTEST
+ 
+The Negative Final Ability Estimate for Mathematics Knowledge CAT-ASVAB subtest.
+ 
+COMMENT: ASVAB Test
+ 
+NOTE: Please see appendix 10 in the codebook supplement for more information on 
+the ASVAB.
+NOTE:  3 IMPLIED DECIMAL PLACES
+ 
+    1219           0 TO 500
+    1098         501 TO 1000
+     790        1001 TO 1500
+     474        1501 TO 2000
+     271        2001 TO 2500
+      32        2501 TO 3000
+       0        3001 TO 3500
+  -------
+    3884
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      34
+TOTAL =========>    3918   VALID SKIP(-4)    5066     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:           2829        Mean:              927.02
+ 
+Lead In: R97071.00[Default]
+Default Next Question: R97073.00
+--------------------------------------------------------------------------------
+R97073.00    [ASVAB_MC_ABILITY_EST_NEG]                     Survey Year: XRND
+  PRIMARY VARIABLE
+
+             FINAL NEGATIVE ABILITY ESTIMATE FOR MC CAT-ASVAB SUBTEST
+ 
+The Negative Final Ability Estimate for Mechanical Comprehension CAT-ASVAB 
+subtest.
+ 
+COMMENT: ASVAB Test
+ 
+NOTE: Please see appendix 10 in the codebook supplement for more information on 
+the ASVAB.
+NOTE:  3 IMPLIED DECIMAL PLACES
+ 
+    1922           0 TO 500
+    1308         501 TO 1000
+    1101        1001 TO 1500
+     706        1501 TO 2000
+     437        2001 TO 2500
+      41        2501 TO 3000
+       0        3001 TO 3500
+  -------
+    5515
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      60
+TOTAL =========>    5575   VALID SKIP(-4)    3409     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:           2773        Mean:              922.66
+ 
+Lead In: R97072.00[Default]
+Default Next Question: R97074.00
