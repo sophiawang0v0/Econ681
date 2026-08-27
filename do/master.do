@@ -2,40 +2,35 @@ global topdir "/Users/wanghaiyu/Desktop/Econ681/"
 local datadir "$topdir/cleaned"
 local dodir "$topdir/do"
 
-import delimited using "`datadir'/nlsy79_cleaned_2.csv", clear
+import delimited using "`datadir'/nlsy79_cleaned.csv", clear
 
 encode race, gen(race_cat)
 encode occ, gen(occ_cat)
-replace experience = experience / 52
+encode sex, gen(sex_cat)
+gen lnwage = ln(wage)
 gen experience_2 = experience^2
 
+** winsorize 
+winsor2 wage, cuts(1 99) replace
+
 ** Summary Statistics
-local id caseid
-preserve
-keep if !missing(log_wage, hrly_wage, experience, occ, hgcrev, asvab, sex, race)
-keep if hrly_wage < 300 // manually checked hrly_wage between 100 - 1000, found that hrly wage bellow 300 is a reasonable one
-keep if hrly_wage >= 1 
-summarize log_wage hrly_wage experience occ_cat asvab
-bysort `id': keep if _n == 1
-summarize sex race_cat hgcrev age 
-summarize hrly_wage, detail
-restore
+egen group = cut(experience), group(100)
 
 ** Regression
 // Model 1
-reg log_wage hgcrev asvab c.hgcrev#c.experience c.asvab#c.experience experience experience_2 age i.sex i.race_cat i.year [pweight = sampweight], vce(cluster caseid)
+reg lnwage educ asvab c.educ#c.experience c.asvab#c.experience experience experience_2 age i.sex_cat i.race_cat i.year [pweight = sampleweight], vce(cluster caseid)
 
 // Model 2
-reg log_wage hgcrev ib1.occ_cat##(c.asvab c.experience) experience_2 ///
-	age i.sex i.race_cat i.year ///
-	[pweight = sampweight], vce(cluster caseid)
+reg lnwage educ ib1.occ_cat##(c.asvab c.experience) experience_2 ///
+	age i.sex_cat i.race_cat i.year ///
+	[pweight = sampleweight], vce(cluster caseid)
 
 // Model 3
-reg log_wage hgcrev asvab experience experience_2 ///
-    c.hgcrev#c.experience c.asvab#c.experience ib1.occ_cat ///
+reg lnwage educ asvab experience experience_2 ///
+    c.educ#c.experience c.asvab#c.experience ib1.occ_cat ///
     ib1.occ_cat#c.asvab ib1.occ_cat#c.experience ///
-    ib1.occ_cat#c.asvab#c.experience c.age i.sex i.race_cat i.year ///
-    [pweight=sampweight], vce(cluster caseid)
+    ib1.occ_cat#c.asvab#c.experience c.age i.sex_cat i.race_cat i.year ///
+    [pweight=sampleweight], vce(cluster caseid)
 	
 ** Testing employer learning heterogeneity
 testparm i.occ_cat#c.asvab#c.experience
