@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+\usepackage{booktabs}
+\usepackage[flushleft]{threeparttable}
+\usepackage{siunitx}
+
+\begin{document}
+\sisetup{
+    group-separator = {,},
+    group-minimum-digits = 4
+}
+\begin{table}[!htbp]
+\centering
+\caption{Summary Statistics: NLSY97 Main-Job Sample}
+\label{tab:summary_statistics}
+\small
+
+\begin{threeparttable}
+\begin{tabular*}{\textwidth}{
+    @{\extracolsep{\fill}}
+    l
+    S[table-format=2.2]
+    S[table-format=2.2]
+    S[table-format=2.2]
+    S[table-format=4.2]
+    S[table-format=7.0]
+}
+\toprule
+Variable
+    & {Mean}
+    & {Standard deviation}
+    & {Minimum}
+    & {Maximum}
+    & {Observations} \\
+\midrule
+
+\multicolumn{6}{l}{Panel A: Worker characteristics} \\
+Age (years)                  & {--} & {--} & {--} & {--} & {--} \\
+ASVAB score (standardized)   & {--} & {--} & {--} & {--} & {--} \\
+Education (years)            & {--} & {--} & {--} & {--} & {--} \\
+
+\addlinespace
+\multicolumn{6}{l}{Panel B: Job characteristics} \\
+Weekly hours                 & {--} & {--} & {--} & {--} & {--} \\
+Hourly wage (20XX dollars)   & {--} & {--} & {--} & {--} & {--} \\
+Job tenure (years)           & {--} & {--} & {--} & {--} & {--} \\
+
+\addlinespace
+\multicolumn{6}{l}{Panel C: Sample composition} \\
+Female                       & {--} & {--} & {0}  & {1}  & {--} \\
+Black                        & {--} & {--} & {0}  & {1}  & {--} \\
+Hispanic                     & {--} & {--} & {0}  & {1}  & {--} \\
+
+\midrule
+Unique respondents
+    & \multicolumn{5}{r}{--} \\
+Respondent-year observations
+    & \multicolumn{5}{r}{--} \\
+\bottomrule
+\end{tabular*}
+
+\begin{tablenotes}
+\footnotesize
+\item \textit{Notes:}
+The unit of observation is a respondent-year main-job record.
+Hourly wages are expressed in constant 20XX dollars.
+ASVAB scores are standardized to have mean zero and standard
+deviation one within the relevant cohort.
+Statistics are [weighted/unweighted]; weighted statistics use
+the NLSY sampling weight. Missing observations are excluded
+variable by variable.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\end{document}

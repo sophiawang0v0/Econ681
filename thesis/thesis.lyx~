@@ -1,0 +1,3696 @@
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\newcommand{\e}{\mathrm{E}}
+\newcommand{\var}{\mathrm{Var}}
+\newcommand{\cov}{\mathrm{Cov}}
+
+\usepackage{booktabs,threeparttable,textcomp}
+\usepackage{caption}
+\captionsetup[table]{
+    font=small,
+    labelfont=normalfont,
+    textfont=normalfont,
+    labelsep=newline,
+    justification=centering
+}
+\newcommand{\jpeneg}{\textminus}
+\newcommand{\jpecell}[3]{%
+    \shortstack[r]{#1\textsuperscript{#3}\\(#2)}%
+}
+\end_preamble
+\use_default_options true
+\begin_modules
+customHeadersFooters
+\end_modules
+\maintain_unincluded_children no
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "tgpagella" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "colorlinks=true, linkcolor=RoyalBlue, citecolor=ForestGreen, urlcolor=RoyalBlue"
+\papersize letter
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style econ
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification default
+\crossref_package refstyle
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation skip
+\defskip halfline
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\series bold
+Thesis
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Sophia Wang
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+today
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Literature Review
+\end_layout
+
+\begin_layout Standard
+Employer learning researches examine how firms update their assessments of workers as employment reveals information about productivity.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "spence_job_1973"
+literal "false"
+
+\end_inset
+
+ examines education as a way to signal ability when employers cannot observe true ability directly.
+ Besides,
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "farber_learning_1996"
+literal "false"
+
+\end_inset
+
+ pay attention to wage dynamics,
+ where measures of unobserved productivity should become more strongly associated with wages as experience accumulates.
+ Further,
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "altonji_employer_2001"
+literal "false"
+
+\end_inset
+
+ develop a related test using the NLSY79.
+ Using wage regressions containing schooling and productivity proxy,
+ they find that the association with the proxy strengthens while the schooling coefficient declines with experience.
+ Though these papers differ in regression specifications and predictions for schooling,
+ they share the same idea on information acquisition.
+ 
+\end_layout
+
+\begin_layout Standard
+[Question on how to write a literature review]
+\end_layout
+
+\begin_layout Section
+Theoretical Model Setup
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $i$
+\end_inset
+
+ index workers,
+ 
+\begin_inset Formula $t\in\mathcal{T}_{i}$
+\end_inset
+
+ be the observed year,
+ 
+\begin_inset Formula $k_{it}$
+\end_inset
+
+ be the employer number,
+ 
+\begin_inset Formula $j_{it}\in\{1,\ldots,J\}$
+\end_inset
+
+ be the occupation,
+ and 
+\begin_inset Formula $\tau<t$
+\end_inset
+
+ represents earlier performance observations.
+ Let 
+\begin_inset Formula $e_{it}$
+\end_inset
+
+ denote cumulative experience and 
+\begin_inset Formula $x_{it}$
+\end_inset
+
+ denote tenure with the current employer.
+ Subscripts 
+\begin_inset Formula $C$
+\end_inset
+
+ and 
+\begin_inset Formula $O$
+\end_inset
+
+ represent the incumbent and the outside employer.
+ 
+\end_layout
+
+\begin_layout Subsection
+Two period Model
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citet
+key "altonji_employer_2001"
+literal "false"
+
+\end_inset
+
+ specifies log productivity as a function of schooling 
+\begin_inset Formula $s_{i}$
+\end_inset
+
+,
+ employer observed information 
+\begin_inset Formula $q_{i},$
+\end_inset
+
+researcher observed ability estimation 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+,
+ and remaining unobserved productivity 
+\begin_inset Formula $\eta_{i}$
+\end_inset
+
+.
+ 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "zhang_employer_2009"
+literal "false"
+
+\end_inset
+
+ instead starts from productivity in levels,
+ 
+\begin_inset Formula $\chi_{if}=\eta_{i}+\delta_{if}$
+\end_inset
+
+,
+ where matching quality 
+\begin_inset Formula $\delta_{if}$
+\end_inset
+
+ is known before production.
+ 
+\end_layout
+
+\begin_layout Standard
+We formulate the equation as 
+\begin_inset Formula 
+\begin{equation}
+p^{k}_{ijt}=a_{j}+r_{j}s_{i}+\alpha_{1j}q_{i}+\Lambda_{j}z_{i}+\eta_{ij}+\delta^{k}_{i}+H_{j}(e_{it},x_{it})\,.\label{eq:initial}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here we assume 
+\begin_inset Formula $p$
+\end_inset
+
+ is the log productivity,
+ so the productivity level is 
+\begin_inset Formula $Y=\exp(p)$
+\end_inset
+
+.
+ Following Zhang's assumption,
+ the match component is know to the corresponding employer and is independently recalculated for new employers.
+ The function 
+\begin_inset Formula $H_{j}(e,x)$
+\end_inset
+
+ allows experience and tenure to affect productivity independently of employer learning.
+ 
+\end_layout
+
+\begin_layout Standard
+Following 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "altonji_employer_2001"
+literal "false"
+
+\end_inset
+
+,
+ assume 
+\begin_inset Formula 
+\begin{equation}
+z_{i}=\gamma_{1}q_{i}+\gamma_{2}s_{i}+\nu_{i}\,,\quad\eta_{ij}=\alpha_{2j}s_{i}+e_{ij}\,,\label{eq:zn}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\e[\nu_{i}\mid s_{i},q_{i}]=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\e[e_{ij}\mid s_{i},q_{i}]=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Substituting eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:zn"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ into eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:initial"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ gives 
+\begin_inset Formula 
+\begin{align*}
+p^{k}_{ijt}= & a_{j}+r_{j}s_{i}+\alpha_{1j}q_{i}+\Lambda_{j}\left(\gamma_{1}q_{i}+\gamma_{2}s_{i}+\nu_{i}\right)\\
+ & +\alpha_{2j}s_{i}+e_{ij}+\delta^{k}_{i}+H_{j}(e_{it},x_{it})\,.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Combining the predictable and initially unpredictable terms gives 
+\begin_inset Formula 
+\begin{equation}
+p^{k}_{ijt}=B_{ij}+u_{ij}+\delta^{k}_{i}+H_{j}(e_{it},x_{it})\,,\label{eq:simp_init}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula 
+\[
+B_{ij}=a_{j}+(r_{j}+\Lambda_{j}\gamma_{2}+\alpha_{2j})s_{i}+(\alpha_{1j}+\Lambda_{j}\gamma_{1})q_{i}\,,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and 
+\begin_inset Formula 
+\[
+u_{ij}=\Lambda_{j}\nu_{i}+e_{ij}\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $B_{ij}$
+\end_inset
+
+ is the employer's initial assessment of log productivity in occupation 
+\begin_inset Formula $j$
+\end_inset
+
+,
+ and 
+\begin_inset Formula $u_{ij}$
+\end_inset
+
+ is its initial prediction error.
+ Assume 
+\begin_inset Formula $u_{ij}\mid s_{i},q_{i}\sim\mathcal{N}\left(0,\sigma^{2}_{0j}\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "altonji_employer_2001"
+literal "false"
+
+\end_inset
+
+ construct a residual performance signal by subtracting employers’ initial productivity assessment from observed noisy performance.
+ 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "zhang_employer_2009"
+literal "false"
+
+\end_inset
+
+'s modification is that the performance signal is observed only by the incumbent.
+ 
+\end_layout
+
+\begin_layout Standard
+During job 
+\begin_inset Formula $k$
+\end_inset
+
+,
+ let the employer observe 
+\begin_inset Formula 
+\[
+\xi^{k}_{i\tau}=p^{k}_{ij\tau}+\varepsilon^{k}_{i\tau}\,,\quad\varepsilon^{k}_{i\tau}\sim\mathcal{N}\left(0,\sigma^{2}_{\nu j}\right)\,,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with independent noise across observations and independent of persistent productivity.
+ Using eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:simp_init"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+,
+ we can subtract the known components 
+\begin_inset Formula 
+\begin{align}
+d^{k}_{i\tau} & =\xi^{k}_{i\tau}-B_{ij}-\delta^{k}_{i}-H_{j}(e_{i\tau},x_{i\tau})\label{eq:ditau}\\
+ & =u_{ij}+\varepsilon^{k}_{i\tau}\,,\nonumber 
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and define the employer's own performance record as 
+\begin_inset Formula 
+\[
+D^{k}_{it}=\left\{ d^{k}_{i\tau}:\tau<t,\tau\text{ belongs to job }k\right\} \,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Deriving Zhang's learning weight
+\end_layout
+
+\begin_layout Standard
+Suppose the first employer has observed 
+\begin_inset Formula $n$
+\end_inset
+
+ signals before the first mobility decision.
+ From eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ditau"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+,
+ 
+\begin_inset Formula 
+\[
+\bar{d}^{1}_{it}=u_{ij}+\bar{\varepsilon}^{1}_{it}\,,\quad\var(\bar{\varepsilon}^{1}_{it})=\frac{\sigma^{2}_{\nu j}}{n}\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore,
+ 
+\begin_inset Formula $\cov(u_{ij},\bar{d}^{1}_{it})=\sigma^{2}_{0j}$
+\end_inset
+
+,
+ and 
+\begin_inset Formula $\var(\bar{d}^{1}_{it})=\sigma^{2}_{0j}+\frac{\sigma^{2}_{\nu j}}{n}$
+\end_inset
+
+.
+ As these variables are jointly normal,
+ the conditional mean is 
+\begin_inset Formula 
+\begin{align*}
+\e[u_{ij}\mid s_{i},q_{i},D^{1}_{it}] & =\frac{\cov(u_{ij},\bar{d}^{1}_{it})}{\var(\bar{d}^{1}_{it})}\,\bar{d}^{1}_{it}\\
+ & =\frac{\sigma^{2}_{0j}}{\sigma^{2}_{0j}+\sigma^{2}_{\nu j}/n}\,\bar{d}^{1}_{it}\,.
+\end{align*}
+
+\end_inset
+
+ Hence,
+ 
+\begin_inset Formula 
+\begin{equation}
+\hat{u}^{C,1}_{ijt}=\theta_{j}(n)\bar{d}^{1}_{it},\quad\theta_{j}(n)=\frac{n\sigma^{2}_{0j}}{\sigma^{2}_{\nu j}+n\sigma^{2}_{0j}}\,.\label{eq:residual}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The corresponding posterior variance is 
+\begin_inset Formula 
+\[
+V_{j}(n)=\left(\frac{1}{\sigma^{2}_{0j}}+\frac{n}{\sigma^{2}_{\nu j}}\right)^{-1}=\frac{\sigma^{2}_{0j}\cdot\sigma^{2}_{\nu j}}{\sigma^{2}_{\nu j}+n\sigma^{2}_{0j}}\,,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $n$
+\end_inset
+
+ represents the performance observations,
+ which equals tenure measured in each job periods.
+ Specifically,
+ for 
+\begin_inset Formula $n=1$
+\end_inset
+
+,
+ eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:residual"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ matches with 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "zhang_employer_2009"
+literal "false"
+
+\end_inset
+
+'s eq.
+\begin_inset space ~
+\end_inset
+
+(1).
+ 
+\end_layout
+
+\begin_layout Standard
+Taking expectations in eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:simp_init"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ and then using eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:residual"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+,
+ 
+\begin_inset Formula 
+\begin{equation}
+\e[p^{1}_{ijt}\mid\mathcal{I}^{C}_{it}]=B_{ij}+\delta^{1}_{i}+H_{j}(e_{it},x_{it})+\theta_{j}(n)\bar{d}^{1}_{it}\,.\label{eq:expp}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Substitute 
+\begin_inset Formula 
+\[
+\bar{d}^{1}_{it}=\Lambda_{j}(z_{i}-\gamma_{1}q_{i}-\gamma_{2}s_{i})+e_{ij}+\bar{\varepsilon}^{1}_{it}
+\]
+
+\end_inset
+
+ into eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:expp"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+,
+ we get 
+\begin_inset Formula 
+\begin{align*}
+\e[p^{1}_{ijt}\mid\mathcal{I}^{C}_{it}]= & a_{j}+\left[r_{j}+\alpha_{2j}+(1-\theta_{j}(n))\Lambda_{j}\gamma_{2}\right]s_{i}\\
+ & +\left[\alpha_{1j}+(1-\theta_{j}(n))\Lambda_{j}\gamma_{1}\right]q_{i}\\
+ & +\theta_{j}(n)\Lambda_{j}z_{i}+\theta_{j}(n)e_{ij}+\theta_{j}(n)\bar{\varepsilon}^{1}_{it}+\delta^{1}_{i}+H_{j}(e_{it},x_{it})\,.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $F\in\{C,O\}$
+\end_inset
+
+,
+ define 
+\begin_inset Formula 
+\begin{equation}
+P^{F}_{it}=\e[Y^{F}_{it}\mid\mathcal{I}^{F}_{it}]=\exp[R_{ij^{F}}+\delta^{F}_{i}+H_{j^{F}}(e_{it},x^{F}_{it})]\e[\exp(u_{ij^{F}})\mid\mathcal{I}^{F}_{it}]\,,\label{eq:P}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $j^{C}$
+\end_inset
+
+ is the incumbent occupation,
+ 
+\begin_inset Formula $j^{O}$
+\end_inset
+
+ the offered occupation,
+ and 
+\begin_inset Formula $x^{O}_{it}=0$
+\end_inset
+
+ for a new match.
+ For the first incumbent's normal posterior,
+ eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:residual"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ and eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:P"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ imply x
+\begin_inset Formula 
+\[
+P^{O}_{it_{1}}=\exp\left[B_{ij^{O}}+\delta^{O}_{i}+H_{j^{O}}(e_{it_{1}},0)+\frac{1}{2}\sigma^{2}_{0j^{O}}\right]\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Endogenous mobility and the informational content of employment history
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "zhang_employer_2009"
+literal "false"
+
+\end_inset
+
+ assumes that the outsider offers first,
+ then the incumbent counteroffers,
+ and finally the worker compares wages plus non-pecuniary job preferences.
+ Let 
+\begin_inset Formula 
+\[
+\theta^{C}_{it},\theta^{O}_{it}\overset{iid}{\sim}\mathcal{N}(0,\sigma^{2}_{\theta})\,,\quad s_{\theta}=\sqrt{2}\sigma_{\theta}\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The worker moves when 
+\begin_inset Formula 
+\[
+W^{O}_{it}+\theta^{O}_{it}\geq W^{C}_{it}+\theta^{C}_{it}\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since the taste difference is 
+\begin_inset Formula $\mathcal{N}(0,2\sigma^{2}_{\theta})$
+\end_inset
+
+,
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathrm{Pr}(M_{it}=1\mid W^{C}_{it},W^{O}_{it})=\Phi(A_{it})\,,\quad A_{it}=\frac{W^{O}_{it}-W^{C}_{it}}{s_{\theta}}\,.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From 
+\begin_inset Formula $\chi_{c}=\eta+\delta_{c}$
+\end_inset
+
+ where 
+\begin_inset Formula $n\sim\mathcal{N}(\mu_{n},\sigma^{2}_{\eta})$
+\end_inset
+
+,
+ and 
+\begin_inset Formula $y_{c1}=\chi_{c}+\varepsilon_{c1}$
+\end_inset
+
+ where 
+\begin_inset Formula $\varepsilon_{c1}\sim\mathcal{N}(0,\sigma^{2}_{\varepsilon})$
+\end_inset
+
+,
+ define 
+\begin_inset Formula 
+\begin{align*}
+P^{C} & \equiv\e[\chi_{c}\mid y_{c1},\delta_{c}]=\mu_{n}+\delta_{c}+\frac{\sigma^{2}_{\eta}}{\sigma^{2}_{\eta}+\sigma^{2}_{\varepsilon}}[y_{c1}-(\mu_{\eta}+\delta_{c})]\\
+ & =\left(1-\frac{\sigma^{2}_{\eta}}{\sigma^{2}_{\eta}+\sigma^{2}_{\varepsilon}}\right)(\mu_{\eta}+\delta_{c})+\frac{\sigma^{2}_{\eta}}{\sigma^{2}_{\eta}+\sigma^{2}_{\varepsilon}}\,y_{c1}\\
+ & =\frac{\sigma^{2}_{\varepsilon}}{\sigma^{2}_{\eta}+\sigma^{2}_{\varepsilon}}\,(\mu_{\eta}+\delta_{c})+\frac{\sigma^{2}_{\eta}}{\sigma^{2}_{\eta}+\sigma^{2}_{\varepsilon}}\,y_{c1}\,.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As the outside employer does not observe 
+\begin_inset Formula $y_{c1}$
+\end_inset
+
+,
+ in the two period specification,
+ its assessment will rely on the population mean of ability and its own known match quality.
+ Therefore,
+ we can write 
+\begin_inset Formula 
+\[
+P^{O}\equiv\e[\eta+\delta_{o}\mid\delta_{o}]=\mu_{\eta}+\delta_{o}\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then following 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "zhang_employer_2009"
+literal "false"
+
+\end_inset
+
+'s eq.
+\begin_inset space ~
+\end_inset
+
+(2) and (3),
+ we can construct optimization problem in the format of 
+\begin_inset Formula 
+\[
+\max_{W^{C}}\left(P^{C}-W^{C}\right)(1-\Phi(A))\quad\text{and}\quad\max_{W^{O}}(P^{O}-W^{O})\Phi(A)\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Taking first order derivative to 
+\begin_inset Formula $W^{C}$
+\end_inset
+
+ and 
+\begin_inset Formula $W^{O}$
+\end_inset
+
+,
+ respectively,
+ gives 
+\begin_inset Formula 
+\[
+\begin{cases}
+W^{C}= & P^{C}-s_{\theta}\frac{(1-\Phi(A))}{\phi(A)}\,,\\
+W^{O}= & P^{O}-s_{\theta}\frac{\Phi(A)}{\phi(A)}\,.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As 
+\begin_inset Formula $\left((1-\Phi(A))/\phi(A)\right)'<0$
+\end_inset
+
+,
+ holding the outside offer fixed,
+ differentiate 
+\begin_inset Formula $W^{C}$
+\end_inset
+
+ equation above gives 
+\begin_inset Formula 
+\begin{equation}
+dW^{C}=dP^{C}-s_{\theta}\left(\frac{1-\Phi(A)}{\phi(A)}\right)'dA\,.\label{eq:dW^C}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Holding the outside offer 
+\begin_inset Formula $W^{O}$
+\end_inset
+
+ and 
+\begin_inset Formula $s_{\theta}$
+\end_inset
+
+ fixed,
+ 
+\begin_inset Formula 
+\[
+dA=-\frac{dW^{C}}{s_{\theta}}\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Substituting this into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:dW^C"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ gives 
+\begin_inset Formula 
+\[
+dW^{C}=dP^{C}-s_{\theta}\left(\frac{1-\Phi(A)}{\phi(A)}\right)'\left(-\frac{dW^{C}}{s_{\theta}}\right)=dP^{C}+\left(\frac{1-\Phi(A)}{\phi(A)}\right)'dW^{C}\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using the fact that 
+\begin_inset Formula $\Phi'(A)=\phi(A)$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi(A)=1/\sqrt{2\pi}\cdot e^{-A^{2}/2}\Rightarrow\phi'(A)=-A\phi(A)$
+\end_inset
+
+,
+ 
+\begin_inset Formula 
+\begin{equation}
+\left.\frac{\partial W^{C}}{\partial P^{C}}\right|_{W^{O},s_{\theta}}=\frac{1}{1-\left(\frac{1-\Phi(A)}{\phi(A)}\right)'}=\frac{1}{2-A\left(\frac{1-\Phi(A)}{\phi(A)}\right)}\,.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As 
+\begin_inset Formula 
+\[
+\left(\frac{1-\Phi(A)}{\phi(A)}\right)'=-1+A\left(\frac{1-\Phi(A)}{\phi(A)}\right)<0\,,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We have 
+\begin_inset Formula 
+\[
+0<\frac{\partial W^{C}}{\partial P^{C}}<1\,,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which indicates that holding outside offer and taste dispersion fixed,
+ an increase in the incumbent's assessment of worker productivity raises its wage offer by less than the productivity increase.
+ The positive response reflects the employer's stronger incentive to 
+\end_layout
+
+\begin_layout Standard
+an increase in the incumbent's expected productivity raises its wage offer,
+ but retain a worker it now considers more productive.
+ However,
+ the worker receives only part of the additional expected productivity through higher wages;
+ the remainder increases the employer’s marginal profit conditional on retention.
+ Thus,
+ favorable information acquired through employer learning raises wages,
+ but its effect is only partially transmitted to the worker.
+ The implications for wage growth with tenure or experience depend on how these variables affect productivity assessments and outside offers.
+\end_layout
+
+\begin_layout Section
+Data,
+ Sample Construction,
+ and Measurement
+\end_layout
+
+\begin_layout Subsection
+Datasets
+\end_layout
+
+\begin_layout Standard
+{Follow Altonji's data structure,
+ e.g.
+ add description of dataset scope}
+\end_layout
+
+\begin_layout Standard
+The empirical analysis uses the National Longitudinal Survey of Youth 1979 (NLSY79) and the National Longitudinal Survey of Youth 1997 (NLSY97).
+ Both surveys provide longitudinal information on wages,
+ employment histories,
+ occupations,
+ education,
+ demographics,
+ and Armed Services Vocational Aptitude Battery (ASVAB) test scores,
+ allowing respondents to be followed across employers and over labor-market experience.
+ Due to difference in the employment history structure,
+ the two datasets are cleaned separately.
+ In both datasets,
+ negative survey codes are treated as missing values.
+ Hourly wages have been converted from cents to dollars and adjusted to 2023 real dollars using the CPI.
+\end_layout
+
+\begin_layout Standard
+For the NLSY79 dataset,
+ employment durations,
+ which are measured in years,
+ are ordered chronologically within each job period of the worker and are accumulated to construct actual labor market experience,
+ with having the reported within job gaps subtracted from employment durations.
+ {Conclusion comes first,
+ then explanations}
+\emph on
+ 
+\emph default
+For each of the worker's job,
+ education is fixed at the value observed at the commencement of this job.
+ Therefore.
+ schooling does not change with subsequent labor market tenure and experience increase.
+ For the NLSY97 dataset,
+ employers are identified using employer Unique ID (UID).
+ The main employer {Ask Smith if this is standard in literature} is first identified in each survey year.
+ When it changes between adjacent surveys,
+ the employment roster is used to distinguish the previous and new employers {Explain in footnote}.
+ Employer spells are then numbered sequentially within one worker according to the sequence of employer UID.
+ The main analysis will focus on workers' first three jobs,
+ while workers are not required to be observed in all three jobs.
+ 
+\end_layout
+
+\begin_layout Subsection
+Dependent and Independent Variables 
+\end_layout
+
+\begin_layout Standard
+[Adding citations of reasons for using asvab not afqt]
+\end_layout
+
+\begin_layout Standard
+The dependent variable is the log real hourly wage,
+ denote by 
+\begin_inset Formula $\ln w_{it}$
+\end_inset
+
+,
+ where 
+\begin_inset Formula $w_{it}$
+\end_inset
+
+ is the CPI adjusted hourly wage of worker 
+\begin_inset Formula $i$
+\end_inset
+
+ in year 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The main independent variables are schooling,
+ ability,
+ labor-market experience,
+ employer tenure,
+ occupation,
+ and prior mobility.
+ Schooling is measured using education observed at the beginning of the first employer spell and is then held fixed over the worker's subsequent employment history.
+ 
+\end_layout
+
+\begin_layout Standard
+Worker ability is constructed from ASVAB subtest scores.
+ In the NLSY79,
+ individual ASVAB components are standardized within birth-year-by-quarter groups,
+ after which principal-components analysis is applied.
+ The first principal component is used as the ability measure and explains approximately 
+\begin_inset Formula $68.6\%$
+\end_inset
+
+ of the variation in the standardized scores.The NLSY97 ASVAB variables are first reconstructed by combining the positive and negative ability estimates for eight subtests:
+ General Science,
+ Arithmetic Reasoning,
+ Word Knowledge,
+ Paragraph Comprehension,
+ Numerical Operations,
+ Coding Speed,
+ Mathematics Knowledge,
+ and Mechanical Comprehension.
+ The subtests are then standardized using the same birth-year-by-quarter procedure and summarized using the first principal component,
+ which explains approximately 
+\begin_inset Formula $67.2\%$
+\end_inset
+
+ of their standardized variation.
+\end_layout
+
+\begin_layout Standard
+For both cohorts,
+ actual experience is calculated from cumulative weeks worked after subtracting within-job gaps.
+ Employer tenure measures duration with the current employer.
+ For both cohorts,
+ employer spells are ordered chronologically,
+ and prior mobility can be summarized by the number of previous employer changes.
+\end_layout
+
+\begin_layout Standard
+Following grouping method used by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "gibbons_comparative_2005"
+literal "false"
+
+\end_inset
+
+,
+ we mapped the occupation codes into seven major groups:
+ Professional,
+ Managers,
+ Sales,
+ Clerical,
+ Craftsmen,
+ Operatives and Laborers,
+ and Service,
+ under the 1970 census occupation grouping method.
+ For observations reported using the 2000/2002 Census occupation classification,
+ we examine the occupational definitions of each code and assign them to the 1970 group that most closely corresponds to its occupational content.
+\end_layout
+
+\begin_layout Subsection
+Summary Statistics
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+begin{table}[h]
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+caption{Summary Statistics}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+label{tab:summary}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{threeparttable}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tabular}{lccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+toprule
+\end_layout
+
+\begin_layout Plain Layout
+Variable & Observations & Mean & SD & Minimum & Maxmium 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+midrule
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+multicolumn{6}{l}{Panel A:
+ Observation-level characteristics} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Experience          & 71,367 &  5.700 &  7.452 &  0     & 65.577 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Hours               & 71,367 & 35.051 & 12.733 &  0     & 168    
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Occupation category & 71,367 &  3.980 &  2.218 &  1     & 7      
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Tenure              & 71,367 &  3.884 &  6.133 &  0     & 45.192 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Wage                & 71,367 & 18.082 & 12.257 &  2.551 & 108.119 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Cohort indicator    & 71,367 &  0.160 &  0.367 &  0     & 1      
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Age                 & 71,367 & 25.232 &  7.893 & 15     & 65     
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+midrule
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+multicolumn{6}{l}{Panel B:
+ Individual characteristics} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ASVAB score         & 13,961 &  0.017 &  2.331 & -7.300 & 7.324  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Education           & 13,961 & 11.267 &  1.819 &  0     & 20     
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Sex category        & 13,961 &  1.496 &  0.500 &  1     & 2      
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Race category       & 13,961 &  4.867 &  2.187 &  1     & 7      
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+bottomrule
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tablenotes}[flushleft]
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item Note.
+ Panel A reports statistics across observations.
+ Panel B reports
+\end_layout
+
+\begin_layout Plain Layout
+one record per person,
+ using the first nonmissing value of each listed
+\end_layout
+
+\begin_layout Plain Layout
+characteristic.
+ Occupation,
+ sex,
+ and race are numeric category codes.
+ Statistics are rounded to three decimal places.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tablenotes}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{threeparttable}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{table}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Empirical Specifications
+\end_layout
+
+\begin_layout Subsection
+OLS Model
+\end_layout
+
+\begin_layout Standard
+{Tell conclusion at the beginning of this section.
+ e.g.
+ in this section we will show that...
+ to show this,
+ we begin by ...
+ }
+\end_layout
+
+\begin_layout Standard
+{First we use this model...
+ later we introduce a more complete one..}
+\end_layout
+
+\begin_layout Standard
+We begin by examining how the relationship among wage,
+ schooling,
+ and ASVAB evolves over workers’ first three job spells.
+ In this section,
+ we will show that wage becomes more closely associated with ability as employers learn information about productivity.
+ {and whether this relationship varies with employment history.} {Change sentence to recall}We distinguish cumulative labor market experience from tenure with the current employer and estimate the specification separately from the NLSY79 and NLSY97 cohorts.
+\end_layout
+
+\begin_layout Standard
+{Mention these three articles's conclusions} The specification comes from three articles.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "altonji_employer_2001"
+literal "false"
+
+\end_inset
+
+ motivate examining whether wages become more closely associated with initially unobserved ability as employers learn,
+ while reliance on schooling as a productivity signal declines.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "gibbons_comparative_2005"
+literal "false"
+
+\end_inset
+
+ emphasize allowing wage coefficients to vary across occupations,
+ reflecting differences in the valuation of worker skills.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "zhang_employer_2009"
+literal "false"
+
+\end_inset
+
+ distinguishes cumulative experience from employer tenure,
+ where incumbent employers observe performance within the employment,
+ whereas outside employers can infer productivity from employment histories.
+ The resulting equation is a empirical specifications constructed by these mechanisms.
+\end_layout
+
+\begin_layout Standard
+We first estimate a baseline equation separately for each cohort,
+ without allowing wage relationships to vary across occupations.
+ We will discuss occupation variation later in this section.
+ Following the employer learning motivation of 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "altonji_employer_2001"
+literal "false"
+
+\end_inset
+
+,
+ we allow the associations of schooling and measured ability with wages to change with experience.
+ We extend this specification by including interactions with employer tenure:
+\begin_inset Formula 
+\begin{align}
+\log w_{itc}= & \alpha_{kc}+\beta_{Sc}S_{ikc}+\beta_{Zc}Z_{ic}+\gamma_{Sc}\left(S_{ikc}E_{itc}\right)+\gamma_{Zc}\left(Z_{ic}E_{itc}\right)\nonumber \\
+ & +\theta_{Sc}\left(S_{ikc}T_{itc}\right)+\theta_{Zc}\left(Z_{ic}T_{itc}\right)+f_{c}\left(E_{itc}\right)+g_{c}\left(T_{itc}\right)\nonumber \\
+ & +\lambda_{tc}+X_{itc}\eta_{c}+\varepsilon_{itc}\,.
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $i$
+\end_inset
+
+ be the worker index,
+ 
+\begin_inset Formula $t$
+\end_inset
+
+ represent calendar years,
+ and 
+\begin_inset Formula $c\in\{79,97\}$
+\end_inset
+
+ indicate survey cohorts.
+ Let 
+\begin_inset Formula $k=k_{it}\in\{1,2,3\}$
+\end_inset
+
+ represent worker's current job spell,
+ 
+\begin_inset Formula $j=j_{it}\in\{1,\ldots,J\}$
+\end_inset
+
+ represent the current occupation,
+ and 
+\begin_inset Formula $D_{ijtc}$
+\end_inset
+
+ indicate the employment in occupation 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Here,
+ 
+\begin_inset Formula $w_{itc}$
+\end_inset
+
+ is the real hourly wage,
+ 
+\begin_inset Formula $S_{ikc}$
+\end_inset
+
+ is schooling measured at the beginning of spell 
+\begin_inset Formula $k$
+\end_inset
+
+ and held fixed within that job spell,
+ and 
+\begin_inset Formula $Z_{ic}$
+\end_inset
+
+ is the standardized ASVAB based ability measure,
+ which is observed by the researcher but assumed not to be directly observed by employers.
+ Actual experience,
+ 
+\begin_inset Formula $E_{itc}$
+\end_inset
+
+,
+ accumulates across jobs,
+ and tenure,
+ 
+\begin_inset Formula $T_{itc}$
+\end_inset
+
+,
+ measures employment with the current employer,
+ where both of these two variables are measured in years.
+ Occupation indicators refer to the occupation reported at survey time each year.
+\end_layout
+
+\begin_layout Standard
+The functions 
+\begin_inset Formula $f_{c}$
+\end_inset
+
+ and 
+\begin_inset Formula $g_{c}$
+\end_inset
+
+ are cubic polynomials in the form of 
+\begin_inset Formula $x+x^{2}+x^{3}$
+\end_inset
+
+.
+ The function 
+\begin_inset Formula $h_{jc}$
+\end_inset
+
+ contains occupation specific deviations in the same experience and tenure polynomial terms.
+ Therefore,
+ occupational differences in ordinary wage growth are accommodated alongside differences in the schooling and ability gradients.
+ The specification includes job spell effects 
+\begin_inset Formula $\alpha_{kc}$
+\end_inset
+
+,
+ calendar year effects 
+\begin_inset Formula $\lambda_{tc}$
+\end_inset
+
+,
+ additional demographical controls 
+\begin_inset Formula $X_{itc}$
+\end_inset
+
+,
+ and standard errors 
+\begin_inset Formula $\varepsilon_{itc}$
+\end_inset
+
+ which clustered by worker.
+ 
+\end_layout
+
+\begin_layout Standard
+The implied schooling and ability wage gradients are 
+\begin_inset Formula 
+\begin{align*}
+b_{Sc}(E,T) & =\beta_{Sc}+\gamma_{Sc}E+\theta_{Sc}T\,,\\
+b_{Zc}(E,T) & =\beta_{Zc}+\gamma_{Zc}E+\theta_{Zc}T\,.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Under the informational assumptions of the employer learning model,
+ an increasing ability gradient and a decreasing schooling gradient are consistent with employers placing greater weight on observed productivity and less weight on schooling as a signal.
+ At fixed tenure,
+ these patterns correspond to 
+\begin_inset Formula $\gamma_{Zc}>0$
+\end_inset
+
+ and 
+\begin_inset Formula $\gamma_{Sc}<0$
+\end_inset
+
+.
+ During the continuous employment with the same employer,
+ experience and tenure both increase.
+ The corresponding changes in the gradients are therefore 
+\begin_inset Formula $\gamma_{Zc}+\theta_{Zc}$
+\end_inset
+
+ and 
+\begin_inset Formula $\gamma_{Sc}+\theta_{Sc}$
+\end_inset
+
+.
+ These estimates provide descriptive evidence on employer learning,
+ as skill accumulation and worker sorting can also change wage gradients.
+ 
+\end_layout
+
+\begin_layout Standard
+Including occupational categories,
+ we then formulate a more complete regression model
+\begin_inset Formula 
+\begin{align}
+\log w_{itc}= & \alpha_{kc}+\beta_{Sc}S_{ikc}+\beta_{Zc}Z_{ic}+\gamma_{Sc}S_{ikc}E_{itc}+\gamma_{Zc}Z_{ic}E_{itc}\nonumber \\
+ & +\theta_{Sc}S_{ikc}T_{itc}+\theta_{Zc}Z_{ic}T_{itc}+f_{c}\left(E_{itc}\right)+g_{c}\left(T_{itc}\right)\nonumber \\
+ & +\sum^{J}_{j=2}D_{ijtc}\big[\delta_{jc}+\rho_{Sjc}S_{ikc}+\rho_{Zjc}Z_{ic}+h_{jc}\left(E_{itc},T_{itc}\right)+\phi_{Sjc}\left(S_{ikc}E_{itc}\right)\nonumber \\
+ & +\phi_{Zjc}\left(Z_{ic}E_{itc}\right)+\psi_{Sjc}\left(S_{ikc}T_{itc}\right)+\psi_{Zjc}\left(Z_{ic}T_{itc}\right)\big]+\lambda_{tc}+X_{itc}\delta_{c}+\varepsilon_{itc}\,.
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+{Change this sentence to explain occ 1} Occupation 
+\begin_inset Formula $1$
+\end_inset
+
+ is the reference category.
+ For 
+\begin_inset Formula $q\in\{S,Z\}$
+\end_inset
+
+,
+ the conditional wage coefficient in non-reference occupations (
+\begin_inset Formula $j\neq1$
+\end_inset
+
+) is 
+\begin_inset Formula 
+\begin{equation}
+b_{qjc}(E,T)=\beta_{qc}+\rho_{qjc}+\left(\gamma_{qc}+\phi_{qjc}\right)E+\left(\theta_{qc}+\psi_{qjc}\right)T
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+{add explain of occupation deviation} with the occupational deviations set to zero for 
+\begin_inset Formula $j=1$
+\end_inset
+
+.
+ Consequently,
+ 
+\begin_inset Formula $\phi_{qjc}$
+\end_inset
+
+ and 
+\begin_inset Formula $\psi_{qjc}$
+\end_inset
+
+ measure occupational differences in how the schooling 
+\begin_inset Formula $\beta_{Sc}$
+\end_inset
+
+ or ability 
+\begin_inset Formula $\beta_{Zc}$
+\end_inset
+
+ coefficient varies with experience and tenure,
+ respectively.
+ 
+\end_layout
+
+\begin_layout Standard
+During the continued employment within a given occupation,
+ both of experience and tenure increase.
+ Therefore,
+ we define the changes in the wage ability gradient as 
+\begin_inset Formula 
+\begin{align}
+L_{Zjc} & \equiv\gamma_{Zc}+\phi_{Zjc}+\theta_{Zc}+\psi_{Zjc}\,,\\
+L_{Sjc} & \equiv\gamma_{Sc}+\phi_{Sjc}+\theta_{Sc}+\psi_{Sjc}\,.
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Employer learning predicts 
+\begin_inset Formula $L_{Zjc}>0$
+\end_inset
+
+{footnote explain why Lzjc>0}.
+ If schooling initially serves as a productivity signal,
+ the analogous schooling gradient is expected to decline,
+ therefore 
+\begin_inset Formula $L_{Sjc}<0$
+\end_inset
+
+ {footnote explain again}.
+ Comparisons of these quantities across occupations and cohorts supports the principal empirical questions' opinion:
+ {mention empirical question again}.
+ When experience and tenure coincide in the first spell,
+ separating their contributions requires variation from subsequent spells.
+\end_layout
+
+\begin_layout Standard
+{explicitly state result change in this paragarph}The baseline OLS estimates allow us to compare how the wage associations of schooling and ability change with experience and tenure across occupations and cohorts.
+ Results consistent with the predicted signs provide suggestive evidence of employer learning.
+ However,
+ these patterns may also reflect differences in skill development,
+ the rewards to skills,
+ and workers' selection into jobs.
+ The estimates therefore cannot establish whether occupational or cohort differences arise from employer learning alone.
+\end_layout
+
+\begin_layout Subsection
+Instrument Selection
+\end_layout
+
+\begin_layout Standard
+[Need thinking]
+\end_layout
+
+\begin_layout Standard
+Actual labor market experience may be endogenous because employment continuity depends on worker productivity,
+ labor supply decisions,
+ or employer assessments.
+ Occupational assignment and job duration may similarly respond to information about productivity.
+ Therefore,
+ instrument variables are helpful to distinguish endogeneity of regressors.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citet
+key "altonji_employer_2001"
+literal "false"
+
+\end_inset
+
+ instrument actual experience terms with corresponding functions of potential experience,
+ due to the fact that realized employment may itself convey information about worker's productivity.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "zhang_employer_2009"
+literal "false"
+
+\end_inset
+
+follows this approach in his baseline and subsequently distinguishes experience from tenure when examining employer learning.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "gibbons_comparative_2005"
+literal "false"
+
+\end_inset
+
+ address endogenous occupational sorting using instruments constructed from sector histories.
+ 
+\end_layout
+
+\begin_layout Standard
+Since actual experiences are included in the model through polynomial terms and interactions with schooling,
+ ability,
+ and occupation.
+ Each of these terms is treated as a separate endogenous regressor.
+ Identifying their coefficients therefore requires at least as many linearly independent excluded instruments as endogenous regressors,
+ together with a full-rank relationship between the instruments and these regressors conditional on the included exogenous variables.
+ 
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $P_{itc}$
+\end_inset
+
+ denote potential experience,
+ measured as elapsed years since the worker's initial job market entry.
+ This measure accumulates across the first three job spells and includes periods without employment.
+ We adapt the potential experience approach by replacing each actual experience term with its corresponding function of 
+\begin_inset Formula $P_{itc}$
+\end_inset
+
+.
+ For the common experience terms,
+ the excluded instrument vector is 
+\begin_inset Formula 
+\[
+\left(P_{itc},P^{2}_{itc},P^{3}_{itc},S_{ikc}P_{itc},Z_{ic}P_{itc}\right)\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To accommodate occupational differences,
+ we additionally interact these instruments with the non-reference occupational indicators,
+ where the vector of instruments is 
+\begin_inset Formula 
+\[
+\left(Q^{0}_{itc},D_{i2tc}Q^{0}_{itc},\ldots D_{iJtc}Q^{0}_{itc}\right)\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This construction matched the polynomial order and occupational interactions in the baseline equation.
+ Therefore we have 
+\begin_inset Formula $5\cdot J$
+\end_inset
+
+ excluded instruments for the 
+\begin_inset Formula $5\cdot J$
+\end_inset
+
+ experience related regressors in the baseline equation.
+ Restricting the instruments to the corresponding polynomial terms and occupational interactions limits their number and the potential for first-stage overfitting.
+ 
+\end_layout
+
+\begin_layout Section
+Results
+\end_layout
+
+\begin_layout Subsection
+Baseline Model Analysis
+\end_layout
+
+\begin_layout Standard
+In this subsection,
+ we will examine how wage associates with schooling and measured ability evolve with experience and employer tenure in the NLSY79 and NLSY97 cohorts.
+ Table 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+ref{tab:baseline}
+\end_layout
+
+\end_inset
+
+ presents the baseline estimates with common coefficients across occupations,
+ while Table 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+ref{tab:ols_learning}
+\end_layout
+
+\end_inset
+
+ allows the coefficients to vary across occupational groups.
+ In the analysis,
+ we will compare coefficient magnitudes and statistical significance across cohorts,
+ distinguish the schooling and ability gradients at zero experience and tenure from their subsequent changes.
+ Linear combination tests assess whether these gradients change during continued employment with the same employer,
+ while joint Wald tests assess whether the corresponding coefficients differ across occupations.
+ We then compare the findings with the employer learning evidence of 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "altonji_employer_2001"
+literal "false"
+
+\end_inset
+
+ and the analysis of skill valuation and occupational sorting in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "gibbons_comparative_2005"
+literal "false"
+
+\end_inset
+
+,
+ evaluating which patterns are consistent with employer learning and which will require further explanations.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{table}[p]
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+caption{Education,
+ Ability,
+ and Wage Dynamics:
+ Baseline Estimates}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+label{tab:baseline}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{threeparttable}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+setlength{
+\backslash
+tabcolsep}{3pt}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tabular*}{
+\backslash
+textwidth}{@{
+\backslash
+extracolsep{
+\backslash
+fill}}lrr@{}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+toprule
+\end_layout
+
+\begin_layout Plain Layout
+ & NLSY79 & NLSY97 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & (1) & (2) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+midrule
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+multicolumn{3}{l}{A.
+ Regression coefficients} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Education
+\end_layout
+
+\begin_layout Plain Layout
+ & 
+\backslash
+(7.404^{***}
+\backslash
+) & 
+\backslash
+(3.508^{***}
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & (0.365) & (0.960) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+ASVAB
+\end_layout
+
+\begin_layout Plain Layout
+ & 
+\backslash
+(-0.934^{***}
+\backslash
+) & 
+\backslash
+(0.344
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & (0.276) & (0.714) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Experience
+\end_layout
+
+\begin_layout Plain Layout
+ & 
+\backslash
+(6.752^{***}
+\backslash
+) & 
+\backslash
+(-0.273
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & (1.284) & (2.723) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Tenure
+\end_layout
+
+\begin_layout Plain Layout
+ & 
+\backslash
+(5.300^{***}
+\backslash
+) & 
+\backslash
+(4.788^{*}
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & (1.536) & (2.689) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Education 
+\backslash
+(
+\backslash
+times
+\backslash
+) Experience
+\end_layout
+
+\begin_layout Plain Layout
+ & 
+\backslash
+(-0.171^{*}
+\backslash
+) & 
+\backslash
+(0.316
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & (0.097) & (0.202) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+ASVAB 
+\backslash
+(
+\backslash
+times
+\backslash
+) Experience
+\end_layout
+
+\begin_layout Plain Layout
+ & 
+\backslash
+(0.198^{***}
+\backslash
+) & 
+\backslash
+(0.132
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & (0.073) & (0.190) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Education 
+\backslash
+(
+\backslash
+times
+\backslash
+) Tenure
+\end_layout
+
+\begin_layout Plain Layout
+ & 
+\backslash
+(0.229^{*}
+\backslash
+) & 
+\backslash
+(0.036
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & (0.122) & (0.202) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+ASVAB 
+\backslash
+(
+\backslash
+times
+\backslash
+) Tenure
+\end_layout
+
+\begin_layout Plain Layout
+ & 
+\backslash
+(0.166
+\backslash
+) & 
+\backslash
+(0.100
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & (0.104) & (0.215) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+addlinespace
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+multicolumn{3}{l}{B.
+ Linear combination tests} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Education interactions,
+ 
+\backslash
+(
+\backslash
+gamma_S+
+\backslash
+theta_S
+\backslash
+)
+\end_layout
+
+\begin_layout Plain Layout
+ & 
+\backslash
+(0.058
+\backslash
+) & 
+\backslash
+(0.353^{**}
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & (0.062) & (0.174) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+(p
+\backslash
+) value
+\end_layout
+
+\begin_layout Plain Layout
+ & 0.355 & 0.043 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+addlinespace
+\end_layout
+
+\begin_layout Plain Layout
+ASVAB interactions,
+ 
+\backslash
+(
+\backslash
+gamma_Z+
+\backslash
+theta_Z
+\backslash
+)
+\end_layout
+
+\begin_layout Plain Layout
+ & 
+\backslash
+(0.364^{***}
+\backslash
+) & 
+\backslash
+(0.232^{*}
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & (0.057) & (0.129) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+(p
+\backslash
+) value
+\end_layout
+
+\begin_layout Plain Layout
+ & 
+\backslash
+(<0.001
+\backslash
+) & 0.072 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+addlinespace
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+midrule
+\end_layout
+
+\begin_layout Plain Layout
+Experience and tenure squared and cubed
+\end_layout
+
+\begin_layout Plain Layout
+ & Yes & Yes 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Year and job number indicators
+\end_layout
+
+\begin_layout Plain Layout
+ & Yes & Yes 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Sex and race controls
+\end_layout
+
+\begin_layout Plain Layout
+ & Yes & Yes 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Observations
+\end_layout
+
+\begin_layout Plain Layout
+ & 59,927 & 11,440 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Respondents
+\end_layout
+
+\begin_layout Plain Layout
+ & 11,072 & 2,889 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+(R^2
+\backslash
+)
+\end_layout
+
+\begin_layout Plain Layout
+ & 0.4029 & 0.2933 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+bottomrule
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tabular*}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tablenotes}[flushleft]
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item 
+\backslash
+(^{*}p<0.10
+\backslash
+);
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+(^{**}p<0.05
+\backslash
+);
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+(^{***}p<0.01
+\backslash
+).
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tablenotes}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{threeparttable}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{table}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{table}[p]
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+caption{Education,
+ Ability,
+ and Wage Dynamics by Occupation}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+label{tab:ols_learning}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{threeparttable}
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+setlength{
+\backslash
+tabcolsep}{3pt}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tabular*}{
+\backslash
+textwidth}{@{
+\backslash
+extracolsep{
+\backslash
+fill}}lrrrrrr@{}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+toprule
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+multicolumn{3}{c}{Education} & 
+\backslash
+multicolumn{3}{c}{ASVAB} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+cmidrule(lr){2-4}
+\backslash
+cmidrule(lr){5-7}
+\end_layout
+
+\begin_layout Plain Layout
+Occupation & Level & 
+\backslash
+(
+\backslash
+times
+\backslash
+) Experience & 
+\backslash
+(
+\backslash
+times
+\backslash
+) Tenure & Level & 
+\backslash
+(
+\backslash
+times
+\backslash
+) Experience & 
+\backslash
+(
+\backslash
+times
+\backslash
+) Tenure 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+& (1) & (2) & (3) & (4) & (5) & (6) 
+\backslash
+
+\backslash
+ 
+\backslash
+midrule
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+addlinespace 
+\backslash
+multicolumn{7}{l}{A.
+ NLSY79} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Clerical & 
+\backslash
+( 4.690^{***}
+\backslash
+) & 
+\backslash
+(-0.111^{}
+\backslash
+) & 
+\backslash
+( 0.112^{}
+\backslash
+) & 
+\backslash
+(-1.032^{**}
+\backslash
+) & 
+\backslash
+( 0.330^{*}
+\backslash
+) & 
+\backslash
+(-0.070^{}
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & ( 0.588) & ( 0.204) & ( 0.206) & ( 0.423) & ( 0.178) & ( 0.200) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Craftsmen & 
+\backslash
+( 4.908^{***}
+\backslash
+) & 
+\backslash
+( 0.325^{}
+\backslash
+) & 
+\backslash
+(-0.574^{}
+\backslash
+) & 
+\backslash
+( 0.051^{}
+\backslash
+) & 
+\backslash
+(-0.070^{}
+\backslash
+) & 
+\backslash
+( 0.379^{**}
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & ( 1.499) & ( 0.272) & ( 0.414) & ( 0.962) & ( 0.142) & ( 0.178) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Managers & 
+\backslash
+( 5.800^{***}
+\backslash
+) & 
+\backslash
+(-0.317^{}
+\backslash
+) & 
+\backslash
+( 0.575^{}
+\backslash
+) & 
+\backslash
+( 0.853^{}
+\backslash
+) & 
+\backslash
+( 0.503^{}
+\backslash
+) & 
+\backslash
+(-0.422^{}
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & ( 2.049) & ( 0.325) & ( 0.350) & ( 1.399) & ( 0.336) & ( 0.356) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Operatives and & 
+\backslash
+( 5.674^{***}
+\backslash
+) & 
+\backslash
+(-0.178^{*}
+\backslash
+) & 
+\backslash
+( 0.506^{**}
+\backslash
+) & 
+\backslash
+(-0.730^{}
+\backslash
+) & 
+\backslash
+( 0.003^{}
+\backslash
+) & 
+\backslash
+( 0.230^{}
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+laborers & ( 0.515) & ( 0.107) & ( 0.211) & ( 0.461) & ( 0.088) & ( 0.189) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Professional & 
+\backslash
+( 7.662^{***}
+\backslash
+) & 
+\backslash
+( 0.362^{}
+\backslash
+) & 
+\backslash
+(-0.584^{**}
+\backslash
+) & 
+\backslash
+( 1.550^{}
+\backslash
+) & 
+\backslash
+(-0.175^{}
+\backslash
+) & 
+\backslash
+( 0.442^{**}
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & ( 1.072) & ( 0.240) & ( 0.243) & ( 1.078) & ( 0.202) & ( 0.216) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Sales & 
+\backslash
+( 6.503^{***}
+\backslash
+) & 
+\backslash
+(-0.806^{***}
+\backslash
+) & 
+\backslash
+( 1.671^{***}
+\backslash
+) & 
+\backslash
+(-2.583^{***}
+\backslash
+) & 
+\backslash
+( 0.684^{***}
+\backslash
+) & 
+\backslash
+( 0.074^{}
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & ( 1.374) & ( 0.245) & ( 0.523) & ( 0.965) & ( 0.197) & ( 0.432) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Service & 
+\backslash
+( 7.227^{***}
+\backslash
+) & 
+\backslash
+(-0.202^{}
+\backslash
+) & 
+\backslash
+( 0.113^{}
+\backslash
+) & 
+\backslash
+(-0.893^{**}
+\backslash
+) & 
+\backslash
+( 0.075^{}
+\backslash
+) & 
+\backslash
+( 0.364^{*}
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & ( 0.518) & ( 0.147) & ( 0.170) & ( 0.352) & ( 0.096) & ( 0.190) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+addlinespace Equality test,
+ 
+\backslash
+(p
+\backslash
+) & 0.0235 & 0.0228 & 
+\backslash
+(<0.001
+\backslash
+) & 0.0717 & 0.0153 & 0.2179 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+multicolumn{7}{l}{Observations:
+       59,927;
+ Respondents:
+       11,072;
+ 
+\backslash
+(R^2=0.4410
+\backslash
+).} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+addlinespace 
+\backslash
+multicolumn{7}{l}{B.
+ NLSY97} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Clerical & 
+\backslash
+( 3.680^{**}
+\backslash
+) & 
+\backslash
+(-0.474^{}
+\backslash
+) & 
+\backslash
+( 0.461^{}
+\backslash
+) & 
+\backslash
+( 0.200^{}
+\backslash
+) & 
+\backslash
+( 0.365^{}
+\backslash
+) & 
+\backslash
+(-0.329^{}
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & ( 1.517) & ( 0.441) & ( 0.381) & ( 0.865) & ( 0.225) & ( 0.298) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Craftsmen & 
+\backslash
+( 2.608^{}
+\backslash
+) & 
+\backslash
+( 0.418^{}
+\backslash
+) & 
+\backslash
+(-0.351^{}
+\backslash
+) & 
+\backslash
+(-3.596^{}
+\backslash
+) & 
+\backslash
+(-0.005^{}
+\backslash
+) & 
+\backslash
+( 0.120^{}
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & ( 4.758) & ( 0.864) & ( 0.844) & ( 3.732) & ( 0.829) & ( 0.752) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Managers & 
+\backslash
+(12.092^{***}
+\backslash
+) & 
+\backslash
+( 0.670^{}
+\backslash
+) & 
+\backslash
+(-1.013^{}
+\backslash
+) & 
+\backslash
+( 0.008^{}
+\backslash
+) & 
+\backslash
+(-0.295^{}
+\backslash
+) & 
+\backslash
+( 0.882^{}
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & ( 2.672) & ( 0.626) & ( 0.643) & ( 3.301) & ( 0.674) & ( 0.749) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Operatives and & 
+\backslash
+( 1.121^{}
+\backslash
+) & 
+\backslash
+(-0.121^{}
+\backslash
+) & 
+\backslash
+( 0.371^{}
+\backslash
+) & 
+\backslash
+( 0.820^{}
+\backslash
+) & 
+\backslash
+( 0.224^{}
+\backslash
+) & 
+\backslash
+(-0.338^{}
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+laborers & ( 1.417) & ( 0.258) & ( 0.298) & ( 1.216) & ( 0.312) & ( 0.352) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Professional & 
+\backslash
+( 3.559^{**}
+\backslash
+) & 
+\backslash
+( 0.788^{**}
+\backslash
+) & 
+\backslash
+(-0.383^{}
+\backslash
+) & 
+\backslash
+(-2.081^{}
+\backslash
+) & 
+\backslash
+( 1.013^{**}
+\backslash
+) & 
+\backslash
+(-0.680^{}
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & ( 1.678) & ( 0.340) & ( 0.374) & ( 1.767) & ( 0.446) & ( 0.529) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Sales & 
+\backslash
+( 9.793^{*}
+\backslash
+) & 
+\backslash
+(-0.064^{}
+\backslash
+) & 
+\backslash
+(-0.184^{}
+\backslash
+) & 
+\backslash
+(-1.227^{}
+\backslash
+) & 
+\backslash
+(-0.454^{}
+\backslash
+) & 
+\backslash
+( 0.758^{}
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & ( 5.422) & ( 0.979) & ( 1.233) & ( 1.851) & ( 0.556) & ( 0.784) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Service & 
+\backslash
+( 0.856^{}
+\backslash
+) & 
+\backslash
+( 0.313^{}
+\backslash
+) & 
+\backslash
+( 0.150^{}
+\backslash
+) & 
+\backslash
+( 0.920^{}
+\backslash
+) & 
+\backslash
+( 0.722^{***}
+\backslash
+) & 
+\backslash
+(-0.518^{}
+\backslash
+) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ & ( 1.382) & ( 0.316) & ( 0.400) & ( 1.010) & ( 0.274) & ( 0.386) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+addlinespace Equality test,
+ 
+\backslash
+(p
+\backslash
+) & 0.0041 & 0.2295 & 0.2977 & 0.6619 & 0.2827 & 0.4784 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+multicolumn{7}{l}{Observations:
+       11,440;
+ Respondents:
+        2,889;
+ 
+\backslash
+(R^2=0.3455
+\backslash
+).} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+bottomrule
+\backslash
+end{tabular*}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tablenotes}[flushleft]
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item Note.
+ Each panel reports one unweighted OLS regression.
+ Estimates and standard errors are expressed on the scale of 100 times log real hourly wages.
+ Entries are total occupation coefficients.
+ Standard errors clustered by respondent are in parentheses.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Wages are winsorized at the 1st and 99th percentiles of the pooled merged dataset before restricting job numbers to 1 through 3.
+ Education,
+ experience,
+ and tenure are in years.
+ ASVAB is in principal component units.
+ Level coefficients apply at zero experience and tenure.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Both regressions include sex and race controls.
+ Equality tests compare the corresponding coefficient across all seven occupations.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item 
+\backslash
+(^{*}p<0.10
+\backslash
+);
+ 
+\backslash
+(^{**}p<0.05
+\backslash
+);
+ 
+\backslash
+(^{***}p<0.01
+\backslash
+).
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tablenotes}
+\backslash
+end{threeparttable}
+\backslash
+end{table}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "reference"
+options "econ"
+encoding "default"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

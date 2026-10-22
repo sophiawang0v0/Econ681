@@ -1,0 +1,1013 @@
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\newcommand{\e}{\mathrm{E}}
+\newcommand{\var}{\mathrm{Var}}
+\newcommand{\cov}{\mathrm{Cov}}
+\end_preamble
+\use_default_options true
+\begin_modules
+customHeadersFooters
+\end_modules
+\maintain_unincluded_children no
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "tgpagella" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "colorlinks=true, linkcolor=RoyalBlue, citecolor=ForestGreen, urlcolor=RoyalBlue"
+\papersize letter
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style econ
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification default
+\crossref_package refstyle
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth -2
+\tocdepth -2
+\paragraph_separation skip
+\defskip halfline
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\align block
+
+\series bold
+Theoretical Model Update
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+Sophia Wang
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+today
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Notation Setup
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $i$
+\end_inset
+
+ index workers,
+ 
+\begin_inset Formula $t\in\mathcal{T}_{i}$
+\end_inset
+
+ be the observed year,
+ 
+\begin_inset Formula $k_{it}$
+\end_inset
+
+ be the employer number,
+ 
+\begin_inset Formula $j_{it}\in\{1,\ldots,J\}$
+\end_inset
+
+ be the occupation,
+ and 
+\begin_inset Formula $\tau<t$
+\end_inset
+
+ represents earlier performance observations.
+ Let 
+\begin_inset Formula $e_{it}$
+\end_inset
+
+ denote cumulative experience and 
+\begin_inset Formula $x_{it}$
+\end_inset
+
+ denote tenure with the current employer.
+ 
+\end_layout
+
+\begin_layout Standard
+Subscripts 
+\begin_inset Formula $C$
+\end_inset
+
+ and 
+\begin_inset Formula $O$
+\end_inset
+
+ represent the incumbent and the outside employer.
+ 
+\end_layout
+
+\begin_layout Subsection
+Two period model
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citet
+key "altonji_employer_2001"
+literal "false"
+
+\end_inset
+
+ specifies log productivity as a function of schooling 
+\begin_inset Formula $s_{i}$
+\end_inset
+
+,
+ employer observed information 
+\begin_inset Formula $q_{i},$
+\end_inset
+
+researcher observed ability estimation 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+,
+ and remaining unobserved productivity 
+\begin_inset Formula $\eta_{i}$
+\end_inset
+
+.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "zhang_employer_2007"
+literal "false"
+
+\end_inset
+
+ instead starts from productivity in levels,
+ 
+\begin_inset Formula $\chi_{if}=\eta_{i}+\delta_{if}$
+\end_inset
+
+,
+ where matching quality 
+\begin_inset Formula $\delta_{if}$
+\end_inset
+
+ is known before production.
+ 
+\end_layout
+
+\begin_layout Standard
+We formulate the equation as 
+\begin_inset Formula 
+\begin{equation}
+p^{k}_{ijt}=a_{j}+r_{j}s_{i}+\alpha_{1j}q_{i}+\Lambda_{j}z_{i}+\eta_{ij}+\delta^{k}_{i}+H_{j}(e_{it},x_{it})\,.\label{eq:initial}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here we assume 
+\begin_inset Formula $p$
+\end_inset
+
+ is the log productivity,
+ so the productivity level is 
+\begin_inset Formula $Y=\exp(p)$
+\end_inset
+
+.
+ Following Zhang's assumption,
+ the match component is know to the corresponding employer and is independently recalculated for new employers.
+ The function 
+\begin_inset Formula $H_{j}(e,x)$
+\end_inset
+
+ allows experience and tenure to affect productivity independently of employer learning.
+ 
+\end_layout
+
+\begin_layout Standard
+Following 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "altonji_employer_2001"
+literal "false"
+
+\end_inset
+
+,
+ assume 
+\begin_inset Formula 
+\begin{equation}
+z_{i}=\gamma_{1}q_{i}+\gamma_{2}s_{i}+\nu_{i}\,,\quad\eta_{ij}=\alpha_{2j}s_{i}+e_{ij}\,,\label{eq:zn}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\e[\nu_{i}\mid s_{i},q_{i}]=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\e[e_{ij}\mid s_{i},q_{i}]=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Substituting eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:zn"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ into eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:initial"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ gives 
+\begin_inset Formula 
+\begin{align*}
+p^{k}_{ijt}= & a_{j}+r_{j}s_{i}+\alpha_{1j}q_{i}+\Lambda_{j}\left(\gamma_{1}q_{i}+\gamma_{2}s_{i}+\nu_{i}\right)\\
+ & +\alpha_{2j}s_{i}+e_{ij}+\delta^{k}_{i}+H_{j}(e_{it},x_{it})\,.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Combining the predictable and initially unpredictable terms gives 
+\begin_inset Formula 
+\begin{equation}
+p^{k}_{ijt}=B_{ij}+u_{ij}+\delta^{k}_{i}+H_{j}(e_{it},x_{it})\,,\label{eq:simp_init}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula 
+\[
+B_{ij}=a_{j}+(r_{j}+\Lambda_{j}\gamma_{2}+\alpha_{2j})s_{i}+(\alpha_{1j}+\Lambda_{j}\gamma_{1})q_{i}\,,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and 
+\begin_inset Formula 
+\[
+u_{ij}=\Lambda_{j}\nu_{i}+e_{ij}\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $B_{ij}$
+\end_inset
+
+ is the employer's initial assessment of log productivity in occupation 
+\begin_inset Formula $j$
+\end_inset
+
+,
+ and 
+\begin_inset Formula $u_{ij}$
+\end_inset
+
+ is its initial prediction error.
+ Assume 
+\begin_inset Formula $u_{ij}\mid s_{i},q_{i}\sim\mathcal{N}\left(0,\sigma^{2}_{0j}\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "altonji_employer_2001"
+literal "false"
+
+\end_inset
+
+ construct a residual performance signal by subtracting employers’ initial productivity assessment from observed noisy performance.
+ 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "zhang_employer_2007"
+literal "false"
+
+\end_inset
+
+'s modification is that the performance signal is observed only by the incumbent.
+ 
+\end_layout
+
+\begin_layout Standard
+During job 
+\begin_inset Formula $k$
+\end_inset
+
+,
+ let the employer observe 
+\begin_inset Formula 
+\[
+\xi^{k}_{i\tau}=p^{k}_{ij\tau}+\varepsilon^{k}_{i\tau}\,,\quad\varepsilon^{k}_{i\tau}\sim\mathcal{N}\left(0,\sigma^{2}_{\nu j}\right)\,,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with independent noise across observations and independent of persistent productivity.
+ Using eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:simp_init"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+,
+ we can subtract the known components 
+\begin_inset Formula 
+\begin{align}
+d^{k}_{i\tau} & =\xi^{k}_{i\tau}-B_{ij}-\delta^{k}_{i}-H_{j}(e_{i\tau},x_{i\tau})\label{eq:ditau}\\
+ & =u_{ij}+\varepsilon^{k}_{i\tau}\,,\nonumber 
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and define the employer's own performance record as 
+\begin_inset Formula 
+\[
+D^{k}_{it}=\left\{ d^{k}_{i\tau}:\tau<t,\tau\text{ belongs to job }k\right\} \,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Deriving Zhang's learning weight
+\end_layout
+
+\begin_layout Standard
+Suppose the first employer has observed 
+\begin_inset Formula $n$
+\end_inset
+
+ signals before the first mobility decision.
+ From eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ditau"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+,
+ 
+\begin_inset Formula 
+\[
+\bar{d}^{1}_{it}=u_{ij}+\bar{\varepsilon}^{1}_{it}\,,\quad\var(\bar{\varepsilon}^{1}_{it})=\frac{\sigma^{2}_{\nu j}}{n}\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore,
+ 
+\begin_inset Formula $\cov(u_{ij},\bar{d}^{1}_{it})=\sigma^{2}_{0j}$
+\end_inset
+
+,
+ and 
+\begin_inset Formula $\var(\bar{d}^{1}_{it})=\sigma^{2}_{0j}+\frac{\sigma^{2}_{\nu j}}{n}$
+\end_inset
+
+.
+ As these variables are jointly normal,
+ the conditional mean is 
+\begin_inset Formula 
+\begin{align*}
+\e[u_{ij}\mid s_{i},q_{i},D^{1}_{it}] & =\frac{\cov(u_{ij},\bar{d}^{1}_{it})}{\var(\bar{d}^{1}_{it})}\,\bar{d}^{1}_{it}\\
+ & =\frac{\sigma^{2}_{0j}}{\sigma^{2}_{0j}+\sigma^{2}_{\nu j}/n}\,\bar{d}^{1}_{it}\,.
+\end{align*}
+
+\end_inset
+
+ Hence,
+ 
+\begin_inset Formula 
+\begin{equation}
+\hat{u}^{C,1}_{ijt}=\theta_{j}(n)\bar{d}^{1}_{it},\quad\theta_{j}(n)=\frac{n\sigma^{2}_{0j}}{\sigma^{2}_{\nu j}+n\sigma^{2}_{0j}}\,.\label{eq:residual}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The corresponding posterior variance is 
+\begin_inset Formula 
+\[
+V_{j}(n)=\left(\frac{1}{\sigma^{2}_{0j}}+\frac{n}{\sigma^{2}_{\nu j}}\right)^{-1}=\frac{\sigma^{2}_{0j}\cdot\sigma^{2}_{\nu j}}{\sigma^{2}_{\nu j}+n\sigma^{2}_{0j}}\,,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $n$
+\end_inset
+
+ represents the performance observations,
+ which equals tenure measured in each job periods.
+ Specifically,
+ for 
+\begin_inset Formula $n=1$
+\end_inset
+
+,
+ eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:residual"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ matches with 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "zhang_employer_2007"
+literal "false"
+
+\end_inset
+
+'s eq.
+\begin_inset space ~
+\end_inset
+
+(1).
+ 
+\end_layout
+
+\begin_layout Standard
+Taking expectations in eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:simp_init"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ and then using eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:residual"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+,
+ 
+\begin_inset Formula 
+\begin{equation}
+\e[p^{1}_{ijt}\mid\mathcal{I}^{C}_{it}]=B_{ij}+\delta^{1}_{i}+H_{j}(e_{it},x_{it})+\theta_{j}(n)\bar{d}^{1}_{it}\,.\label{eq:expp}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Substitute 
+\begin_inset Formula 
+\[
+\bar{d}^{1}_{it}=\Lambda_{j}(z_{i}-\gamma_{1}q_{i}-\gamma_{2}s_{i})+e_{ij}+\bar{\varepsilon}^{1}_{it}
+\]
+
+\end_inset
+
+ into eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:expp"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+,
+ we get 
+\begin_inset Formula 
+\begin{align*}
+\e[p^{1}_{ijt}\mid\mathcal{I}^{C}_{it}]= & a_{j}+\left[r_{j}+\alpha_{2j}+(1-\theta_{j}(n))\Lambda_{j}\gamma_{2}\right]s_{i}\\
+ & +\left[\alpha_{1j}+(1-\theta_{j}(n))\Lambda_{j}\gamma_{1}\right]q_{i}\\
+ & +\theta_{j}(n)\Lambda_{j}z_{i}+\theta_{j}(n)e_{ij}+\theta_{j}(n)\bar{\varepsilon}^{1}_{it}+\delta^{1}_{i}+H_{j}(e_{it},x_{it})\,.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $F\in\{C,O\}$
+\end_inset
+
+,
+ define 
+\begin_inset Formula 
+\begin{equation}
+P^{F}_{it}=\e[Y^{F}_{it}\mid\mathcal{I}^{F}_{it}]=\exp[R_{ij^{F}}+\delta^{F}_{i}+H_{j^{F}}(e_{it},x^{F}_{it})]\e[\exp(u_{ij^{F}})\mid\mathcal{I}^{F}_{it}]\,,\label{eq:P}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $j^{C}$
+\end_inset
+
+ is the incumbent occupation,
+ 
+\begin_inset Formula $j^{O}$
+\end_inset
+
+ the offered occupation,
+ and 
+\begin_inset Formula $x^{O}_{it}=0$
+\end_inset
+
+ for a new match.
+ For the first incumbent's normal posterior,
+ eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:residual"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ and eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:P"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ imply x
+\begin_inset Formula 
+\[
+P^{O}_{it_{1}}=\exp\left[B_{ij^{O}}+\delta^{O}_{i}+H_{j^{O}}(e_{it_{1}},0)+\frac{1}{2}\sigma^{2}_{0j^{O}}\right]\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Endogenous mobility and the informational content of employment history
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "zhang_employer_2007"
+literal "false"
+
+\end_inset
+
+ assumes that the outsider offers first,
+ then the incumbent counteroffers,
+ and finally the worker compares wages plus non-pecuniary job preferences.
+ Let 
+\begin_inset Formula 
+\[
+\theta^{C}_{it},\theta^{O}_{it}\overset{iid}{\sim}\mathcal{N}(0,\sigma^{2}_{\theta})\,,\quad s_{\theta}=\sqrt{2}\sigma_{\theta}\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The worker moves when 
+\begin_inset Formula 
+\[
+W^{O}_{it}+\theta^{O}_{it}\geq W^{C}_{it}+\theta^{C}_{it}\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since the taste difference is 
+\begin_inset Formula $\mathcal{N}(0,2\sigma^{2}_{\theta})$
+\end_inset
+
+,
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathrm{Pr}(M_{it}=1\mid W^{C}_{it},W^{O}_{it})=\Phi(A_{it})\,,\quad A_{it}=\frac{W^{O}_{it}-W^{C}_{it}}{s_{\theta}}\,.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From 
+\begin_inset Formula $\chi_{c}=\eta+\delta_{c}$
+\end_inset
+
+ where 
+\begin_inset Formula $n\sim\mathcal{N}(\mu_{n},\sigma^{2}_{\eta})$
+\end_inset
+
+,
+ and 
+\begin_inset Formula $y_{c1}=\chi_{c}+\varepsilon_{c1}$
+\end_inset
+
+ where 
+\begin_inset Formula $\varepsilon_{c1}\sim\mathcal{N}(0,\sigma^{2}_{\varepsilon})$
+\end_inset
+
+,
+ define 
+\begin_inset Formula 
+\begin{align*}
+P^{C} & \equiv\e[\chi_{c}\mid y_{c1},\delta_{c}]=\mu_{n}+\delta_{c}+\frac{\sigma^{2}_{\eta}}{\sigma^{2}_{\eta}+\sigma^{2}_{\varepsilon}}[y_{c1}-(\mu_{\eta}+\delta_{c})]\\
+ & =\left(1-\frac{\sigma^{2}_{\eta}}{\sigma^{2}_{\eta}+\sigma^{2}_{\varepsilon}}\right)(\mu_{\eta}+\delta_{c})+\frac{\sigma^{2}_{\eta}}{\sigma^{2}_{\eta}+\sigma^{2}_{\varepsilon}}\,y_{c1}\\
+ & =\frac{\sigma^{2}_{\varepsilon}}{\sigma^{2}_{\eta}+\sigma^{2}_{\varepsilon}}\,(\mu_{\eta}+\delta_{c})+\frac{\sigma^{2}_{\eta}}{\sigma^{2}_{\eta}+\sigma^{2}_{\varepsilon}}\,y_{c1}\,.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As the outside employer does not observe 
+\begin_inset Formula $y_{c1}$
+\end_inset
+
+,
+ in the two period specification,
+ its assessment will rely on the population mean of ability and its own known match quality.
+ Therefore,
+ we can write 
+\begin_inset Formula 
+\[
+P^{O}\equiv\e[\eta+\delta_{o}\mid\delta_{o}]=\mu_{\eta}+\delta_{o}\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then following 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "zhang_employer_2007"
+literal "false"
+
+\end_inset
+
+'s eq.
+\begin_inset space ~
+\end_inset
+
+(2) and (3),
+ we can construct optimization problem in the format of 
+\begin_inset Formula 
+\[
+\max_{W^{C}}\left(P^{C}-W^{C}\right)(1-\Phi(A))\quad\text{and}\quad\max_{W^{O}}(P^{O}-W^{O})\Phi(A)\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Taking first order derivative to 
+\begin_inset Formula $W^{C}$
+\end_inset
+
+ and 
+\begin_inset Formula $W^{O}$
+\end_inset
+
+,
+ respectively,
+ gives 
+\begin_inset Formula 
+\[
+\begin{cases}
+W^{C}= & P^{C}-s_{\theta}\frac{(1-\Phi(A))}{\phi(A)}\,,\\
+W^{O}= & P^{O}-s_{\theta}\frac{\Phi(A)}{\phi(A)}\,.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As 
+\begin_inset Formula $\left((1-\Phi(A))/\phi(A)\right)'<0$
+\end_inset
+
+,
+ holding the outside offer fixed,
+ differentiate 
+\begin_inset Formula $W^{C}$
+\end_inset
+
+ equation above gives 
+\begin_inset Formula 
+\[
+dW^{C}=dP^{C}-s_{\theta}\left((1-\Phi(A))/\phi(A)\right)'dA
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "reference"
+options "econ"
+encoding "default"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

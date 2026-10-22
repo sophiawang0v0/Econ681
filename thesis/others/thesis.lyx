@@ -1,0 +1,761 @@
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\newcommand{\e}{\mathrm{E}}
+\newcommand{\var}{\mathrm{Var}}
+\end_preamble
+\use_default_options true
+\begin_modules
+customHeadersFooters
+\end_modules
+\maintain_unincluded_children no
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "colorlinks=true, linkcolor=RoyalBlue, citecolor=ForestGreen, urlcolor=RoyalBlue"
+\papersize letter
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style econ
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification default
+\crossref_package refstyle
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth -1
+\tocdepth -1
+\paragraph_separation skip
+\defskip halfline
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\align block
+
+\series bold
+Thesis
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+Sophia Wang
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+today
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Data
+\end_layout
+
+\begin_layout Standard
+Text contents 
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Empirical Model
+\end_layout
+
+\begin_layout Standard
+The model includes the first job since labor market entrance for analysis.
+ Let 
+\begin_inset Formula $t=0,\ldots,T^{1}_{i}$
+\end_inset
+
+ denotes observations when worker 
+\begin_inset Formula $i$
+\end_inset
+
+ remains in their first job.
+ The sample ends when the worker leaves the first job.
+ 
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $x^{1}_{itc}$
+\end_inset
+
+ denote the cumulate tenure in the first job for worker 
+\begin_inset Formula $i$
+\end_inset
+
+ from cohort 
+\begin_inset Formula $c\in\{79,97\}$
+\end_inset
+
+measured in years,
+ with 
+\begin_inset Formula $x^{1}_{itc}=0$
+\end_inset
+
+ at the beginning of that job.
+ 
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $J^{1}_{ic}\in\{1,\ldots,J\}$
+\end_inset
+
+ denote the occupation in which worker 
+\begin_inset Formula $i$
+\end_inset
+
+ begins the first job,
+ and define 
+\begin_inset Formula $D^{1}_{ijc}=\mathds{1}\{J^{1}_{ic}=j\}$
+\end_inset
+
+ which is fixed at the occupation observed when the first job begins.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Baseline Theoretical Model
+\end_layout
+
+\begin_layout Standard
+Following 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "altonji_employer_2001"
+literal "false"
+
+\end_inset
+
+,
+ worker productivity depends on characteristics that differ in their observability to employers and the econometrician.
+ Adapted to the first job constraint,
+ let log productivity be 
+\begin_inset Formula 
+\begin{equation}
+p_{itc}=r_{c}S_{ic}+\alpha_{c}q_{ic}+\Lambda_{c}Z_{ic}+\eta_{ic}+H_{c}(x^{1}_{itc})\,,\label{eq:baseline}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $S_{ic}$
+\end_inset
+
+ is the education when the worker's first job begins;
+ 
+\begin_inset Formula $q_{ic}$
+\end_inset
+
+ is information observed by employers but not fully observed by the econometrician,
+ such as interview performance or hiring information;
+ 
+\begin_inset Formula $Z_{ic}$
+\end_inset
+
+ is productivity related characteristic,
+ which is observed by econometrician but not directly observed by employers at labor market entry,
+ such as ASVAB measure;
+ 
+\begin_inset Formula $\eta_{ic}$
+\end_inset
+
+ is productivity that initially neither observed by employer or econometrician;
+ and 
+\begin_inset Formula $H_{c}(x^{1}_{itc})$
+\end_inset
+
+ represents the general productivity and wage experience profile during the first job.
+ 
+\end_layout
+
+\begin_layout Standard
+At the beginning of the first job,
+ the employer's information set is 
+\begin_inset Formula $\mathcal{I}_{i0c}=\{S_{ic},q_{ic},X_{i0c}\}$
+\end_inset
+
+.
+ The employer does not initially observe 
+\begin_inset Formula $Z_{ic},\eta_{ic}$
+\end_inset
+
+,
+ or the true productivity.
+ During the first job,
+ the employer observes noisy performance signals
+\begin_inset Formula 
+\[
+y_{i\tau c}=p_{ic}+\nu_{itc}\,,\text{where }\e[\nu_{itc}]=0\,,\var(\nu_{itc})=\sigma^{2}_{\nu c}\,,
+\]
+
+\end_inset
+
+ for 
+\begin_inset Formula $\tau=0,\ldots,t-1$
+\end_inset
+
+.
+ Then the information set could be expand as 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{I}_{itc}=\mathcal{I}_{i0c}\cup\{y_{i0c},\ldots,y_{i,t-1,c}\}\,.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Under the competitive wage assumption,
+ the worker's wage equals the expected productivity conditional on the information available at time 
+\begin_inset Formula $t$
+\end_inset
+
+,
+ then 
+\begin_inset Formula 
+\[
+\ln w_{itc}=\e[p_{itc}\mid\mathcal{I}_{itc}]\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The posterior expectation can be represented as 
+\begin_inset Formula 
+\begin{equation}
+\e[p_{itc}\mid\mathcal{I}_{itc}]=\left(1-\theta_{c}(x^{1}_{itc})\right)\e[p_{ic}\mid S_{ic},q_{ic}]+\theta_{c}(x^{1}_{itc})\bar{y}_{itc}+H_{c}(x^{1}_{itc})\,,
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\bar{y}_{itc}$
+\end_inset
+
+ represents the performance signals observed to date and 
+\begin_inset Formula $\frac{\partial\theta_{c}(x)}{\partial x}>0$
+\end_inset
+
+.
+ Thus,
+ employers place less weight on initial signals and more weight on observed performance as tenure increase.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Baseline empirical specification
+\end_layout
+
+\begin_layout Standard
+For cohort 
+\begin_inset Formula $c$
+\end_inset
+
+,
+ we estimate 
+\begin_inset Formula 
+\begin{align}
+\ln w_{itc}= & \alpha_{c}+\beta_{Sc}S_{ic}+\beta_{Zc}Z_{ic}+\gamma_{Sc}(S_{ic}\times x^{1}_{itc})+\gamma_{Zc}(Z_{ic}\times x^{1}_{itc})\notag\\
+ & +\theta_{1c}x^{1}_{itc}+\theta_{2c}(x^{1}_{itc})^{2}+X_{itc}'\delta_{c}+\lambda_{tc}+\varepsilon_{itc}\,,\label{eq:base empirical}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $X_{itc}$
+\end_inset
+
+ contains demographic and labor market controls,
+ 
+\begin_inset Formula $\lambda_{tc}$
+\end_inset
+
+ denotes year effects,
+ and 
+\begin_inset Formula $\varepsilon_{itc}$
+\end_inset
+
+ represents the wage residual.
+ 
+\end_layout
+
+\begin_layout Standard
+The relevant coefficients are 
+\begin_inset Formula 
+\[
+\gamma_{Zc}=\frac{\partial^{2}\e[\ln w_{itc}]}{\partial Z_{ic}\partial x^{1}_{itc}}\quad\text{and}\quad\gamma_{Sc}=\frac{\partial^{2}\e[\ln w_{itc}]}{\partial S_{ic}\partial x^{1}_{itc}}\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The baseline model employer learning predictions are 
+\begin_inset Formula $H^{EL}_{1}:\gamma_{Zc}>0$
+\end_inset
+
+ and,
+ under statistical discrimination based on schooling,
+ 
+\begin_inset Formula $H^{SD}_{1}:\gamma_{Sc}<0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The model would be estimated separately for the NLSY79 and NLSY97 cohorts,
+ where the coefficients could differ across cohorts.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Adding first job occupation factors
+\end_layout
+
+\begin_layout Standard
+Motivated from 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "altonji_employer_2005"
+literal "false"
+
+\end_inset
+
+,
+ which extends employer learning by emphasizing that jobs differ in how strongly productivity depends on worker skill and how informative job performance is about that skill.
+ The model predicts more rapid learning in jobs with greater skill requirements,
+ while assignment to less skill-intensive jobs may reveal relatively little about underlying talent.
+ The paper therefore provides a basis for allowing both skill prices and signal precision to vary across the worker’s initial occupation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citet
+key "gibbons_comparative_2005"
+literal "false"
+
+\end_inset
+
+ model sectors as having different production technologies and different returns to observed and unobserved worker skills.
+ In their model,
+ sector-specific coefficients determine how strongly each sector values worker characteristics.
+ Learning about initially unobserved ability then affects wages and sector allocation over time.
+ However,
+ as the sample is restricted to the first job,
+ the mobility component of 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "gibbons_comparative_2005"
+literal "false"
+
+\end_inset
+
+ is not estimated.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Occupation extended theoretical model
+\end_layout
+
+\begin_layout Standard
+Let the first job productivity in occupation 
+\begin_inset Formula $j$
+\end_inset
+
+ be 
+\begin_inset Formula 
+\begin{equation}
+p_{ijtc}=a_{jc}+r_{S,jc}S_{ic}+\alpha_{jc}q_{ic}+\Lambda_{jc}Z_{ic}+\eta_{ijc}+H_{jc}(x^{1}_{itc})\,.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Compared with Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:baseline"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+,
+ 
+\begin_inset Formula $a_{jc},r_{S,jc},\Lambda_{jc},H_{jc}(x)$
+\end_inset
+
+ are allowed to vary by first job occupation.
+ 
+\end_layout
+
+\begin_layout Standard
+Employers in occupation 
+\begin_inset Formula $j$
+\end_inset
+
+ observe a sequence of signals 
+\begin_inset Formula $y_{ij\tau c}=p_{ijc}+\nu_{ij\tau c}$
+\end_inset
+
+,
+ where 
+\begin_inset Formula $\e[\nu_{ij\tau c}\mid j,c]=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\var(\nu_{ij\tau c}\mid j,c)=\sigma^{2}_{\nu,jc}$
+\end_inset
+
+.
+ A smaller value of 
+\begin_inset Formula $\sigma^{2}_{\nu,jc}$
+\end_inset
+
+ means that performance is more informative in occupation 
+\begin_inset Formula $j$
+\end_inset
+
+,
+ where employers learn more rapidly.
+ 
+\end_layout
+
+\begin_layout Standard
+Let the initial uncertainty about productivity in occupation 
+\begin_inset Formula $j$
+\end_inset
+
+ be 
+\begin_inset Formula $\sigma^{2}_{0,jc}$
+\end_inset
+
+.
+ Assuming signals are independently and normally distributed,
+ the posterior weight on accumulated performance information after 
+\begin_inset Formula $x$
+\end_inset
+
+ periods can be written as 
+\begin_inset Formula 
+\begin{equation}
+\theta_{jc}(x)=\frac{x\sigma^{2}_{0jc}}{\sigma^{2}_{\nu jc}+x\sigma^{2}_{0jc}}\,.\label{eq:eq2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Define the one period learning parameter to be 
+\begin_inset Formula 
+\[
+k_{jc}=\frac{\sigma^{2}_{0jc}}{\sigma^{2}_{0jc}+\sigma^{2}_{\nu jc}}\:,
+\]
+
+\end_inset
+
+ we can rewrite Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:eq2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ as 
+\begin_inset Formula 
+\[
+\theta_{jc}(x)=\frac{xk_{jc}}{1+(x-1)k_{jc}}\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The employer's posterior expectation is therefore
+\begin_inset Formula 
+\[
+\e[p_{ijtc}\mid\mathcal{I}_{ijtc}]=\left(1-\theta_{jc}(x^{1}_{itc})\right)\e[p_{ijc}\mid S_{ic},q_{ic}]+\theta_{jc}(x^{1}_{itc})\bar{y}_{ijtc}+H_{jc}(x^{1}_{itc})\,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Empirical specification with occupational variation
+\end_layout
+
+\begin_layout Standard
+Adding occupational variations to the empirical model,
+ we can now rewrite Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:base empirical"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ as 
+\begin_inset Formula 
+\begin{align}
+\ln w_{itc}= & \alpha_{c}+\beta_{Sc}S_{ic}+\beta_{Zc}Z_{ic}+\gamma_{Sc}(S_{ic}x^{1}_{itc})+\gamma_{Zc}(Z_{ic}x^{1}_{itc})+\theta_{1c}x^{1}_{itc}+\theta_{2c}(x^{1}_{itc})^{2}\notag\\
+ & +\sum^{J}_{j=2}D^{1}_{ijt}\left[\delta_{jc}+\rho_{Sjc}S_{ic}+\rho_{Zjc}Z_{ic}+\kappa_{1jc}x^{1}_{itc}+\kappa_{2jc}(x^{1}_{itc})^{2}+\phi_{Sjc}(S_{ic}x^{1}_{itc})+\phi_{Zjc}(Z_{ic}x^{1}_{itc})\right]\notag\\
+ & +X_{itc}'\delta_{c}+\lambda_{tc}+\varepsilon_{itc}\,,
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the omitted reference occupation 
+\begin_inset Formula $j=1$
+\end_inset
+
+,
+ the ability based employer learning coefficient is 
+\begin_inset Formula $EL^{Z}_{1c}=\gamma_{Zc}$
+\end_inset
+
+.
+ For occupation 
+\begin_inset Formula $j\geq2$
+\end_inset
+
+,
+ 
+\begin_inset Formula $EL^{Z}_{jc}=\gamma_{Zc}+\phi_{Zjc}$
+\end_inset
+
+,
+ where 
+\begin_inset Formula $\phi_{Zjc}$
+\end_inset
+
+ measures how the rate at which wages become more strongly related to ability in occupation 
+\begin_inset Formula $j$
+\end_inset
+
+ differs from the rate in the reference occupation.
+ Similarly,
+ employer learning on the schooling coefficient for the reference occupation and occupation 
+\begin_inset Formula $j$
+\end_inset
+
+ is 
+\begin_inset Formula $EL^{S}_{1c}=\gamma_{Sc}$
+\end_inset
+
+ and 
+\begin_inset Formula $EL^{S}_{jc}=\gamma_{Sc}+\phi_{Sjc}$
+\end_inset
+
+,
+ respectively.
+ 
+\end_layout
+
+\begin_layout Standard
+Tests on whether the employer learning patter differs across occupations would be 
+\begin_inset Formula 
+\[
+H_{0}:\phi_{Z2c}=\cdots=\phi_{ZJc}=0\,\text{and}\,H_{0}:\phi_{S2c}=\cdots=\phi_{SJc}=0\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "reference"
+options "econ"
+encoding "default"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
