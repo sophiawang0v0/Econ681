@@ -1,0 +1,3 @@
+cohort,rows,respondents,potexp_available,entry_boundary_rows,entry_date_unknown_rows,entry_after_observation_rows,occupation_history_available,annual_occupation_history_available,nonempty_occupation_pairs
+NLSY79,192481,11379,136689,59224,55792,0,149522,86693,49
+NLSY97,67371,5373,67369,5608,0,2,38471,22863,49

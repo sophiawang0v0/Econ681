@@ -11,6 +11,7 @@
 \newcommand{\cov}{\mathrm{Cov}}
 
 \usepackage{booktabs,threeparttable,textcomp}
+\usepackage{siunitx}
 \usepackage{caption}
 \captionsetup[table]{
     font=small,
@@ -1321,12 +1322,12 @@ Summary Statistics
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
 \backslash
-begin{table}[h]
+begin{table}[htbp]
 \end_layout
 
 \begin_layout Plain Layout
@@ -1356,7 +1357,30 @@ begin{threeparttable}
 \begin_layout Plain Layout
 
 \backslash
-begin{tabular}{lccccc}
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+setlength{
+\backslash
+tabcolsep}{4pt}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sisetup{group-digits=false}
+\backslash
+begin{tabular*}{
+\backslash
+textwidth}{@{
+\backslash
+extracolsep{
+\backslash
+fill}}l r S[table-format=2.3] S[table-format=3.3] S[table-format=-3.3] S[table-format=3.3]@{}}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1366,7 +1390,8 @@ toprule
 \end_layout
 
 \begin_layout Plain Layout
-Variable & Observations & Mean & SD & Minimum & Maxmium 
+
+Variable & Observations & {Mean} & {SD} & {Minimum} & {Maximum} 
 \backslash
 
 \backslash
@@ -1383,7 +1408,7 @@ midrule
 
 \backslash
 multicolumn{6}{l}{Panel A:
- Observation-level characteristics} 
+ Characteristics across observations} 
 \backslash
 
 \backslash
@@ -1391,7 +1416,7 @@ multicolumn{6}{l}{Panel A:
 \end_layout
 
 \begin_layout Plain Layout
-Experience          & 71,367 &  5.700 &  7.452 &  0     & 65.577 
+Experience & 55,972 & 5.030 & 5.319 & 0 & 44.327 
 \backslash
 
 \backslash
@@ -1399,7 +1424,7 @@ Experience          & 71,367 &  5.700 &  7.452 &  0     & 65.577
 \end_layout
 
 \begin_layout Plain Layout
-Hours               & 71,367 & 35.051 & 12.733 &  0     & 168    
+Hours & 55,972 & 34.661 & 12.937 & 0 & 168 
 \backslash
 
 \backslash
@@ -1407,7 +1432,7 @@ Hours               & 71,367 & 35.051 & 12.733 &  0     & 168
 \end_layout
 
 \begin_layout Plain Layout
-Occupation category & 71,367 &  3.980 &  2.218 &  1     & 7      
+Tenure & 55,972 & 3.427 & 4.433 & 0 & 29.635 
 \backslash
 
 \backslash
@@ -1415,7 +1440,7 @@ Occupation category & 71,367 &  3.980 &  2.218 &  1     & 7
 \end_layout
 
 \begin_layout Plain Layout
-Tenure              & 71,367 &  3.884 &  6.133 &  0     & 45.192 
+Wage & 55,972 & 18.289 & 11.914 & 2.832 & 110.829 
 \backslash
 
 \backslash
@@ -1423,7 +1448,7 @@ Tenure              & 71,367 &  3.884 &  6.133 &  0     & 45.192
 \end_layout
 
 \begin_layout Plain Layout
-Wage                & 71,367 & 18.082 & 12.257 &  2.551 & 108.119 
+Cohort indicator & 55,972 & 0.204 & 0.403 & 0 & 1 
 \backslash
 
 \backslash
@@ -1431,7 +1456,7 @@ Wage                & 71,367 & 18.082 & 12.257 &  2.551 & 108.119
 \end_layout
 
 \begin_layout Plain Layout
-Cohort indicator    & 71,367 &  0.160 &  0.367 &  0     & 1      
+Age & 55,972 & 24.447 & 5.848 & 15 & 47 
 \backslash
 
 \backslash
@@ -1439,17 +1464,21 @@ Cohort indicator    & 71,367 &  0.160 &  0.367 &  0     & 1
 \end_layout
 
 \begin_layout Plain Layout
-Age                 & 71,367 & 25.232 &  7.893 & 15     & 65     
-\backslash
 
 \backslash
-
+addlinespace
 \end_layout
 
 \begin_layout Plain Layout
 
 \backslash
 midrule
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+addlinespace
 \end_layout
 
 \begin_layout Plain Layout
@@ -1464,7 +1493,7 @@ multicolumn{6}{l}{Panel B:
 \end_layout
 
 \begin_layout Plain Layout
-ASVAB score         & 13,961 &  0.017 &  2.331 & -7.300 & 7.324  
+ASVAB score & 13,154 & 0.005 & 2.341 & -7.300 & 7.324 
 \backslash
 
 \backslash
@@ -1472,7 +1501,7 @@ ASVAB score         & 13,961 &  0.017 &  2.331 & -7.300 & 7.324
 \end_layout
 
 \begin_layout Plain Layout
-Education           & 13,961 & 11.267 &  1.819 &  0     & 20     
+Education & 13,154 & 11.627 & 1.811 & 0 & 20 
 \backslash
 
 \backslash
@@ -1480,7 +1509,7 @@ Education           & 13,961 & 11.267 &  1.819 &  0     & 20
 \end_layout
 
 \begin_layout Plain Layout
-Sex category        & 13,961 &  1.496 &  0.500 &  1     & 2      
+Sex category & 13,154 & 1.491 & 0.500 & 1 & 2 
 \backslash
 
 \backslash
@@ -1488,7 +1517,124 @@ Sex category        & 13,961 &  1.496 &  0.500 &  1     & 2
 \end_layout
 
 \begin_layout Plain Layout
-Race category       & 13,961 &  4.867 &  2.187 &  1     & 7      
+%Race category & 13,154 & 4.839 & 2.184 & 1 & 7 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+addlinespace
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+midrule
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+addlinespace
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+multicolumn{3}{l}{Panel C: Occupational composition (
+\backslash
+%)} & {NLSY79} & {NLSY97} & {Pooled} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+cmidrule(lr){4-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+multicolumn{3}{l}{Clerical} & 22.78 & 25.39 & 23.31 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+multicolumn{3}{l}{Craftsmen} & 9.58 & 7.47 & 9.15 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+multicolumn{3}{l}{Managers} & 6.47 & 5.65 & 6.30 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+multicolumn{3}{l}{Operatives and laborers} & 24.49 & 16.02 & 22.76 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+multicolumn{3}{l}{Professional} & 8.68 & 16.64 & 10.31 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+multicolumn{3}{l}{Sales} & 4.76 & 6.70 & 5.16 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+multicolumn{3}{l}{Service} & 23.25 & 22.12 & 23.02 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+multicolumn{3}{l}{Total} & 100.00 & 100.00 & 100.00 
 \backslash
 
 \backslash
@@ -1504,7 +1650,7 @@ bottomrule
 \begin_layout Plain Layout
 
 \backslash
-end{tabular}
+end{tabular*}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1523,21 +1669,13 @@ footnotesize
 
 \backslash
 item Note.
+ All statistics are unweighted.
  Panel A reports statistics across observations.
- Panel B reports
-\end_layout
-
-\begin_layout Plain Layout
-one record per person,
- using the first nonmissing value of each listed
-\end_layout
-
-\begin_layout Plain Layout
-characteristic.
- Occupation,
- sex,
- and race are numeric category codes.
- Statistics are rounded to three decimal places.
+ Panel B uses one record per respondent,
+ with education averaged across that respondent's observations.
+ Sex category equals 1 for female and 2 for male.
+ The cohort indicator equals 0 for NLSY79 and 1 for NLSY97.
+ Panel C reports occupation percentages within each cohort and in the pooled sample.
 \end_layout
 
 \begin_layout Plain Layout
@@ -1707,7 +1845,7 @@ Here,
 \end_inset
 
  is schooling measured at the beginning of spell 
-\begin_inset Formula $k$
+\begin_inset Formula $k=1$
 \end_inset
 
  and held fixed within that job spell,
@@ -1775,7 +1913,7 @@ The functions
 \begin_inset Formula $\varepsilon_{itc}$
 \end_inset
 
- which clustered by worker.
+ which are clustered by worker.
  
 \end_layout
 
@@ -1927,9 +2065,9 @@ Employer learning predicts
 \end_layout
 
 \begin_layout Standard
-{explicitly state result change in this paragarph}The baseline OLS estimates allow us to compare how the wage associations of schooling and ability change with experience and tenure across occupations and cohorts.
+{explicitly state result change in this paragraph}The baseline OLS estimates allow us to compare how the wage associations of schooling and ability change with experience and tenure across occupations and cohorts.
  Results consistent with the predicted signs provide suggestive evidence of employer learning.
- However,
+ {Specific}However,
  these patterns may also reflect differences in skill development,
  the rewards to skills,
  and workers' selection into jobs.
@@ -1941,7 +2079,165 @@ Instrument Selection
 \end_layout
 
 \begin_layout Standard
-[Need thinking]
+As shown in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+ref{tab:baseline}
+\end_layout
+
+\end_inset
+
+,
+ in both of the two regressions,
+ cubic experience and cubic tenure yield numerically small coefficients.
+ For consideration of simplicity,
+ we in this section adapt a quadratic experience and tenure specification.
+ This reduces the number of endogenous terms while still capturing experience profile curvature.
+ Let 
+\begin_inset Formula $E_{it}$
+\end_inset
+
+ denote actual experience,
+ 
+\begin_inset Formula $T_{it}$
+\end_inset
+
+ employer tenure,
+ 
+\begin_inset Formula $S_{it}$
+\end_inset
+
+ schooling,
+ 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+ the ASVAB score,
+ 
+\begin_inset Formula $D_{jit}$
+\end_inset
+
+ the occupation 
+\begin_inset Formula $j$
+\end_inset
+
+ indicator,
+ and 
+\begin_inset Formula $X_{it}$
+\end_inset
+
+ demographic and year controls.
+ The new proposed wage equation is 
+\begin_inset Formula 
+\begin{align*}
+100\ln w_{it}= & \alpha+\beta_{S}S_{it}+\beta_{A}A_{i}+\gamma_{1}E_{it}+\gamma_{2}E^{2}_{it}+\tau_{1}T_{it}+\tau_{2}T^{2}_{it}\\
+ & +\lambda_{S}S_{it}E_{it}+\lambda_{A}A_{i}E_{it}+\theta_{S}S_{it}T_{it}+\theta_{A}A_{i}T_{it}+\sum^{7}_{j=2}D_{jit}[\mu_{j}+\beta_{Sj}S_{it}+\beta_{Aj}A_{i}\\
+ & +\lambda_{Sj}S_{it}E_{it}+\lambda_{Aj}A_{i}E_{it}+\theta_{Sj}S_{it}T_{it}+\theta_{Aj}A_{i}T_{it}]+X_{it}'\delta+u_{it}\,.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Actual experience and occupational may both due to productivity information unobserved by the researcher.
+ In this section,
+ we will therefore treat experience,
+ occupation,
+ and their interactions with other variables as endogenous.
+ The endogenous regressor vector is 
+\begin_inset Formula 
+\[
+E_{it},E^{2}_{it},S_{it}E_{it},A_{i}E_{it},\{D_{jit},D_{jit}S_{it},D_{jit}A_{i},D_{jit}S_{it}E_{it},D_{jit}A_{i}E_{it}\}^{7}_{j=2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+V_{it}=\left(\begin{array}{c}
+E_{it},E^{2}_{it},T_{it},T^{2}_{it},S_{it}E_{it},A_{i}E_{it},S_{it}T_{it},A_{i}T_{it},\\
+\left\{ D_{jit},D_{jit}S_{it},D_{jit}A_{i},D_{jit}S_{it}E_{it},D_{jit}A_{i}E_{it},D_{jit}S_{it}T_{it},D_{jit}A_{i}T_{it}\right\} ^{7}_{j=2}
+\end{array}\right)^{T}\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $V_{kit}$
+\end_inset
+
+ denote the 
+\begin_inset Formula $k$
+\end_inset
+
+the element in 
+\begin_inset Formula $V_{it}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $Z_{it}$
+\end_inset
+
+ represent the excluded instruments,
+ and the exogenous regressor as 
+\begin_inset Formula 
+\[
+W_{it}=(1,S_{it},A_{i},X_{it}')'\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For each endogenous term 
+\begin_inset Formula $V_{kit}$
+\end_inset
+
+,
+ the first stage equation is 
+\begin_inset Formula 
+\[
+V_{kit}=Z_{it}'\pi_{k}+W_{it}'\rho_{k}+\eta_{kit}\,,\quad k=1,\ldots K\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $K=\dim(V_{it})$
+\end_inset
+
+ and 
+\begin_inset Formula $\eta_{kit}$
+\end_inset
+
+ is the first stage error term.
+ Estimate each equation by OLS yields 
+\begin_inset Formula 
+\[
+\hat{V}_{kit}=Z_{it}'\hat{\pi}_{j}+W_{it}'\hat{\rho}_{k}\,.
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2131,16 +2427,25 @@ centering
 \begin_layout Plain Layout
 
 \backslash
+captionsetup{skip=4pt}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
 caption{Education,
  Ability,
- and Wage Dynamics:
- Baseline Estimates}
+ and Wage Dynamics}
 \end_layout
 
 \begin_layout Plain Layout
 
 \backslash
 label{tab:baseline}
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -2152,7 +2457,9 @@ begin{threeparttable}
 \begin_layout Plain Layout
 
 \backslash
-footnotesize
+fontsize{9}{10.5}
+\backslash
+selectfont
 \end_layout
 
 \begin_layout Plain Layout
@@ -2161,6 +2468,54 @@ footnotesize
 setlength{
 \backslash
 tabcolsep}{3pt}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+renewcommand{
+\backslash
+arraystretch}{0.90}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+sisetup{
+\end_layout
+
+\begin_layout Plain Layout
+    table-format = -2.5,
+\end_layout
+
+\begin_layout Plain Layout
+    group-digits = false,
+\end_layout
+
+\begin_layout Plain Layout
+    table-space-text-pre = {(},
+\end_layout
+
+\begin_layout Plain Layout
+    table-space-text-post = {
+\backslash
+textsuperscript{***}},
+\end_layout
+
+\begin_layout Plain Layout
+    table-align-text-pre = false,
+\end_layout
+
+\begin_layout Plain Layout
+    table-align-text-post = false
+\end_layout
+
+\begin_layout Plain Layout
+}
 \end_layout
 
 \begin_layout Plain Layout
@@ -2176,7 +2531,7 @@ textwidth}{@{
 \backslash
 extracolsep{
 \backslash
-fill}}lrr@{}}
+fill}}lSSSS@{}}
 \end_layout
 
 \begin_layout Plain Layout
@@ -2186,7 +2541,15 @@ toprule
 \end_layout
 
 \begin_layout Plain Layout
- & NLSY79 & NLSY97 
+& 
+\backslash
+multicolumn{2}{c}{Baseline}
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+multicolumn{2}{c}{Occupation model} 
 \backslash
 
 \backslash
@@ -2194,7 +2557,15 @@ toprule
 \end_layout
 
 \begin_layout Plain Layout
- & (1) & (2) 
+& {NLSY79} & {NLSY97} & {NLSY79} & {NLSY97} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+& {(1)} & {(2)} & {(3)} & {(4)} 
 \backslash
 
 \backslash
@@ -2214,7 +2585,7 @@ midrule
 \begin_layout Plain Layout
 
 \backslash
-multicolumn{3}{l}{A.
+multicolumn{5}{l}{A.
  Regression coefficients} 
 \backslash
 
@@ -2224,6 +2595,8 @@ multicolumn{3}{l}{A.
 
 \begin_layout Plain Layout
 
+\backslash
+addlinespace
 \end_layout
 
 \begin_layout Plain Layout
@@ -2231,15 +2604,27 @@ Education
 \end_layout
 
 \begin_layout Plain Layout
- & 
+& 7.291
 \backslash
-(7.404^{***}
+textsuperscript{***}
+\end_layout
+
+\begin_layout Plain Layout
+& 3.508
 \backslash
-) & 
+textsuperscript{***}
+\end_layout
+
+\begin_layout Plain Layout
+& 4.533
 \backslash
-(3.508^{***}
+textsuperscript{***}
+\end_layout
+
+\begin_layout Plain Layout
+& 3.680
 \backslash
-) 
+textsuperscript{**} 
 \backslash
 
 \backslash
@@ -2247,7 +2632,23 @@ Education
 \end_layout
 
 \begin_layout Plain Layout
- & (0.365) & (0.960) 
+& {(}0.349{)} & {(}0.960{)} & {(}0.540{)} & {(}1.517{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+% 
+\backslash
+(p
+\backslash
+) value
+\end_layout
+
+\begin_layout Plain Layout
+% & {<}0.0001 & 0.0003 & {<}0.0001 & 0.0153 
 \backslash
 
 \backslash
@@ -2263,15 +2664,23 @@ ASVAB
 \end_layout
 
 \begin_layout Plain Layout
- & 
+& -1.320
 \backslash
-(-0.934^{***}
+textsuperscript{***}
+\end_layout
+
+\begin_layout Plain Layout
+& 0.344
+\end_layout
+
+\begin_layout Plain Layout
+& -1.258
 \backslash
-) & 
-\backslash
-(0.344
-\backslash
-) 
+textsuperscript{***}
+\end_layout
+
+\begin_layout Plain Layout
+& 0.200 
 \backslash
 
 \backslash
@@ -2279,7 +2688,23 @@ ASVAB
 \end_layout
 
 \begin_layout Plain Layout
- & (0.276) & (0.714) 
+& {(}0.266{)} & {(}0.714{)} & {(}0.393{)} & {(}0.865{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+% 
+\backslash
+(p
+\backslash
+) value
+\end_layout
+
+\begin_layout Plain Layout
+% & {<}0.0001 & 0.6298 & 0.0014 & 0.8176 
 \backslash
 
 \backslash
@@ -2295,15 +2720,25 @@ Experience
 \end_layout
 
 \begin_layout Plain Layout
- & 
+& 6.563
 \backslash
-(6.752^{***}
+textsuperscript{***}
+\end_layout
+
+\begin_layout Plain Layout
+& -0.273
+\end_layout
+
+\begin_layout Plain Layout
+& 4.130
 \backslash
-) & 
+textsuperscript{*}
+\end_layout
+
+\begin_layout Plain Layout
+& 13.178
 \backslash
-(-0.273
-\backslash
-) 
+textsuperscript{**} 
 \backslash
 
 \backslash
@@ -2311,7 +2746,137 @@ Experience
 \end_layout
 
 \begin_layout Plain Layout
- & (1.284) & (2.723) 
+& {(}1.379{)} & {(}2.723{)} & {(}2.336{)} & {(}5.673{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+(p
+\backslash
+) value & {<}0.0001 & 0.9203 & 0.0771 & 0.0202 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Experience
+\backslash
+(^{2}
+\backslash
+)
+\end_layout
+
+\begin_layout Plain Layout
+& -0.244
+\backslash
+textsuperscript{***}
+\end_layout
+
+\begin_layout Plain Layout
+& -0.137
+\end_layout
+
+\begin_layout Plain Layout
+& -0.143
+\backslash
+textsuperscript{**}
+\end_layout
+
+\begin_layout Plain Layout
+& -0.547
+\backslash
+textsuperscript{***} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+& {(}0.034{)} & {(}0.113{)} & {(}0.068{)} & {(}0.176{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+(p
+\backslash
+) value & {<}0.0001 & 0.2237 & 0.0356 & 0.0019 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Experience
+\backslash
+(^{3}
+\backslash
+)
+\end_layout
+
+\begin_layout Plain Layout
+& 0.00275
+\backslash
+textsuperscript{***}
+\end_layout
+
+\begin_layout Plain Layout
+& 0.00065
+\end_layout
+
+\begin_layout Plain Layout
+& 0.00114
+\end_layout
+
+\begin_layout Plain Layout
+& 0.01267
+\backslash
+textsuperscript{**} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+& {(}0.00058{)} & {(}0.00343{)}
+\end_layout
+
+\begin_layout Plain Layout
+& {(}0.00138{)} & {(}0.00535{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+(p
+\backslash
+) value & {<}0.0001 & 0.8501 & 0.4088 & 0.0179 
 \backslash
 
 \backslash
@@ -2327,15 +2892,25 @@ Tenure
 \end_layout
 
 \begin_layout Plain Layout
- & 
+& 9.094
 \backslash
-(5.300^{***}
+textsuperscript{***}
+\end_layout
+
+\begin_layout Plain Layout
+& 4.788
 \backslash
-) & 
+textsuperscript{*}
+\end_layout
+
+\begin_layout Plain Layout
+& 9.088
 \backslash
-(4.788^{*}
-\backslash
-) 
+textsuperscript{***}
+\end_layout
+
+\begin_layout Plain Layout
+& -1.862 
 \backslash
 
 \backslash
@@ -2343,7 +2918,137 @@ Tenure
 \end_layout
 
 \begin_layout Plain Layout
- & (1.536) & (2.689) 
+& {(}1.828{)} & {(}2.689{)} & {(}3.290{)} & {(}4.953{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+(p
+\backslash
+) value & {<}0.0001 & 0.0751 & 0.0057 & 0.7069 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Tenure
+\backslash
+(^{2}
+\backslash
+)
+\end_layout
+
+\begin_layout Plain Layout
+& -0.728
+\backslash
+textsuperscript{***}
+\end_layout
+
+\begin_layout Plain Layout
+& -0.265
+\backslash
+textsuperscript{*}
+\end_layout
+
+\begin_layout Plain Layout
+& -0.706
+\backslash
+textsuperscript{***}
+\end_layout
+
+\begin_layout Plain Layout
+& 0.008 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+& {(}0.059{)} & {(}0.136{)} & {(}0.093{)} & {(}0.216{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+(p
+\backslash
+) value & {<}0.0001 & 0.0510 & {<}0.0001 & 0.9717 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Tenure
+\backslash
+(^{3}
+\backslash
+)
+\end_layout
+
+\begin_layout Plain Layout
+& 0.01628
+\backslash
+textsuperscript{***}
+\end_layout
+
+\begin_layout Plain Layout
+& 0.00623
+\end_layout
+
+\begin_layout Plain Layout
+& 0.01616
+\backslash
+textsuperscript{***}
+\end_layout
+
+\begin_layout Plain Layout
+& -0.00505 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+& {(}0.00180{)} & {(}0.00474{)}
+\end_layout
+
+\begin_layout Plain Layout
+& {(}0.00278{)} & {(}0.00688{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+(p
+\backslash
+) value & {<}0.0001 & 0.1884 & {<}0.0001 & 0.4625 
 \backslash
 
 \backslash
@@ -2365,15 +3070,7 @@ times
 \end_layout
 
 \begin_layout Plain Layout
- & 
-\backslash
-(-0.171^{*}
-\backslash
-) & 
-\backslash
-(0.316
-\backslash
-) 
+& -0.101 & 0.316 & 0.002 & -0.474 
 \backslash
 
 \backslash
@@ -2381,7 +3078,23 @@ times
 \end_layout
 
 \begin_layout Plain Layout
- & (0.097) & (0.202) 
+& {(}0.107{)} & {(}0.202{)} & {(}0.189{)} & {(}0.441{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+% 
+\backslash
+(p
+\backslash
+) value
+\end_layout
+
+\begin_layout Plain Layout
+% & 0.3464 & 0.1168 & 0.9932 & 0.2828 
 \backslash
 
 \backslash
@@ -2403,15 +3116,23 @@ times
 \end_layout
 
 \begin_layout Plain Layout
- & 
+& 0.128
 \backslash
-(0.198^{***}
+textsuperscript{*}
+\end_layout
+
+\begin_layout Plain Layout
+& 0.132
+\end_layout
+
+\begin_layout Plain Layout
+& 0.291
 \backslash
-) & 
-\backslash
-(0.132
-\backslash
-) 
+textsuperscript{*}
+\end_layout
+
+\begin_layout Plain Layout
+& 0.365 
 \backslash
 
 \backslash
@@ -2419,7 +3140,23 @@ times
 \end_layout
 
 \begin_layout Plain Layout
- & (0.073) & (0.190) 
+& {(}0.072{)} & {(}0.190{)} & {(}0.163{)} & {(}0.225{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+% 
+\backslash
+(p
+\backslash
+) value
+\end_layout
+
+\begin_layout Plain Layout
+% & 0.0782 & 0.4870 & 0.0740 & 0.1057 
 \backslash
 
 \backslash
@@ -2441,15 +3178,7 @@ times
 \end_layout
 
 \begin_layout Plain Layout
- & 
-\backslash
-(0.229^{*}
-\backslash
-) & 
-\backslash
-(0.036
-\backslash
-) 
+& 0.141 & 0.036 & 0.042 & 0.461 
 \backslash
 
 \backslash
@@ -2457,7 +3186,23 @@ times
 \end_layout
 
 \begin_layout Plain Layout
- & (0.122) & (0.202) 
+& {(}0.139{)} & {(}0.202{)} & {(}0.270{)} & {(}0.381{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+% 
+\backslash
+(p
+\backslash
+) value
+\end_layout
+
+\begin_layout Plain Layout
+% & 0.3094 & 0.8572 & 0.8754 & 0.2267 
 \backslash
 
 \backslash
@@ -2479,15 +3224,21 @@ times
 \end_layout
 
 \begin_layout Plain Layout
- & 
+& 0.364
 \backslash
-(0.166
-\backslash
-) & 
-\backslash
-(0.100
-\backslash
-) 
+textsuperscript{***}
+\end_layout
+
+\begin_layout Plain Layout
+& 0.100
+\end_layout
+
+\begin_layout Plain Layout
+& 0.064
+\end_layout
+
+\begin_layout Plain Layout
+& -0.329 
 \backslash
 
 \backslash
@@ -2495,7 +3246,7 @@ times
 \end_layout
 
 \begin_layout Plain Layout
- & (0.104) & (0.215) 
+& {(}0.101{)} & {(}0.215{)} & {(}0.233{)} & {(}0.298{)} 
 \backslash
 
 \backslash
@@ -2503,6 +3254,39 @@ times
 \end_layout
 
 \begin_layout Plain Layout
+% 
+\backslash
+(p
+\backslash
+) value
+\end_layout
+
+\begin_layout Plain Layout
+% & 0.0003 & 0.6421 & 0.7850 & 0.2693 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+addlinespace[2pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+multicolumn{5}{l}{B.
+ Linear combination tests} 
+\backslash
+
+\backslash
 
 \end_layout
 
@@ -2513,22 +3297,7 @@ addlinespace
 \end_layout
 
 \begin_layout Plain Layout
-
-\backslash
-multicolumn{3}{l}{B.
- Linear combination tests} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-Education interactions,
+Education,
  
 \backslash
 (
@@ -2541,15 +3310,21 @@ theta_S
 \end_layout
 
 \begin_layout Plain Layout
- & 
+& 0.040
+\end_layout
+
+\begin_layout Plain Layout
+& 0.353
 \backslash
-(0.058
-\backslash
-) & 
-\backslash
-(0.353^{**}
-\backslash
-) 
+textsuperscript{**}
+\end_layout
+
+\begin_layout Plain Layout
+& 0.044
+\end_layout
+
+\begin_layout Plain Layout
+& -0.012 
 \backslash
 
 \backslash
@@ -2557,7 +3332,7 @@ theta_S
 \end_layout
 
 \begin_layout Plain Layout
- & (0.062) & (0.174) 
+& {(}0.086{)} & {(}0.174{)} & {(}0.189{)} & {(}0.287{)} 
 \backslash
 
 \backslash
@@ -2573,14 +3348,10 @@ theta_S
 \end_layout
 
 \begin_layout Plain Layout
- & 0.355 & 0.043 
+& 0.6377 & 0.0429 & 0.8166 & 0.9653 
 \backslash
 
 \backslash
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -2591,7 +3362,7 @@ addlinespace
 \end_layout
 
 \begin_layout Plain Layout
-ASVAB interactions,
+ASVAB,
  
 \backslash
 (
@@ -2604,15 +3375,25 @@ theta_Z
 \end_layout
 
 \begin_layout Plain Layout
- & 
+& 0.492
 \backslash
-(0.364^{***}
+textsuperscript{***}
+\end_layout
+
+\begin_layout Plain Layout
+& 0.232
 \backslash
-) & 
+textsuperscript{*}
+\end_layout
+
+\begin_layout Plain Layout
+& 0.355
 \backslash
-(0.232^{*}
-\backslash
-) 
+textsuperscript{**}
+\end_layout
+
+\begin_layout Plain Layout
+& 0.036 
 \backslash
 
 \backslash
@@ -2620,7 +3401,7 @@ theta_Z
 \end_layout
 
 \begin_layout Plain Layout
- & (0.057) & (0.129) 
+& {(}0.070{)} & {(}0.129{)} & {(}0.141{)} & {(}0.215{)} 
 \backslash
 
 \backslash
@@ -2636,11 +3417,7 @@ theta_Z
 \end_layout
 
 \begin_layout Plain Layout
- & 
-\backslash
-(<0.001
-\backslash
-) & 0.072 
+& {<}0.0001 & 0.0718 & 0.0119 & 0.8686 
 \backslash
 
 \backslash
@@ -2654,7 +3431,87 @@ theta_Z
 \begin_layout Plain Layout
 
 \backslash
-addlinespace
+addlinespace[2pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+multicolumn{5}{l}{C.
+ Tests of cubic terms:
+ 
+\backslash
+(p
+\backslash
+) values} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Experience cubic terms 
+\backslash
+(=0
+\backslash
+)
+\end_layout
+
+\begin_layout Plain Layout
+& {<}0.0001 & 0.8501 & {<}0.0001 & 0.0826 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Tenure cubic terms 
+\backslash
+(=0
+\backslash
+)
+\end_layout
+
+\begin_layout Plain Layout
+& {<}0.0001 & 0.1884 & {<}0.0001 & 0.0113 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+All cubic terms 
+\backslash
+(=0
+\backslash
+)
+\end_layout
+
+\begin_layout Plain Layout
+& {<}0.0001 & 0.2195 & {<}0.0001 & 0.0022 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -2664,26 +3521,18 @@ midrule
 \end_layout
 
 \begin_layout Plain Layout
-Experience and tenure squared and cubed
-\end_layout
-
-\begin_layout Plain Layout
- & Yes & Yes 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
 Year and job number indicators
 \end_layout
 
 \begin_layout Plain Layout
- & Yes & Yes 
+& {Yes} & {Yes} & {Yes} & {Yes} 
 \backslash
 
 \backslash
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -2692,10 +3541,30 @@ Sex and race controls
 \end_layout
 
 \begin_layout Plain Layout
- & Yes & Yes 
+& {Yes} & {Yes} & {Yes} & {Yes} 
 \backslash
 
 \backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Occupation indicators and interactions
+\end_layout
+
+\begin_layout Plain Layout
+& {No} & {No} & {Yes} & {Yes} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -2704,10 +3573,34 @@ Observations
 \end_layout
 
 \begin_layout Plain Layout
- & 59,927 & 11,440 
+& 
+\backslash
+multicolumn{1}{c}{57,214}
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+multicolumn{1}{c}{11,440}
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+multicolumn{1}{c}{57,214}
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+multicolumn{1}{c}{11,440} 
 \backslash
 
 \backslash
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -2716,10 +3609,34 @@ Respondents
 \end_layout
 
 \begin_layout Plain Layout
- & 11,072 & 2,889 
+& 
+\backslash
+multicolumn{1}{c}{11,065}
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+multicolumn{1}{c}{2,889}
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+multicolumn{1}{c}{11,065}
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+multicolumn{1}{c}{2,889} 
 \backslash
 
 \backslash
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -2732,10 +3649,34 @@ Respondents
 \end_layout
 
 \begin_layout Plain Layout
- & 0.4029 & 0.2933 
+& 
+\backslash
+multicolumn{1}{c}{0.3724}
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+multicolumn{1}{c}{0.2933}
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+multicolumn{1}{c}{0.4079}
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+multicolumn{1}{c}{0.3455} 
 \backslash
 
 \backslash
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -2770,6 +3711,30 @@ scriptsize
 \begin_layout Plain Layout
 
 \backslash
+item Note.
+ The outcome is 100 times log real hourly wages.
+ Regressions use sampling weights;
+ standard errors clustered
+\end_layout
+
+\begin_layout Plain Layout
+by respondent are in parentheses.
+ Columns (3) and (4) report clerical coefficients and linear combinations,
+ while other occupation groups are not displayed.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Panel C tests the common cubic coefficients for baseline models and all occupation cubic coefficients for occupation models.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
 item 
 \backslash
 (^{*}p<0.10
@@ -2797,6 +3762,10 @@ item
 
 \backslash
 end{tablenotes}
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -2864,6 +3833,11 @@ tabcolsep}{3pt}
 
 \begin_layout Plain Layout
 
+
+\backslash
+sisetup{group-digits=false,table-space-text-pre={(},table-space-text-post={
+\backslash
+textsuperscript{***}},table-align-text-pre=false,table-align-text-post=false}
 \backslash
 begin{tabular*}{
 \backslash
@@ -2871,7 +3845,19 @@ textwidth}{@{
 \backslash
 extracolsep{
 \backslash
-fill}}lrrrrrr@{}}
+fill}}l S[table-format=-2.4,table-space-text-pre={(},table-space-text-post={
+\backslash
+textsuperscript{***}},table-align-text-pre=false,table-align-text-post=false] S[table-format=-1.4,table-space-text-pre={(},table-space-text-post={
+\backslash
+textsuperscript{***}},table-align-text-pre=false,table-align-text-post=false] S[table-format=-1.4,table-space-text-pre={(},table-space-text-post={
+\backslash
+textsuperscript{***}},table-align-text-pre=false,table-align-text-post=false] S[table-format=-1.4,table-space-text-pre={(},table-space-text-post={
+\backslash
+textsuperscript{***}},table-align-text-pre=false,table-align-text-post=false] S[table-format=-1.4,table-space-text-pre={(},table-space-text-post={
+\backslash
+textsuperscript{***}},table-align-text-pre=false,table-align-text-post=false] S[table-format=-1.4,table-space-text-pre={(},table-space-text-post={
+\backslash
+textsuperscript{***}},table-align-text-pre=false,table-align-text-post=false]@{}}
 \end_layout
 
 \begin_layout Plain Layout
@@ -2901,31 +3887,32 @@ cmidrule(lr){5-7}
 \end_layout
 
 \begin_layout Plain Layout
-Occupation & Level & 
+
+Occupation & {Level} & {
 \backslash
 (
 \backslash
 times
 \backslash
-) Experience & 
+) Experience} & {
 \backslash
 (
 \backslash
 times
 \backslash
-) Tenure & Level & 
+) Tenure} & {Level} & {
 \backslash
 (
 \backslash
 times
 \backslash
-) Experience & 
+) Experience} & {
 \backslash
 (
 \backslash
 times
 \backslash
-) Tenure 
+) Tenure} 
 \backslash
 
 \backslash
@@ -2933,7 +3920,8 @@ times
 \end_layout
 
 \begin_layout Plain Layout
-& (1) & (2) & (3) & (4) & (5) & (6) 
+
+& {(1)} & {(2)} & {(3)} & {(4)} & {(5)} & {(6)} 
 \backslash
 
 \backslash
@@ -2956,279 +3944,14 @@ multicolumn{7}{l}{A.
 \end_layout
 
 \begin_layout Plain Layout
-Clerical & 
-\backslash
-( 4.690^{***}
-\backslash
-) & 
-\backslash
-(-0.111^{}
-\backslash
-) & 
-\backslash
-( 0.112^{}
-\backslash
-) & 
-\backslash
-(-1.032^{**}
-\backslash
-) & 
-\backslash
-( 0.330^{*}
-\backslash
-) & 
-\backslash
-(-0.070^{}
-\backslash
-) 
-\backslash
 
+Clerical & 4.690
 \backslash
-
-\end_layout
-
-\begin_layout Plain Layout
- & ( 0.588) & ( 0.204) & ( 0.206) & ( 0.423) & ( 0.178) & ( 0.200) 
+textsuperscript{***} & -0.111 & 0.112 & -1.032
 \backslash
-
+textsuperscript{**} & 0.330
 \backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-Craftsmen & 
-\backslash
-( 4.908^{***}
-\backslash
-) & 
-\backslash
-( 0.325^{}
-\backslash
-) & 
-\backslash
-(-0.574^{}
-\backslash
-) & 
-\backslash
-( 0.051^{}
-\backslash
-) & 
-\backslash
-(-0.070^{}
-\backslash
-) & 
-\backslash
-( 0.379^{**}
-\backslash
-) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
- & ( 1.499) & ( 0.272) & ( 0.414) & ( 0.962) & ( 0.142) & ( 0.178) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-Managers & 
-\backslash
-( 5.800^{***}
-\backslash
-) & 
-\backslash
-(-0.317^{}
-\backslash
-) & 
-\backslash
-( 0.575^{}
-\backslash
-) & 
-\backslash
-( 0.853^{}
-\backslash
-) & 
-\backslash
-( 0.503^{}
-\backslash
-) & 
-\backslash
-(-0.422^{}
-\backslash
-) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
- & ( 2.049) & ( 0.325) & ( 0.350) & ( 1.399) & ( 0.336) & ( 0.356) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-Operatives and & 
-\backslash
-( 5.674^{***}
-\backslash
-) & 
-\backslash
-(-0.178^{*}
-\backslash
-) & 
-\backslash
-( 0.506^{**}
-\backslash
-) & 
-\backslash
-(-0.730^{}
-\backslash
-) & 
-\backslash
-( 0.003^{}
-\backslash
-) & 
-\backslash
-( 0.230^{}
-\backslash
-) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-laborers & ( 0.515) & ( 0.107) & ( 0.211) & ( 0.461) & ( 0.088) & ( 0.189) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-Professional & 
-\backslash
-( 7.662^{***}
-\backslash
-) & 
-\backslash
-( 0.362^{}
-\backslash
-) & 
-\backslash
-(-0.584^{**}
-\backslash
-) & 
-\backslash
-( 1.550^{}
-\backslash
-) & 
-\backslash
-(-0.175^{}
-\backslash
-) & 
-\backslash
-( 0.442^{**}
-\backslash
-) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
- & ( 1.072) & ( 0.240) & ( 0.243) & ( 1.078) & ( 0.202) & ( 0.216) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-Sales & 
-\backslash
-( 6.503^{***}
-\backslash
-) & 
-\backslash
-(-0.806^{***}
-\backslash
-) & 
-\backslash
-( 1.671^{***}
-\backslash
-) & 
-\backslash
-(-2.583^{***}
-\backslash
-) & 
-\backslash
-( 0.684^{***}
-\backslash
-) & 
-\backslash
-( 0.074^{}
-\backslash
-) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
- & ( 1.374) & ( 0.245) & ( 0.523) & ( 0.965) & ( 0.197) & ( 0.432) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-Service & 
-\backslash
-( 7.227^{***}
-\backslash
-) & 
-\backslash
-(-0.202^{}
-\backslash
-) & 
-\backslash
-( 0.113^{}
-\backslash
-) & 
-\backslash
-(-0.893^{**}
-\backslash
-) & 
-\backslash
-( 0.075^{}
-\backslash
-) & 
-\backslash
-( 0.364^{*}
-\backslash
-) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
- & ( 0.518) & ( 0.147) & ( 0.170) & ( 0.352) & ( 0.096) & ( 0.190) 
+textsuperscript{*} & -0.070 
 \backslash
 
 \backslash
@@ -3237,17 +3960,164 @@ Service &
 
 \begin_layout Plain Layout
 
+ & {(}0.588{)} & {(}0.204{)} & {(}0.206{)} & {(}0.423{)} & {(}0.178{)} & {(}0.200{)} 
 \backslash
-addlinespace Equality test,
- 
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Craftsmen & 4.908
+\backslash
+textsuperscript{***} & 0.325 & -0.574 & 0.051 & -0.070 & 0.379
+\backslash
+textsuperscript{**} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}1.499{)} & {(}0.272{)} & {(}0.414{)} & {(}0.962{)} & {(}0.142{)} & {(}0.178{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Managers & 5.800
+\backslash
+textsuperscript{***} & -0.317 & 0.575 & 0.853 & 0.503 & -0.422 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}2.049{)} & {(}0.325{)} & {(}0.350{)} & {(}1.399{)} & {(}0.336{)} & {(}0.356{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Operatives and & 5.674
+\backslash
+textsuperscript{***} & -0.178
+\backslash
+textsuperscript{*} & 0.506
+\backslash
+textsuperscript{**} & -0.730 & 0.003 & 0.230 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+laborers & {(}0.515{)} & {(}0.107{)} & {(}0.211{)} & {(}0.461{)} & {(}0.088{)} & {(}0.189{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Professional & 7.662
+\backslash
+textsuperscript{***} & 0.362 & -0.584
+\backslash
+textsuperscript{**} & 1.550 & -0.175 & 0.442
+\backslash
+textsuperscript{**} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}1.072{)} & {(}0.240{)} & {(}0.243{)} & {(}1.078{)} & {(}0.202{)} & {(}0.216{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Sales & 6.503
+\backslash
+textsuperscript{***} & -0.806
+\backslash
+textsuperscript{***} & 1.671
+\backslash
+textsuperscript{***} & -2.583
+\backslash
+textsuperscript{***} & 0.684
+\backslash
+textsuperscript{***} & 0.074 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}1.374{)} & {(}0.245{)} & {(}0.523{)} & {(}0.965{)} & {(}0.197{)} & {(}0.432{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Service & 7.227
+\backslash
+textsuperscript{***} & -0.202 & 0.113 & -0.893
+\backslash
+textsuperscript{**} & 0.075 & 0.364
+\backslash
+textsuperscript{*} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.518{)} & {(}0.147{)} & {(}0.170{)} & {(}0.352{)} & {(}0.096{)} & {(}0.190{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addlinespace Equality test, 
 \backslash
 (p
 \backslash
-) & 0.0235 & 0.0228 & 
-\backslash
-(<0.001
-\backslash
-) & 0.0717 & 0.0153 & 0.2179 
+) & 0.0235 & 0.0228 & {<}0.001 & 0.0717 & 0.0153 & 0.2179 
 \backslash
 
 \backslash
@@ -3286,31 +4156,10 @@ multicolumn{7}{l}{B.
 \end_layout
 
 \begin_layout Plain Layout
-Clerical & 
+
+Clerical & 3.680
 \backslash
-( 3.680^{**}
-\backslash
-) & 
-\backslash
-(-0.474^{}
-\backslash
-) & 
-\backslash
-( 0.461^{}
-\backslash
-) & 
-\backslash
-( 0.200^{}
-\backslash
-) & 
-\backslash
-( 0.365^{}
-\backslash
-) & 
-\backslash
-(-0.329^{}
-\backslash
-) 
+textsuperscript{**} & -0.474 & 0.461 & 0.200 & 0.365 & -0.329 
 \backslash
 
 \backslash
@@ -3318,7 +4167,8 @@ Clerical &
 \end_layout
 
 \begin_layout Plain Layout
- & ( 1.517) & ( 0.441) & ( 0.381) & ( 0.865) & ( 0.225) & ( 0.298) 
+
+ & {(}1.517{)} & {(}0.441{)} & {(}0.381{)} & {(}0.865{)} & {(}0.225{)} & {(}0.298{)} 
 \backslash
 
 \backslash
@@ -3326,31 +4176,8 @@ Clerical &
 \end_layout
 
 \begin_layout Plain Layout
-Craftsmen & 
-\backslash
-( 2.608^{}
-\backslash
-) & 
-\backslash
-( 0.418^{}
-\backslash
-) & 
-\backslash
-(-0.351^{}
-\backslash
-) & 
-\backslash
-(-3.596^{}
-\backslash
-) & 
-\backslash
-(-0.005^{}
-\backslash
-) & 
-\backslash
-( 0.120^{}
-\backslash
-) 
+
+Craftsmen & 2.608 & 0.418 & -0.351 & -3.596 & -0.005 & 0.120 
 \backslash
 
 \backslash
@@ -3358,7 +4185,8 @@ Craftsmen &
 \end_layout
 
 \begin_layout Plain Layout
- & ( 4.758) & ( 0.864) & ( 0.844) & ( 3.732) & ( 0.829) & ( 0.752) 
+
+ & {(}4.758{)} & {(}0.864{)} & {(}0.844{)} & {(}3.732{)} & {(}0.829{)} & {(}0.752{)} 
 \backslash
 
 \backslash
@@ -3366,31 +4194,10 @@ Craftsmen &
 \end_layout
 
 \begin_layout Plain Layout
-Managers & 
+
+Managers & 12.092
 \backslash
-(12.092^{***}
-\backslash
-) & 
-\backslash
-( 0.670^{}
-\backslash
-) & 
-\backslash
-(-1.013^{}
-\backslash
-) & 
-\backslash
-( 0.008^{}
-\backslash
-) & 
-\backslash
-(-0.295^{}
-\backslash
-) & 
-\backslash
-( 0.882^{}
-\backslash
-) 
+textsuperscript{***} & 0.670 & -1.013 & 0.008 & -0.295 & 0.882 
 \backslash
 
 \backslash
@@ -3398,7 +4205,8 @@ Managers &
 \end_layout
 
 \begin_layout Plain Layout
- & ( 2.672) & ( 0.626) & ( 0.643) & ( 3.301) & ( 0.674) & ( 0.749) 
+
+ & {(}2.672{)} & {(}0.626{)} & {(}0.643{)} & {(}3.301{)} & {(}0.674{)} & {(}0.749{)} 
 \backslash
 
 \backslash
@@ -3406,31 +4214,8 @@ Managers &
 \end_layout
 
 \begin_layout Plain Layout
-Operatives and & 
-\backslash
-( 1.121^{}
-\backslash
-) & 
-\backslash
-(-0.121^{}
-\backslash
-) & 
-\backslash
-( 0.371^{}
-\backslash
-) & 
-\backslash
-( 0.820^{}
-\backslash
-) & 
-\backslash
-( 0.224^{}
-\backslash
-) & 
-\backslash
-(-0.338^{}
-\backslash
-) 
+
+Operatives and & 1.121 & -0.121 & 0.371 & 0.820 & 0.224 & -0.338 
 \backslash
 
 \backslash
@@ -3438,7 +4223,8 @@ Operatives and &
 \end_layout
 
 \begin_layout Plain Layout
-laborers & ( 1.417) & ( 0.258) & ( 0.298) & ( 1.216) & ( 0.312) & ( 0.352) 
+
+laborers & {(}1.417{)} & {(}0.258{)} & {(}0.298{)} & {(}1.216{)} & {(}0.312{)} & {(}0.352{)} 
 \backslash
 
 \backslash
@@ -3446,31 +4232,14 @@ laborers & ( 1.417) & ( 0.258) & ( 0.298) & ( 1.216) & ( 0.312) & ( 0.352)
 \end_layout
 
 \begin_layout Plain Layout
-Professional & 
+
+Professional & 3.559
 \backslash
-( 3.559^{**}
+textsuperscript{**} & 0.788
 \backslash
-) & 
+textsuperscript{**} & -0.383 & -2.081 & 1.013
 \backslash
-( 0.788^{**}
-\backslash
-) & 
-\backslash
-(-0.383^{}
-\backslash
-) & 
-\backslash
-(-2.081^{}
-\backslash
-) & 
-\backslash
-( 1.013^{**}
-\backslash
-) & 
-\backslash
-(-0.680^{}
-\backslash
-) 
+textsuperscript{**} & -0.680 
 \backslash
 
 \backslash
@@ -3478,7 +4247,8 @@ Professional &
 \end_layout
 
 \begin_layout Plain Layout
- & ( 1.678) & ( 0.340) & ( 0.374) & ( 1.767) & ( 0.446) & ( 0.529) 
+
+ & {(}1.678{)} & {(}0.340{)} & {(}0.374{)} & {(}1.767{)} & {(}0.446{)} & {(}0.529{)} 
 \backslash
 
 \backslash
@@ -3486,31 +4256,10 @@ Professional &
 \end_layout
 
 \begin_layout Plain Layout
-Sales & 
+
+Sales & 9.793
 \backslash
-( 9.793^{*}
-\backslash
-) & 
-\backslash
-(-0.064^{}
-\backslash
-) & 
-\backslash
-(-0.184^{}
-\backslash
-) & 
-\backslash
-(-1.227^{}
-\backslash
-) & 
-\backslash
-(-0.454^{}
-\backslash
-) & 
-\backslash
-( 0.758^{}
-\backslash
-) 
+textsuperscript{*} & -0.064 & -0.184 & -1.227 & -0.454 & 0.758 
 \backslash
 
 \backslash
@@ -3518,7 +4267,8 @@ Sales &
 \end_layout
 
 \begin_layout Plain Layout
- & ( 5.422) & ( 0.979) & ( 1.233) & ( 1.851) & ( 0.556) & ( 0.784) 
+
+ & {(}5.422{)} & {(}0.979{)} & {(}1.233{)} & {(}1.851{)} & {(}0.556{)} & {(}0.784{)} 
 \backslash
 
 \backslash
@@ -3526,31 +4276,10 @@ Sales &
 \end_layout
 
 \begin_layout Plain Layout
-Service & 
+
+Service & 0.856 & 0.313 & 0.150 & 0.920 & 0.722
 \backslash
-( 0.856^{}
-\backslash
-) & 
-\backslash
-( 0.313^{}
-\backslash
-) & 
-\backslash
-( 0.150^{}
-\backslash
-) & 
-\backslash
-( 0.920^{}
-\backslash
-) & 
-\backslash
-( 0.722^{***}
-\backslash
-) & 
-\backslash
-(-0.518^{}
-\backslash
-) 
+textsuperscript{***} & -0.518 
 \backslash
 
 \backslash
@@ -3558,7 +4287,8 @@ Service &
 \end_layout
 
 \begin_layout Plain Layout
- & ( 1.382) & ( 0.316) & ( 0.400) & ( 1.010) & ( 0.274) & ( 0.386) 
+
+ & {(}1.382{)} & {(}0.316{)} & {(}0.400{)} & {(}1.010{)} & {(}0.274{)} & {(}0.386{)} 
 \backslash
 
 \backslash
@@ -3673,6 +4403,2181 @@ end{table}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+IV Model
+\end_layout
+
+\begin_layout Subsubsection
+Baseline
+\end_layout
+
+\begin_layout Standard
+The baseline IV model without occupation terms relates log wages to schooling 
+\begin_inset Formula $S$
+\end_inset
+
+,
+ ASVAB 
+\begin_inset Formula $Z$
+\end_inset
+
+,
+ cubic experience and tenure terms,
+ and schooling and ASVAB interactions with linear experience and tenure,
+ controlling for job spell,
+ year,
+ sex,
+ and race.
+ We instrument 
+\begin_inset Formula $(E,E^{2},E^{3},SE,ZE)$
+\end_inset
+
+ with 
+\begin_inset Formula $(P,P^{2},P^{3},SP,ZP)$
+\end_inset
+
+,
+ where 
+\begin_inset Formula $P$
+\end_inset
+
+ measures years since first observed employment.
+ Other regressors are treated as exogenous.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+begin{table}[p]
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+caption{IV models:
+ First stage relevance}
+\backslash
+label{tab:baseline_iv_firststage}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{threeparttable}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+renewcommand{
+\backslash
+baselinestretch}{1}
+\backslash
+fontsize{10}{11.5}
+\backslash
+selectfont
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sisetup{group-digits=integer,group-separator={,},group-minimum-digits=4}
+\backslash
+begin{tabular*}{
+\backslash
+textwidth}{@{
+\backslash
+extracolsep{
+\backslash
+fill}}l S[table-format=4.2] S[table-format=1.3] S[table-format=4.2] S[table-format=1.3]@{}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+toprule
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+multicolumn{2}{c}{NLSY79} & 
+\backslash
+multicolumn{2}{c}{NLSY97} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+cmidrule(lr){2-3}
+\backslash
+cmidrule(lr){4-5}
+\end_layout
+
+\begin_layout Plain Layout
+
+Endogenous regressor & {Robust $F$} & {Shea $R^2$} & {Robust $F$} & {Shea $R^2$} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+midrule
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+multicolumn{5}{l}{
+\backslash
+textit{Panel A.
+ Baseline model}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+$E$ & 81.60 & 0.263 & 138.85 & 0.395 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+$E^2$ & 29.87 & 0.094 & 61.84 & 0.322 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+$E^3$ & 17.90 & 0.056 & 39.18 & 0.326 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+$S E$ & 81.05 & 0.389 & 146.36 & 0.554 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+$Z E$ & 39.72 & 0.360 & 47.24 & 0.517 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+addlinespace[3pt]
+\end_layout
+
+\begin_layout Plain Layout
+Observations & 
+\backslash
+multicolumn{2}{c}{30,246} & 
+\backslash
+multicolumn{2}{c}{11,438} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Respondents & 
+\backslash
+multicolumn{2}{c}{7,631} & 
+\backslash
+multicolumn{2}{c}{2,889} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+midrule
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+multicolumn{5}{l}{
+\backslash
+textit{Panel B.
+ Model with occupation indicators}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+$E$ & 17.91 & 0.367 & 28.89 & 0.459 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+$E^2$ & 9.17 & 0.116 & 19.41 & 0.383 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+$E^3$ & 5.62 & 0.069 & 17.10 & 0.375 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+$S E$ & 18.75 & 0.499 & 31.91 & 0.631 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+$Z E$ & 12.73 & 0.425 & 29.99 & 0.673 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Professional & 59.56 & 0.386 & 142.63 & 0.693 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Managers & 33.30 & 0.309 & 1354.73 & 0.633 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Sales & 11.09 & 0.213 & 5401.60 & 0.688 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Craftsmen & 35.37 & 0.350 & 3610.77 & 0.772 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Operatives and laborers & 55.77 & 0.362 & 371.14 & 0.712 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Service & 78.47 & 0.408 & 317.92 & 0.713 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+addlinespace[3pt]
+\end_layout
+
+\begin_layout Plain Layout
+Observations & 
+\backslash
+multicolumn{2}{c}{15,089} & 
+\backslash
+multicolumn{2}{c}{4,555} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Respondents & 
+\backslash
+multicolumn{2}{c}{3,746} & 
+\backslash
+multicolumn{2}{c}{1,111} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Excluded instruments & 
+\backslash
+multicolumn{2}{c}{53} & 
+\backslash
+multicolumn{2}{c}{52} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+bottomrule
+\backslash
+end{tabular*}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tablenotes}[flushleft]
+\backslash
+fontsize{9}{10.5}
+\backslash
+selectfont
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item Notes.
+ $E$ is actual experience,
+ $S$ schooling,
+ $Z$ ASVAB,
+ and $P$ years since first observed employment.
+ Panel A instruments $(E,E^2,E^3,SE,ZE)$ with $(P,P^2,P^3,SP,ZP)$.
+ Panel B also treats six occupation indicators as endogenous;
+ clerical is the reference category.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item Panel B adds indicators for occupations in the previous two survey waves and their interactions to the excluded instruments.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tablenotes}
+\backslash
+end{threeparttable}
+\backslash
+end{table}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+clearpage
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{table}[p]
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+caption{Baseline IV:
+ First and second stage estimates}
+\backslash
+label{tab:baseline_iv_combined}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{threeparttable}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+fontsize{10}{11.5}
+\backslash
+selectfont
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+setlength{
+\backslash
+tabcolsep}{4pt}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+renewcommand{
+\backslash
+arraystretch}{1}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sisetup{group-digits=false,table-space-text-pre={(},table-space-text-post={
+\backslash
+textsuperscript{***}},table-align-text-pre=false,table-align-text-post=false}
+\backslash
+begin{tabular*}{
+\backslash
+textwidth}{@{
+\backslash
+extracolsep{
+\backslash
+fill}}p{0.38
+\backslash
+textwidth} S[table-format=-3.4,table-space-text-pre={(},table-space-text-post={
+\backslash
+textsuperscript{***}},table-align-text-pre=false,table-align-text-post=false] S[table-format=-2.4,table-space-text-pre={(},table-space-text-post={
+\backslash
+textsuperscript{***}},table-align-text-pre=false,table-align-text-post=false] S[table-format=-3.4,table-space-text-pre={(},table-space-text-post={
+\backslash
+textsuperscript{***}},table-align-text-pre=false,table-align-text-post=false] S[table-format=-2.4,table-space-text-pre={(},table-space-text-post={
+\backslash
+textsuperscript{***}},table-align-text-pre=false,table-align-text-post=false]@{}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+toprule
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+multicolumn{2}{c}{NLSY79} & 
+\backslash
+multicolumn{2}{c}{NLSY97} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+cmidrule(lr){2-3}
+\backslash
+cmidrule(lr){4-5}
+\end_layout
+
+\begin_layout Plain Layout
+
+Variable & {First stage} & {Second stage} & {First stage} & {Second stage} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Dependent variable & {Experience} & {$100
+\backslash
+ln(wage)$} & {Experience} & {$100
+\backslash
+ln(wage)$} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+midrule
+\end_layout
+
+\begin_layout Plain Layout
+
+Schooling & -0.0056 & 7.5906
+\backslash
+textsuperscript{***} & 0.0685 & 4.1459
+\backslash
+textsuperscript{***} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.0352{)} & {(}0.4549{)} & {(}0.0502{)} & {(}1.1067{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Schooling $
+\backslash
+times$ experience &  & -0.0588 &  & 0.0935 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ &  & {(}0.2502{)} &  & {(}0.2858{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Schooling $
+\backslash
+times$ tenure & -0.0202 & -0.1352 & -0.0178 & 0.2384 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.0171{)} & {(}0.2783{)} & {(}0.0124{)} & {(}0.2663{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+addlinespace[2pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+ASVAB & -0.0626
+\backslash
+textsuperscript{**} & -1.7305
+\backslash
+textsuperscript{***} & -0.0679
+\backslash
+textsuperscript{*} & -0.2306 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.0301{)} & {(}0.3443{)} & {(}0.0390{)} & {(}0.7928{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ASVAB $
+\backslash
+times$ experience &  & 0.5858
+\backslash
+textsuperscript{**} &  & 0.3683 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ &  & {(}0.2352{)} &  & {(}0.2840{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ASVAB $
+\backslash
+times$ tenure & -0.0520
+\backslash
+textsuperscript{***} & 0.0226 & -0.0133 & -0.1312 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.0153{)} & {(}0.2551{)} & {(}0.0122{)} & {(}0.2968{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+addlinespace[2pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+Experience &  & 3.5307 &  & 1.6613 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ &  & {(}3.8034{)} &  & {(}4.1191{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Experience$^2$ &  & -0.1728 &  & 0.0371 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ &  & {(}0.1790{)} &  & {(}0.1999{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Experience$^3$ &  & 0.0048 &  & -0.0018 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ &  & {(}0.0048{)} &  & {(}0.0059{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+addlinespace[2pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+Tenure & 1.0772
+\backslash
+textsuperscript{***} & 13.9425
+\backslash
+textsuperscript{***} & 0.8375
+\backslash
+textsuperscript{***} & 2.4244 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.2047{)} & {(}3.9642{)} & {(}0.1642{)} & {(}3.7679{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Tenure$^2$ & -0.0384
+\backslash
+textsuperscript{***} & -0.8908
+\backslash
+textsuperscript{***} & -0.0228
+\backslash
+textsuperscript{***} & -0.3831
+\backslash
+textsuperscript{**} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.0058{)} & {(}0.1566{)} & {(}0.0061{)} & {(}0.1715{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Tenure$^3$ & 0.0009
+\backslash
+textsuperscript{***} & 0.0203
+\backslash
+textsuperscript{***} & 0.0006
+\backslash
+textsuperscript{***} & 0.0083 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.0002{)} & {(}0.0046{)} & {(}0.0002{)} & {(}0.0057{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+addlinespace[2pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+Potential experience & -0.0630 &  & 0.2143 &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.1961{)} &  & {(}0.1716{)} &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Potential experience$^2$ & 0.0312
+\backslash
+textsuperscript{***} &  & 0.0300
+\backslash
+textsuperscript{***} &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.0071{)} &  & {(}0.0076{)} &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Potential experience$^3$ & -0.0006
+\backslash
+textsuperscript{**} &  & -0.0006
+\backslash
+textsuperscript{***} &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.0002{)} &  & {(}0.0002{)} &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Schooling $
+\backslash
+times$ potential experience & 0.0187 &  & 0.0101 &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.0177{)} &  & {(}0.0118{)} &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ASVAB $
+\backslash
+times$ potential experience & 0.0505
+\backslash
+textsuperscript{***} &  & 0.0108 &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.0163{)} &  & {(}0.0121{)} &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+midrule
+\end_layout
+
+\begin_layout Plain Layout
+Excluded instrument $F$ & 81.60 &  & 138.85 &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Observations & 
+\backslash
+multicolumn{1}{c}{30,246} & 
+\backslash
+multicolumn{1}{c}{30,246} & 
+\backslash
+multicolumn{1}{c}{11,438} & 
+\backslash
+multicolumn{1}{c}{11,438} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Respondents & 
+\backslash
+multicolumn{1}{c}{7,631} & 
+\backslash
+multicolumn{1}{c}{7,631} & 
+\backslash
+multicolumn{1}{c}{2,889} & 
+\backslash
+multicolumn{1}{c}{2,889} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+bottomrule
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tabular*}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tablenotes}[flushleft]
+\backslash
+fontsize{9}{10.5}
+\backslash
+selectfont
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item Notes.
+ Parentheses contain standard errors clustered by respondent.
+ Sampling weights are applied.
+ All equations include job spell,
+ year,
+ sex,
+ and race indicators.
+ Wage is real hourly wage.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item Each displayed first stage has actual experience as its dependent variable.
+ The second stage instruments $(E,E^2,E^3,SE,ZE)$ with $(P,P^2,P^3,SP,ZP)$,
+ where $S$ is schooling,
+ $Z$ is ASVAB,
+ and $P$ is potential experience.
+ The other four first stage equations are summarized in Table~
+\backslash
+ref{tab:baseline_iv_firststage}.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item The $F$ statistic jointly tests the five excluded instruments in the displayed first stage.
+ Blank coefficient cells indicate terms absent from that equation.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item $^{*}p<0.10$, $^{**}p<0.05$, $^{***}p<0.01$ (two sided tests).
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tablenotes}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{threeparttable}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{table}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+clearpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+clearpage
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{table}[p]
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+caption{IV with occupation indicators:
+ First and second stage estimates}
+\backslash
+label{tab:occupation_iv_combined}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{threeparttable}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+renewcommand{
+\backslash
+baselinestretch}{1}
+\backslash
+fontsize{9}{9.5}
+\backslash
+selectfont
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength{
+\backslash
+tabcolsep}{3pt}
+\backslash
+renewcommand{
+\backslash
+arraystretch}{0.98}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sisetup{group-digits=false,table-space-text-pre={(},table-space-text-post={
+\backslash
+textsuperscript{***}},table-align-text-pre=false,table-align-text-post=false}
+\backslash
+begin{tabular*}{
+\backslash
+textwidth}{@{
+\backslash
+extracolsep{
+\backslash
+fill}}p{0.37
+\backslash
+textwidth} *{4}{S[table-format=-2.4,table-space-text-pre={(},table-space-text-post={
+\backslash
+textsuperscript{***}},table-align-text-pre=false,table-align-text-post=false]}@{}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+toprule
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+multicolumn{2}{c}{NLSY79} & 
+\backslash
+multicolumn{2}{c}{NLSY97} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+cmidrule(lr){2-3}
+\backslash
+cmidrule(lr){4-5}
+\end_layout
+
+\begin_layout Plain Layout
+
+Variable & {First stage} & {Second stage} & {First stage} & {Second stage} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Dependent variable & {Experience} & {$100
+\backslash
+ln(wage)$} & {Experience} & {$100
+\backslash
+ln(wage)$} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+midrule
+\end_layout
+
+\begin_layout Plain Layout
+
+Schooling & 0.0060 & 5.7046
+\backslash
+textsuperscript{***} & -0.0638 & 3.5700
+\backslash
+textsuperscript{**} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.0612{)} & {(}0.7842{)} & {(}0.0605{)} & {(}1.5317{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Schooling $
+\backslash
+times$ experience &  & 0.1332 &  & 0.0201 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ &  & {(}0.2645{)} &  & {(}0.2964{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Schooling $
+\backslash
+times$ tenure & -0.0196 & -0.4033 & -0.0283
+\backslash
+textsuperscript{***} & 0.2638 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.0184{)} & {(}0.2653{)} & {(}0.0100{)} & {(}0.2579{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ASVAB & -0.0842 & -1.6781
+\backslash
+textsuperscript{***} & 0.0183 & -0.0871 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.0675{)} & {(}0.5997{)} & {(}0.0534{)} & {(}1.2509{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ASVAB $
+\backslash
+times$ experience &  & 0.1689 &  & 0.5093
+\backslash
+textsuperscript{*} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ &  & {(}0.2371{)} &  & {(}0.2799{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ASVAB $
+\backslash
+times$ tenure & -0.0353 & 0.3329 & 0.0111 & -0.3280 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.0218{)} & {(}0.2330{)} & {(}0.0106{)} & {(}0.3035{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Experience &  & 2.4591 &  & 2.2417 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ &  & {(}3.6406{)} &  & {(}4.9116{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Experience$^2$ &  & -0.2680 &  & -0.0614 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ &  & {(}0.1943{)} &  & {(}0.2779{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Experience$^3$ &  & 0.0078 &  & 0.0024 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ &  & {(}0.0052{)} &  & {(}0.0069{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Tenure & 0.4614
+\backslash
+textsuperscript{**} & 14.3303
+\backslash
+textsuperscript{***} & 0.4474
+\backslash
+textsuperscript{***} & 0.0087 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.2145{)} & {(}3.3804{)} & {(}0.1557{)} & {(}3.9204{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Tenure$^2$ & 0.0008 & -0.7044
+\backslash
+textsuperscript{***} & 0.0072 & -0.1210 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.0073{)} & {(}0.1345{)} & {(}0.0063{)} & {(}0.1938{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Tenure$^3$ & 0.0000 & 0.0151
+\backslash
+textsuperscript{***} & -0.0001 & -0.0003 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.0002{)} & {(}0.0044{)} & {(}0.0002{)} & {(}0.0061{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Potential experience & 0.4283
+\backslash
+textsuperscript{*} &  & 0.3645
+\backslash
+textsuperscript{**} &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.2281{)} &  & {(}0.1652{)} &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Potential experience$^2$ & 0.0090 &  & 0.0134 &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.0108{)} &  & {(}0.0094{)} &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Potential experience$^3$ & -0.0001 &  & -0.0003 &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.0003{)} &  & {(}0.0002{)} &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Schooling $
+\backslash
+times$ potential experience & 0.0162 &  & 0.0242
+\backslash
+textsuperscript{**} &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.0202{)} &  & {(}0.0096{)} &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ASVAB $
+\backslash
+times$ potential experience & 0.0398 &  & -0.0122 &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & {(}0.0252{)} &  & {(}0.0112{)} &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+multicolumn{5}{l}{
+\backslash
+textit{Occupation indicators (reference:
+ clerical)}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Professional &  & 39.4476
+\backslash
+textsuperscript{***} &  & 22.9889
+\backslash
+textsuperscript{***} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ &  & {(}5.0951{)} &  & {(}6.8471{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Managers &  & 25.8688
+\backslash
+textsuperscript{***} &  & 28.9227
+\backslash
+textsuperscript{***} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ &  & {(}6.3194{)} &  & {(}9.3032{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Sales &  & -8.0731 &  & 12.5663 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ &  & {(}7.4871{)} &  & {(}9.4199{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Craftsmen &  & 31.2394
+\backslash
+textsuperscript{***} &  & 20.9905
+\backslash
+textsuperscript{**} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ &  & {(}5.3691{)} &  & {(}8.5769{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Operatives and laborers &  & 7.6687
+\backslash
+textsuperscript{**} &  & 4.8204 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ &  & {(}3.5814{)} &  & {(}6.1556{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Service &  & -18.8099
+\backslash
+textsuperscript{***} &  & -2.3662 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ &  & {(}3.8917{)} &  & {(}5.3830{)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+midrule
+\end_layout
+
+\begin_layout Plain Layout
+
+Occupation history instruments & {Yes} &  & {Yes} &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Observations & 
+\backslash
+multicolumn{1}{c}{15,089} & 
+\backslash
+multicolumn{1}{c}{15,089} & 
+\backslash
+multicolumn{1}{c}{4,555} & 
+\backslash
+multicolumn{1}{c}{4,555} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Respondents & 
+\backslash
+multicolumn{1}{c}{3,746} & 
+\backslash
+multicolumn{1}{c}{3,746} & 
+\backslash
+multicolumn{1}{c}{1,111} & 
+\backslash
+multicolumn{1}{c}{1,111} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+% KP rk Wald $F$ &  & 1.29 &  & 3.87 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+% Hansen $J$ test:
+ $p$ value &  & 0.0002 &  & Unavailable 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+bottomrule
+\backslash
+end{tabular*}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tablenotes}[flushleft]
+\backslash
+fontsize{8.5}{9.5}
+\backslash
+selectfont
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item Notes.
+ Parentheses contain standard errors clustered by respondent.
+ Sampling weights and job spell,
+ year,
+ sex,
+ and race controls are included.
+ Occupation effects are relative to clerical;
+ slopes are common.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item The first stage shown predicts experience.
+ All 11 first stages use the full instrument set (Table~
+\backslash
+ref{tab:baseline_iv_firststage}).
+ History coefficients are suppressed.
+ Blank cells indicate absent terms.
+ KP denotes Kleibergen and Paap.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item For NLSY97,
+ Stata reports a moment covariance matrix that is not full rank;
+ the Hansen test is unavailable and inference requires caution.
+ Relevance does not establish instrument validity.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item $^{*}p<0.10$, $^{**}p<0.05$, $^{***}p<0.01$ (two sided tests).
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tablenotes}
+\backslash
+end{threeparttable}
+\backslash
+end{table}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+clearpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Appendix
+\end_layout
+
+\begin_layout Subsection
+Sample Journey Table
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{table}[htbp]
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{threeparttable}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+captionsetup{
+\end_layout
+
+\begin_layout Plain Layout
+    font=small,
+\end_layout
+
+\begin_layout Plain Layout
+    labelsep=newline,
+\end_layout
+
+\begin_layout Plain Layout
+    justification=centering
+\end_layout
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+caption{Sample Construction}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+label{tab:sample_journey}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+renewcommand{
+\backslash
+arraystretch}{1.15}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+setlength{
+\backslash
+tabcolsep}{12pt}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tabular}{@{}lrr@{}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+toprule
+\end_layout
+
+\begin_layout Plain Layout
+Sequential restriction & NLSY79 & NLSY97 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+midrule
+\end_layout
+
+\begin_layout Plain Layout
+Initial sample Number
+\end_layout
+
+\begin_layout Plain Layout
+    & 224,625 & 161,638 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Sample weight/ASVAB/Sex/Age
+\end_layout
+
+\begin_layout Plain Layout
+    & 215,178 & 106,209 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Race
+\end_layout
+
+\begin_layout Plain Layout
+    & 213,473 & 106,209 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Hours
+\end_layout
+
+\begin_layout Plain Layout
+    & 212,238 & 105,458 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Wage
+\end_layout
+
+\begin_layout Plain Layout
+    & 201,430 & 100,051 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Occupation
+\end_layout
+
+\begin_layout Plain Layout
+    & 196,088 & 68,028 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Education
+\end_layout
+
+\begin_layout Plain Layout
+    & 192,481 & 68,028 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Tenure/Experience
+\end_layout
+
+\begin_layout Plain Layout
+    & 192,481 & 67,371 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+addlinespace
+\end_layout
+
+\begin_layout Plain Layout
+Job number $
+\backslash
+leq 3$ constraint
+\end_layout
+
+\begin_layout Plain Layout
+    & 47,002 & 11,440 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+bottomrule
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tablenotes}[flushleft]
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item 
+\backslash
+textsc{Note:} The table is not measured in distinct respondents.
+ Initial counts refer to the merged panels after earlier cleaning and employer selection.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+The final row retains existing job numbers 1 through 3
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tablenotes}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{threeparttable}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{table}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 

@@ -1,0 +1,242 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=0.9in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{tgpagella}
+\usepackage{booktabs,threeparttable,textcomp}
+\usepackage{caption}
+\captionsetup[table]{font=small,labelfont=normalfont,labelsep=newline,justification=centering}
+\setlength{\tabcolsep}{5pt}
+\setlength{\parindent}{0pt}
+\begin{document}
+\begin{table}[p]\centering
+\caption{IV models: First stage relevance}\label{tab:baseline_iv_firststage}
+\begin{threeparttable}
+\renewcommand{\baselinestretch}{1}\fontsize{10}{11.5}\selectfont
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrr@{}}
+\toprule
+& \multicolumn{2}{c}{NLSY79} & \multicolumn{2}{c}{NLSY97} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Endogenous regressor & Robust $F$ & Shea $R^2$ & Robust $F$ & Shea $R^2$ \\
+\midrule
+\multicolumn{5}{l}{\textit{Panel A. Baseline model}} \\
+$E$ & 81.60 & 0.263 & 138.85 & 0.395 \\
+$E^2$ & 29.87 & 0.094 & 61.84 & 0.322 \\
+$E^3$ & 17.90 & 0.056 & 39.18 & 0.326 \\
+$S E$ & 81.05 & 0.389 & 146.36 & 0.554 \\
+$Z E$ & 39.72 & 0.360 & 47.24 & 0.517 \\
+\addlinespace[3pt]
+Observations & \multicolumn{2}{c}{30,246} & \multicolumn{2}{c}{11,438} \\
+Respondents & \multicolumn{2}{c}{7,631} & \multicolumn{2}{c}{2,889} \\
+\midrule
+\multicolumn{5}{l}{\textit{Panel B. Model with occupation indicators}} \\
+$E$ & 17.91 & 0.367 & 28.89 & 0.459 \\
+$E^2$ & 9.17 & 0.116 & 19.41 & 0.383 \\
+$E^3$ & 5.62 & 0.069 & 17.10 & 0.375 \\
+$S E$ & 18.75 & 0.499 & 31.91 & 0.631 \\
+$Z E$ & 12.73 & 0.425 & 29.99 & 0.673 \\
+Professional & 59.56 & 0.386 & 142.63 & 0.693 \\
+Managers & 33.30 & 0.309 & 1,354.73 & 0.633 \\
+Sales & 11.09 & 0.213 & 5,401.60 & 0.688 \\
+Craftsmen & 35.37 & 0.350 & 3,610.77 & 0.772 \\
+Operatives and laborers & 55.77 & 0.362 & 371.14 & 0.712 \\
+Service & 78.47 & 0.408 & 317.92 & 0.713 \\
+\addlinespace[3pt]
+Observations & \multicolumn{2}{c}{15,089} & \multicolumn{2}{c}{4,555} \\
+Respondents & \multicolumn{2}{c}{3,746} & \multicolumn{2}{c}{1,111} \\
+Excluded instruments & \multicolumn{2}{c}{53} & \multicolumn{2}{c}{52} \\
+\bottomrule\end{tabular*}
+\begin{tablenotes}[flushleft]\fontsize{9}{10.5}\selectfont
+\item Notes. $E$ is actual experience, $S$ schooling, $Z$ ASVAB, and $P$ years since first observed employment. Panel A instruments $(E,E^2,E^3,SE,ZE)$ with $(P,P^2,P^3,SP,ZP)$. Panel B also treats six occupation indicators as endogenous; clerical is the reference category.
+\item Panel B adds indicators for occupations in the previous two survey waves and their interactions to the excluded instruments. These are survey wave lags, not necessarily annual lags. Every first stage uses the full instrument set. The sample requires usable occupation histories.
+\item Both panels control for schooling, ASVAB, cubic tenure, schooling and ASVAB interactions with tenure, and job spell, year, sex, and race indicators. Sampling weights are used; standard errors are clustered by respondent.
+\item Robust $F$ jointly tests the excluded instruments in each equation; it is not a conditional strength test. The degrees of freedom are $(5,7630)$ and $(5,2888)$ in Panel A, and $(53,3745)$ and $(52,1110)$ in Panel B. Shea\textquotesingle s $R^2$ accounts for relationships among endogenous regressors. Stata flags a moment covariance matrix that is not full rank for Panel B, NLSY97; inference requires caution.
+\end{tablenotes}\end{threeparttable}\end{table}
+
+
+\clearpage
+\begin{table}[p]\centering
+\caption{Baseline IV: Second stage wage equation}\label{tab:baseline_iv_secondstage}
+\begin{threeparttable}\small
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrr@{}}
+\toprule
+& NLSY79 & NLSY97 \\
+\midrule
+Schooling & $7.5906$ & $4.1459$ \\
+ & (0.4549) & (1.1067) \\
+Schooling $\times$ experience & $-0.0588$ & $0.0935$ \\
+ & (0.2502) & (0.2858) \\
+Schooling $\times$ tenure & $-0.1352$ & $0.2384$ \\
+ & (0.2783) & (0.2663) \\
+\addlinespace[3pt]
+ASVAB & $-1.7305$ & $-0.2306$ \\
+ & (0.3443) & (0.7928) \\
+ASVAB $\times$ experience & $0.5858$ & $0.3683$ \\
+ & (0.2352) & (0.2840) \\
+ASVAB $\times$ tenure & $0.0226$ & $-0.1312$ \\
+ & (0.2551) & (0.2968) \\
+\addlinespace[3pt]
+Experience & $3.5307$ & $1.6613$ \\
+ & (3.8034) & (4.1191) \\
+Experience$^2$ & $-0.1728$ & $0.0371$ \\
+ & (0.1790) & (0.1999) \\
+Experience$^3$ & $0.0048$ & $-0.0018$ \\
+ & (0.0048) & (0.0059) \\
+\addlinespace[3pt]
+Tenure & $13.9425$ & $2.4244$ \\
+ & (3.9642) & (3.7679) \\
+Tenure$^2$ & $-0.8908$ & $-0.3831$ \\
+ & (0.1566) & (0.1715) \\
+Tenure$^3$ & $0.0203$ & $0.0083$ \\
+ & (0.0046) & (0.0057) \\
+\midrule
+Observations & 30,246 & 11,438 \\
+Respondents & 7,631 & 2,889 \\
+\bottomrule\end{tabular*}
+\begin{tablenotes}[flushleft]\footnotesize
+\item Notes. The dependent variable is 100 times log real hourly wage. Entries are 2SLS coefficients, with standard errors clustered by respondent in parentheses. Sampling weights are applied. Both models include job spell, year, sex, and race controls; occupation terms are excluded.
+\item The endogenous terms are $(E,E^2,E^3,SE,ZE)$, instrumented by $(P,P^2,P^3,SP,ZP)$. Other regressors are treated as exogenous. Schooling and ASVAB level coefficients apply at zero experience and tenure.
+\item The sample retains job numbers 1 through 3 and NLSY79 observations through 2004. Wages are winsorized at the pooled 1st and 99th percentiles before sample restrictions.
+\end{tablenotes}\end{threeparttable}\end{table}
+
+\clearpage
+\begin{table}[p]\centering
+\caption{Baseline IV: First and second stage estimates}\label{tab:baseline_iv_combined}
+\begin{threeparttable}
+\fontsize{10}{11.5}\selectfont
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}p{0.38\textwidth}rrrr@{}}
+\toprule
+& \multicolumn{2}{c}{NLSY79} & \multicolumn{2}{c}{NLSY97} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Variable & First stage & Second stage & First stage & Second stage \\
+Dependent variable & Experience & $100\ln(wage)$ & Experience & $100\ln(wage)$ \\
+\midrule
+Schooling & $-0.0056$ & $7.5906^{***}$ & $0.0685$ & $4.1459^{***}$ \\
+ & (0.0352) & (0.4549) & (0.0502) & (1.1067) \\
+Schooling $\times$ experience &  & $-0.0588$ &  & $0.0935$ \\
+ &  & (0.2502) &  & (0.2858) \\
+Schooling $\times$ tenure & $-0.0202$ & $-0.1352$ & $-0.0178$ & $0.2384$ \\
+ & (0.0171) & (0.2783) & (0.0124) & (0.2663) \\
+\addlinespace[2pt]
+ASVAB & $-0.0626^{**}$ & $-1.7305^{***}$ & $-0.0679^{*}$ & $-0.2306$ \\
+ & (0.0301) & (0.3443) & (0.0390) & (0.7928) \\
+ASVAB $\times$ experience &  & $0.5858^{**}$ &  & $0.3683$ \\
+ &  & (0.2352) &  & (0.2840) \\
+ASVAB $\times$ tenure & $-0.0520^{***}$ & $0.0226$ & $-0.0133$ & $-0.1312$ \\
+ & (0.0153) & (0.2551) & (0.0122) & (0.2968) \\
+\addlinespace[2pt]
+Experience &  & $3.5307$ &  & $1.6613$ \\
+ &  & (3.8034) &  & (4.1191) \\
+Experience$^2$ &  & $-0.1728$ &  & $0.0371$ \\
+ &  & (0.1790) &  & (0.1999) \\
+Experience$^3$ &  & $0.0048$ &  & $-0.0018$ \\
+ &  & (0.0048) &  & (0.0059) \\
+\addlinespace[2pt]
+Tenure & $1.0772^{***}$ & $13.9425^{***}$ & $0.8375^{***}$ & $2.4244$ \\
+ & (0.2047) & (3.9642) & (0.1642) & (3.7679) \\
+Tenure$^2$ & $-0.0384^{***}$ & $-0.8908^{***}$ & $-0.0228^{***}$ & $-0.3831^{**}$ \\
+ & (0.0058) & (0.1566) & (0.0061) & (0.1715) \\
+Tenure$^3$ & $0.0009^{***}$ & $0.0203^{***}$ & $0.0006^{***}$ & $0.0083$ \\
+ & (0.0002) & (0.0046) & (0.0002) & (0.0057) \\
+\addlinespace[2pt]
+Potential experience & $-0.0630$ &  & $0.2143$ &  \\
+ & (0.1961) &  & (0.1716) &  \\
+Potential experience$^2$ & $0.0312^{***}$ &  & $0.0300^{***}$ &  \\
+ & (0.0071) &  & (0.0076) &  \\
+Potential experience$^3$ & $-0.0006^{**}$ &  & $-0.0006^{***}$ &  \\
+ & (0.0002) &  & (0.0002) &  \\
+Schooling $\times$ potential experience & $0.0187$ &  & $0.0101$ &  \\
+ & (0.0177) &  & (0.0118) &  \\
+ASVAB $\times$ potential experience & $0.0505^{***}$ &  & $0.0108$ &  \\
+ & (0.0163) &  & (0.0121) &  \\
+\midrule
+Excluded instrument $F$ & 81.60 &  & 138.85 &  \\
+Observations & 30,246 & 30,246 & 11,438 & 11,438 \\
+Respondents & 7,631 & 7,631 & 2,889 & 2,889 \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]\fontsize{9}{10.5}\selectfont
+\item Notes. Parentheses contain standard errors clustered by respondent. Sampling weights are applied. All equations include job spell, year, sex, and race indicators. Wage is real hourly wage.
+\item Each displayed first stage has actual experience as its dependent variable. The second stage instruments $(E,E^2,E^3,SE,ZE)$ with $(P,P^2,P^3,SP,ZP)$, where $S$ is schooling, $Z$ is ASVAB, and $P$ is potential experience. The other four first stage equations are summarized in Table~\ref{tab:baseline_iv_firststage}.
+\item The $F$ statistic jointly tests the five excluded instruments in the displayed first stage. Blank coefficient cells indicate terms absent from that equation.
+\item $^{*}p<0.10$, $^{**}p<0.05$, $^{***}p<0.01$ (two sided tests).
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\clearpage
+\begin{table}[p]\centering
+\caption{IV with occupation indicators: First and second stage estimates}\label{tab:occupation_iv_combined}
+\begin{threeparttable}
+\renewcommand{\baselinestretch}{1}\fontsize{9}{9.5}\selectfont
+\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}p{0.37\textwidth}rrrr@{}}
+\toprule
+& \multicolumn{2}{c}{NLSY79} & \multicolumn{2}{c}{NLSY97} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Variable & First stage & Second stage & First stage & Second stage \\
+Dependent variable & Experience & $100\ln(wage)$ & Experience & $100\ln(wage)$ \\
+\midrule
+Schooling & $0.0060$ & $5.7046^{***}$ & $-0.0638$ & $3.5700^{**}$ \\
+ & (0.0612) & (0.7842) & (0.0605) & (1.5317) \\
+Schooling $\times$ experience &  & $0.1332$ &  & $0.0201$ \\
+ &  & (0.2645) &  & (0.2964) \\
+Schooling $\times$ tenure & $-0.0196$ & $-0.4033$ & $-0.0283^{***}$ & $0.2638$ \\
+ & (0.0184) & (0.2653) & (0.0100) & (0.2579) \\
+ASVAB & $-0.0842$ & $-1.6781^{***}$ & $0.0183$ & $-0.0871$ \\
+ & (0.0675) & (0.5997) & (0.0534) & (1.2509) \\
+ASVAB $\times$ experience &  & $0.1689$ &  & $0.5093^{*}$ \\
+ &  & (0.2371) &  & (0.2799) \\
+ASVAB $\times$ tenure & $-0.0353$ & $0.3329$ & $0.0111$ & $-0.3280$ \\
+ & (0.0218) & (0.2330) & (0.0106) & (0.3035) \\
+Experience &  & $2.4591$ &  & $2.2417$ \\
+ &  & (3.6406) &  & (4.9116) \\
+Experience$^2$ &  & $-0.2680$ &  & $-0.0614$ \\
+ &  & (0.1943) &  & (0.2779) \\
+Experience$^3$ &  & $0.0078$ &  & $0.0024$ \\
+ &  & (0.0052) &  & (0.0069) \\
+Tenure & $0.4614^{**}$ & $14.3303^{***}$ & $0.4474^{***}$ & $0.0087$ \\
+ & (0.2145) & (3.3804) & (0.1557) & (3.9204) \\
+Tenure$^2$ & $0.0008$ & $-0.7044^{***}$ & $0.0072$ & $-0.1210$ \\
+ & (0.0073) & (0.1345) & (0.0063) & (0.1938) \\
+Tenure$^3$ & $0.0000$ & $0.0151^{***}$ & $-0.0001$ & $-0.0003$ \\
+ & (0.0002) & (0.0044) & (0.0002) & (0.0061) \\
+Potential experience & $0.4283^{*}$ &  & $0.3645^{**}$ &  \\
+ & (0.2281) &  & (0.1652) &  \\
+Potential experience$^2$ & $0.0090$ &  & $0.0134$ &  \\
+ & (0.0108) &  & (0.0094) &  \\
+Potential experience$^3$ & $-0.0001$ &  & $-0.0003$ &  \\
+ & (0.0003) &  & (0.0002) &  \\
+Schooling $\times$ potential experience & $0.0162$ &  & $0.0242^{**}$ &  \\
+ & (0.0202) &  & (0.0096) &  \\
+ASVAB $\times$ potential experience & $0.0398$ &  & $-0.0122$ &  \\
+ & (0.0252) &  & (0.0112) &  \\
+\multicolumn{5}{l}{\textit{Occupation indicators (reference: clerical)}} \\
+Professional &  & $39.4476^{***}$ &  & $22.9889^{***}$ \\
+ &  & (5.0951) &  & (6.8471) \\
+Managers &  & $25.8688^{***}$ &  & $28.9227^{***}$ \\
+ &  & (6.3194) &  & (9.3032) \\
+Sales &  & $-8.0731$ &  & $12.5663$ \\
+ &  & (7.4871) &  & (9.4199) \\
+Craftsmen &  & $31.2394^{***}$ &  & $20.9905^{**}$ \\
+ &  & (5.3691) &  & (8.5769) \\
+Operatives and laborers &  & $7.6687^{**}$ &  & $4.8204$ \\
+ &  & (3.5814) &  & (6.1556) \\
+Service &  & $-18.8099^{***}$ &  & $-2.3662$ \\
+ &  & (3.8917) &  & (5.3830) \\
+\midrule
+Occupation history instruments & Yes &  & Yes &  \\
+Observations & 15,089 & 15,089 & 4,555 & 4,555 \\
+Respondents & 3,746 & 3,746 & 1,111 & 1,111 \\
+KP rk Wald $F$ &  & 1.29 &  & 3.87 \\
+Hansen $J$ test: $p$ value &  & 0.0002 &  & Unavailable \\
+\bottomrule\end{tabular*}
+\begin{tablenotes}[flushleft]\fontsize{8.5}{9.5}\selectfont
+\item Notes. Parentheses contain standard errors clustered by respondent. Sampling weights and job spell, year, sex, and race controls are included. Occupation effects are relative to clerical; slopes are common.
+\item The first stage shown predicts experience. All 11 first stages use the full instrument set (Table~\ref{tab:baseline_iv_firststage}). History coefficients are suppressed. Blank cells indicate absent terms. KP denotes Kleibergen and Paap.
+\item For NLSY97, Stata reports a moment covariance matrix that is not full rank; the Hansen test is unavailable and inference requires caution. Relevance does not establish instrument validity.
+\item $^{*}p<0.10$, $^{**}p<0.05$, $^{***}p<0.01$ (two sided tests).
+\end{tablenotes}\end{threeparttable}\end{table}
+
+\end{document}

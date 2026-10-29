@@ -34,64 +34,75 @@ collapse (mean) wage hour exp tenure educ ///
 summarize asvab educ sex_cat race_cat
 restore
 
-** Testing include cubic term or not
-// reg lnwage100 c.exp c.exp_2 c.exp_3 ///
-//     c.tenure c.tenure_2 c.tenure_3 ///
-//     i.occ_cat i.year c.educ, vce(cluster id)
-//
-// test c.exp_3
-// test c.tenure_3
-// test c.exp_3 c.tenure_3
+** Table 2: Baseline and occupation models
 
-** Regression
-*** Baseline OLS Model
+* Common explanatory variables
+local rhs c.educ c.asvab ///
+    c.exp c.exp_2 c.exp_3 ///
+    c.tenure c.tenure_2 c.tenure_3 ///
+    c.educ#c.exp c.asvab#c.exp ///
+    c.educ#c.tenure c.asvab#c.tenure
+
+* Common controls
+local controls ib1.job_num i.year i.sex_cat i.race_cat
+
 foreach c in 0 1 {
 
-    regress lnwage100 c.educ c.asvab c.exp c.exp_2 c.exp_3 ///
-        c.tenure c.tenure_2 c.tenure_3 c.educ#c.exp ///
-		c.asvab#c.exp c.educ#c.tenure c.asvab#c.tenure ///
-        ib1.job_num i.year i.sex_cat i.race_cat ///
+    ** Baseline regression without occupations
+    regress lnwage100 `rhs' `controls' ///
         if cohort == `c' & inrange(job_num, 1, 3) ///
         [pweight = sampleweight], vce(cluster id)
 
     estimates store BASE_`c'
-	test exp_3 tenure_3
-	test exp_3
-	test tenure_3
-    lincom c.educ#c.exp + c.educ#c.tenure
-    lincom c.asvab#c.exp + c.asvab#c.tenure
-}
 
-*** OLS Model with occupation
-local rhs c.educ c.asvab c.exp c.exp_2 c.exp_3 ///
-    c.tenure c.tenure#c.tenure c.tenure#c.tenure#c.tenure ///
-    c.educ#c.exp c.asvab#c.exp c.educ#c.tenure c.asvab#c.tenure
+    * Tests of cubic terms
+    test exp_3
+    test tenure_3
+    test exp_3 tenure_3
 
-local controls i.sex_cat i.race_cat
-
-levelsof cohort, local(cohorts)
-
-local models
-
-foreach c of local cohorts {
-
+    ** Second regression with occupation interactions
     regress lnwage100 ///
-        ib1.occ_cat##(`rhs') ///
-        ib1.job_num i.year `controls' ///
+        ib1.occ_cat##(`rhs') `controls' ///
         if cohort == `c' & inrange(job_num, 1, 3) ///
-		[pweight = sampleweight], vce(cluster id)
+        [pweight = sampleweight], vce(cluster id)
 
     estimates store OLS_`c'
-	display "Cohort `c': experience cubic terms"
-	testparm c.exp_3 i.occ_cat#c.exp_3
 
-	display "Cohort `c': tenure cubic terms"
-	testparm c.tenure_3 i.occ_cat#c.tenure_3
+    * Tests of cubic terms across all occupations
+    testparm c.exp_3 i.occ_cat#c.exp_3
 
-	display "Cohort `c': all cubic terms jointly"
-	testparm c.exp_3 i.occ_cat#c.exp_3 ///
-			 c.tenure_3 i.occ_cat#c.tenure_3
-    local models `models' OLS_`c'
+    testparm c.tenure_3 i.occ_cat#c.tenure_3
+
+    testparm c.exp_3 i.occ_cat#c.exp_3 ///
+        c.tenure_3 i.occ_cat#c.tenure_3
+}
+
+** Display four columns in the requested order
+* Column 1: NLSY79 baseline
+* Column 2: NLSY97 baseline
+* Column 3: NLSY79 occupation model, clerical coefficients
+* Column 4: NLSY97 occupation model, clerical coefficients
+
+estimates table BASE_0 BASE_1 OLS_0 OLS_1, ///
+    keep(educ asvab exp tenure ///
+         c.educ#c.exp c.asvab#c.exp ///
+         c.educ#c.tenure c.asvab#c.tenure) ///
+    b(%9.3f) se(%9.3f) p(%9.4f) ///
+    stats(N N_clust r2) ///
+    varwidth(24) modelwidth(12)
+
+** Linear combination tests for Panel B of Table 2
+foreach model in BASE_0 BASE_1 OLS_0 OLS_1 {
+
+    estimates restore `model'
+
+    display "Model: `model'"
+
+    * Education: experience interaction plus tenure interaction
+    lincom c.educ#c.exp + c.educ#c.tenure
+
+    * ASVAB: experience interaction plus tenure interaction
+    lincom c.asvab#c.exp + c.asvab#c.tenure
 }
 
 * Output to tex file
@@ -192,22 +203,86 @@ file write out "\end{tablenotes}\end{threeparttable}\end{table}" _n
 file close out
 
 
-** Regression
-// Model 1
-reg lnwage educ asvab c.educ#c.experience c.asvab#c.experience experience experience_2 age i.sex_cat i.race_cat i.year [pweight = sampleweight], vce(cluster caseid)
+** IV Regression
+*** NLSY79
+ivregress 2sls lnwage100 ///
+    educ asvab tenure tenure_2 tenure_3 ///
+    c.educ#c.tenure c.asvab#c.tenure ///
+    i.job_num i.year i.sex_cat i.race_cat ///
+    (exp exp_2 exp_3 c.educ#c.exp c.asvab#c.exp = ///
+     potexp potexp_2 potexp_3 educ_potexp asvab_potexp) ///
+    if cohort == 0 [pweight = sampleweight], ///
+    vce(cluster id) first
 
-// Model 2
-reg lnwage educ ib1.occ_cat##(c.asvab c.experience) experience_2 ///
-	age i.sex_cat i.race_cat i.year ///
-	[pweight = sampleweight], vce(cluster caseid)
+estat firststage, all
 
-// Model 3
-reg lnwage educ asvab experience experience_2 ///
-    c.educ#c.experience c.asvab#c.experience ib1.occ_cat ///
-    ib1.occ_cat#c.asvab ib1.occ_cat#c.experience ///
-    ib1.occ_cat#c.asvab#c.experience c.age i.sex_cat i.race_cat i.year ///
-    [pweight=sampleweight], vce(cluster caseid)
-	
+*** NLSY97
+ivregress 2sls lnwage100 ///
+    educ asvab tenure tenure_2 tenure_3 ///
+    c.educ#c.tenure c.asvab#c.tenure ///
+    i.job_num i.year i.sex_cat i.race_cat ///
+    (exp exp_2 exp_3 c.educ#c.exp c.asvab#c.exp = ///
+     potexp potexp_2 potexp_3 educ_potexp asvab_potexp) ///
+    if cohort == 1 [pweight = sampleweight], ///
+    vce(cluster id) first
+
+estat firststage, all
+
+foreach c in 0 1 {
+quietly ivreg2 lnwage100 ///
+        educ asvab tenure tenure_2 tenure_3 ///
+        c.educ#c.tenure c.asvab#c.tenure ///
+        i.job_num i.year i.sex_cat i.race_cat ///
+        (exp exp_2 exp_3 c.educ#c.exp c.asvab#c.exp = ///
+         potexp potexp_2 potexp_3 educ_potexp asvab_potexp) ///
+        if cohort == `c' [pweight = sampleweight], ///
+        cluster(id) first savesfirst
+		
+		* Preserve the IV results
+tempname iv_original
+estimates store `iv_original'
+
+* Access the saved first stage system
+estimates restore _ivreg2_sfirst_lnwage100
+
+matrix FS = J(5,5,.)
+local j = 0
+
+foreach y in exp exp_2 exp_3 c.educ#c.exp c.asvab#c.exp {
+    local ++j
+    local i = 0
+
+    foreach z in potexp potexp_2 potexp_3 educ_potexp asvab_potexp {
+        local ++i
+        matrix FS[`i',`j'] = _b[`y':`z']
+    }
+}
+
+matrix rownames FS = P P2 P3 SP ZP
+matrix colnames FS = E E2 E3 SE ZE
+
+matlist FS, format(%10.4f) rowtitle(Instrument)
+
+estimates restore `iv_original'
+}
+
+foreach c in 0 1 {
+
+    ivreg2 lnwage100 ///
+        educ asvab tenure tenure_2 tenure_3 ///
+        c.educ#c.tenure c.asvab#c.tenure ///
+        i.job_num i.year i.sex_cat i.race_cat ///
+        (exp exp_2 exp_3 c.educ#c.exp c.asvab#c.exp ///
+         ib4.occ_code = ///
+         potexp potexp_2 potexp_3 educ_potexp asvab_potexp ///
+         i.occ_l1##i.occ_l2) ///
+        if cohort == `c' & occ_iv_ready == 1 ///
+        [pweight = sampleweight], cluster(id) first
+
+    estimates store OCC_IV_`c'
+}
+
+
 ** Testing employer learning heterogeneity
 testparm i.occ_cat#c.asvab#c.experience
 

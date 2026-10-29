@@ -1,0 +1,43 @@
+\begin{center}
+{\large\bfseries Table 1. Predictive relevance of potential experience instruments}\par
+\smallskip
+\textit{Baseline experience specification}\par
+\medskip
+\end{center}
+\small
+\noindent\textbf{Panel A. NLSY79}\par\smallskip
+\noindent\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrr@{}}
+\toprule
+Dependent variable & $E$ & $E^2$ & $E^3$ & $S\times E$ & $A\times E$ \\
+\midrule
+Joint F statistic & 81.60 & 29.87 & 17.90 & 81.05 & 39.72 \\
+Joint test p value & $<$0.001 & $<$0.001 & $<$0.001 & $<$0.001 & $<$0.001 \\
+Partial $R^2$ & 0.223 & 0.165 & 0.097 & 0.253 & 0.393 \\
+$R^2$ & 0.878 & 0.738 & 0.502 & 0.876 & 0.906 \\
+Observations & 30,246 & 30,246 & 30,246 & 30,246 & 30,246 \\
+Respondents & 7,631 & 7,631 & 7,631 & 7,631 & 7,631 \\
+Excluded instruments & 5 & 5 & 5 & 5 & 5 \\
+\bottomrule
+\end{tabular*}\par\smallskip
+\medskip
+\noindent\textbf{Panel B. NLSY97}\par\smallskip
+\noindent\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrr@{}}
+\toprule
+Dependent variable & $E$ & $E^2$ & $E^3$ & $S\times E$ & $A\times E$ \\
+\midrule
+Joint F statistic & 138.85 & 61.84 & 39.18 & 146.36 & 47.24 \\
+Joint test p value & $<$0.001 & $<$0.001 & $<$0.001 & $<$0.001 & $<$0.001 \\
+Partial $R^2$ & 0.332 & 0.356 & 0.366 & 0.368 & 0.519 \\
+$R^2$ & 0.878 & 0.892 & 0.879 & 0.883 & 0.940 \\
+Observations & 11,438 & 11,438 & 11,438 & 11,438 & 11,438 \\
+Respondents & 2,889 & 2,889 & 2,889 & 2,889 & 2,889 \\
+Excluded instruments & 5 & 5 & 5 & 5 & 5 \\
+\bottomrule
+\end{tabular*}\par\smallskip
+\medskip
+{\footnotesize
+\noindent\textit{Notes.} E denotes actual experience, P potential experience, S schooling, and A the ASVAB score. Each column is a separate regression containing all five excluded instruments: P, P squared, P cubed, S times P, and A times P.\par
+\smallskip\noindent Every regression includes schooling, ASVAB, tenure through its cubic term, schooling times tenure, ASVAB times tenure, and indicators for year, sex, race, and original job number. Schooling, ASVAB, and tenure terms are treated as exogenous. Sampling weights are used and inference is clustered by respondent.\par
+\smallskip\noindent The sample retains original job numbers 1 to 3, NLSY79 observations through 2004, and all available NLSY97 years. Eligibility follows the existing pooled wage winsorization at the 1st and 99th percentiles. P is survey year less earliest recorded employment year; it includes nonemployment after entry. It is an observed entry proxy and may include student work. NLSY79 starts coded as week zero have unknown dates before 1978 and are left missing.\par
+\smallskip\noindent Requiring usable potential experience reduces the eligible NLSY79 sample from 44,532 to 30,246 observations, and NLSY97 from 11,440 to 11,438. Partial R squared measures the additional explanatory power of the full excluded instrument set, conditional on the included controls. Joint F tests have 5 numerator degrees of freedom and the number of respondents less one denominator degrees of freedom. These tests do not establish exclusion validity or conditional strength for the joint IV system.\par
+}

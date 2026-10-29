@@ -1,0 +1,453 @@
+-------------------------------------------------------------------------------
+      name:  fs_simple
+       log:  /Users/wanghaiyu/Desktop/Econ681/tables/firststage_simple.log
+  log type:  text
+ opened on:  22 Oct 2026, 09:59:30
+
+. 
+. import delimited "/Users/wanghaiyu/Desktop/Econ681/cleaned/nlsy_merged.csv", 
+> clear
+(encoding automatically selected: ISO-8859-1)
+(90 vars, 259,852 obs)
+
+. encode race, gen(race_cat)
+
+. encode sex, gen(sex_cat)
+
+. winsor2 wage, cuts(1 99) replace
+
+. gen lnwage100 = 100 * ln(wage)
+
+. keep if (cohort == 0 & year <= 2004) | cohort == 1
+(40,299 observations deleted)
+
+. keep if job_num <= 3
+(163,581 observations deleted)
+
+. 
+. local controls educ asvab tenure i.job_num i.year i.sex_cat i.race_cat
+
+. foreach c in 0 1 {
+  2.     * One command estimates the IV model for each cohort.
+.     ivregress 2sls lnwage100 `controls' (exp = potexp) ///
+>         if cohort == `c' [pweight = sampleweight], vce(cluster id)
+  3.     estimates store IV_linear_`c'
+  4.     estat firststage
+  5.     matrix diagnostics = r(singleresults)
+  6.     local partial_r2 = diagnostics[1,3]
+  7. 
+.     * Display and store the first stage on exactly the same IV sample.
+.     regress exp potexp `controls' if e(sample) ///
+>         [pweight = sampleweight], vce(cluster id)
+  8.     test potexp
+  9.     estadd scalar excluded_F = r(F)
+ 10.     estadd scalar partial_r2 = `partial_r2'
+ 11.     estimates store FS_linear_`c'
+ 12. }
+(sum of wgt is   8.4035e+07)
+note: 1997.year identifies no observations in the sample.
+note: 1999.year identifies no observations in the sample.
+note: 2001.year identifies no observations in the sample.
+note: 2003.year identifies no observations in the sample.
+note: 2005.year identifies no observations in the sample.
+note: 2006.year identifies no observations in the sample.
+note: 2007.year identifies no observations in the sample.
+note: 2008.year identifies no observations in the sample.
+note: 2009.year identifies no observations in the sample.
+note: 2010.year identifies no observations in the sample.
+note: 2011.year identifies no observations in the sample.
+note: 2013.year identifies no observations in the sample.
+note: 2015.year identifies no observations in the sample.
+note: 2017.year identifies no observations in the sample.
+note: 2019.year identifies no observations in the sample.
+note: 2021.year identifies no observations in the sample.
+note: 2023.year identifies no observations in the sample.
+note: 4.race_cat identifies no observations in the sample.
+note: 6.race_cat identifies no observations in the sample.
+
+Instrumental variables 2SLS regression            Number of obs   =     30,246
+                                                  Wald chi2(31)   =    1980.61
+                                                  Prob > chi2     =     0.0000
+                                                  R-squared       =     0.3299
+                                                  Root MSE        =      45.34
+
+                                 (Std. err. adjusted for 7,631 clusters in id)
+------------------------------------------------------------------------------
+             |               Robust
+   lnwage100 | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         exp |   2.401284   .8726439     2.75   0.006     .6909331    4.111634
+        educ |   7.170817   .4701434    15.25   0.000     6.249353    8.092281
+       asvab |   .7734208    .412702     1.87   0.061    -.0354603    1.582302
+      tenure |   3.022235    .635796     4.75   0.000     1.776097    4.268372
+             |
+     job_num |
+          2  |   2.559864   1.736726     1.47   0.140    -.8440569    5.963786
+          3  |   3.016105   2.214845     1.36   0.173    -1.324911    7.357121
+             |
+        year |
+       1980  |  -4.012496   1.309434    -3.06   0.002    -6.578941   -1.446052
+       1981  |   -6.71089    1.39828    -4.80   0.000    -9.451469   -3.970311
+       1982  |  -7.491772   1.494598    -5.01   0.000    -10.42113   -4.562415
+       1983  |  -7.282602   1.686138    -4.32   0.000    -10.58737   -3.977832
+       1984  |  -8.625441   1.933998    -4.46   0.000    -12.41601   -4.834875
+       1985  |  -3.801319    2.16788    -1.75   0.080    -8.050286    .4476483
+       1986  |  -3.826546   2.634772    -1.45   0.146    -8.990604    1.337512
+       1987  |   3.458102   3.024291     1.14   0.253    -2.469399    9.385604
+       1988  |    5.93526   3.466735     1.71   0.087    -.8594152    12.72994
+       1989  |   4.210579   3.837091     1.10   0.272    -3.309982    11.73114
+       1990  |   1.025864   4.281364     0.24   0.811    -7.365455    9.417184
+       1991  |   .4928633   4.773246     0.10   0.918    -8.862528    9.848254
+       1992  |  -5.568967   5.082555    -1.10   0.273    -15.53059    4.392657
+       1993  |  -4.032693   5.659666    -0.71   0.476    -15.12543    7.060047
+       1994  |  -7.843714   6.054527    -1.30   0.195    -19.71037    4.022942
+       1996  |  -9.608078   6.922943    -1.39   0.165     -23.1768     3.96064
+       1997  |          0  (empty)
+       1998  |  -14.82449   7.161269    -2.07   0.038    -28.86032   -.7886595
+       1999  |          0  (empty)
+       2000  |  -16.22072   7.963257    -2.04   0.042    -31.82841   -.6130207
+       2001  |          0  (empty)
+       2002  |  -28.66202   9.221956    -3.11   0.002    -46.73672   -10.58732
+       2003  |          0  (empty)
+       2004  |  -33.48737   9.898339    -3.38   0.001    -52.88775   -14.08698
+       2005  |          0  (empty)
+       2006  |          0  (empty)
+       2007  |          0  (empty)
+       2008  |          0  (empty)
+       2009  |          0  (empty)
+       2010  |          0  (empty)
+       2011  |          0  (empty)
+       2013  |          0  (empty)
+       2015  |          0  (empty)
+       2017  |          0  (empty)
+       2019  |          0  (empty)
+       2021  |          0  (empty)
+       2023  |          0  (empty)
+             |
+     sex_cat |
+       Male  |   21.90857   1.447137    15.14   0.000     19.07224    24.74491
+             |
+    race_cat |
+      Black  |  -12.71619    6.88877    -1.85   0.065    -26.21793    .7855511
+   Hispanic  |  -2.647753   6.962707    -0.38   0.704    -16.29441     10.9989
+ Mixed Race  |          0  (empty)
+Native/Ot~r  |  -10.31204    7.16527    -1.44   0.150    -24.35571    3.731634
+Non-black~c  |          0  (empty)
+      White  |  -10.70969   6.835485    -1.57   0.117    -24.10699    2.687614
+             |
+       _cons |   167.3796   8.542514    19.59   0.000     150.6366    184.1227
+------------------------------------------------------------------------------
+Endogenous: exp
+Exogenous:  educ asvab tenure 2.job_num 3.job_num 1980.year 1981.year
+            1982.year 1983.year 1984.year 1985.year 1986.year 1987.year
+            1988.year 1989.year 1990.year 1991.year 1992.year 1993.year
+            1994.year 1996.year 1998.year 2000.year 2002.year 2004.year
+            2.sex_cat 2.race_cat 3.race_cat 5.race_cat 7.race_cat potexp
+
+  First-stage regression summary statistics
+  --------------------------------------------------------------------------
+               |            Adjusted      Partial       Robust
+      Variable |   R-sq.       R-sq.        R-sq.     F(1,7630)   Prob > F
+  -------------+------------------------------------------------------------
+           exp |  0.8691      0.8689       0.1768       172.037    0.0000
+  --------------------------------------------------------------------------
+  (F statistic adjusted for 7631 clusters in id)
+
+(sum of wgt is 84,035,419.36005)
+
+Linear regression                               Number of obs     =     30,246
+                                                F(31, 7630)       =    1711.57
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.8691
+                                                Root MSE          =     1.9298
+
+                                 (Std. err. adjusted for 7,631 clusters in id)
+------------------------------------------------------------------------------
+             |               Robust
+         exp | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      potexp |   .5578716   .0425328    13.12   0.000     .4744957    .6412475
+        educ |   .0658667   .0164465     4.00   0.000      .033627    .0981064
+       asvab |   .0612191   .0175703     3.48   0.000     .0267765    .0956617
+      tenure |   .4731075   .0381899    12.39   0.000     .3982447    .5479703
+             |
+     job_num |
+          2  |   .1001723   .0701517     1.43   0.153    -.0373443    .2376888
+          3  |   .4655307   .0960275     4.85   0.000     .2772904    .6537709
+             |
+        year |
+       1980  |  -.1537412   .0175197    -8.78   0.000    -.1880846   -.1193978
+       1981  |   -.213098   .0277721    -7.67   0.000    -.2675389   -.1586571
+       1982  |  -.3008071   .0440587    -6.83   0.000    -.3871742     -.21444
+       1983  |  -.3440482   .0662488    -5.19   0.000    -.4739141   -.2141824
+       1984  |  -.4444043   .0763945    -5.82   0.000    -.5941586     -.29465
+       1985  |  -.4341091   .0926286    -4.69   0.000    -.6156867   -.2525315
+       1986  |  -.3486092   .1130138    -3.08   0.002    -.5701474    -.127071
+       1987  |  -.1126018   .1523832    -0.74   0.460    -.4113149    .1861112
+       1988  |  -.0187654   .1616227    -0.12   0.908    -.3355903    .2980596
+       1989  |   .0036243   .1223001     0.03   0.976    -.2361176    .2433661
+       1990  |  -.0394611   .1381998    -0.29   0.775    -.3103706    .2314485
+       1991  |   .0576412   .1492407     0.39   0.699    -.2349115     .350194
+       1992  |    .079926   .1727657     0.46   0.644    -.2587422    .4185941
+       1993  |    .027782   .1730218     0.16   0.872    -.3113883    .3669523
+       1994  |   .0918158   .1898536     0.48   0.629    -.2803495    .4639812
+       1996  |    .067792   .2206967     0.31   0.759    -.3648342    .5004181
+       1998  |  -.1369399   .2337997    -0.59   0.558    -.5952517    .3213718
+       2000  |  -.2512094   .2610916    -0.96   0.336    -.7630208     .260602
+       2002  |   .0547786    .296612     0.18   0.853    -.5266625    .6362196
+       2004  |  -.0891703   .3424662    -0.26   0.795    -.7604981    .5821576
+             |
+     sex_cat |
+       Male  |    .200309   .0732275     2.74   0.006      .056763    .3438549
+             |
+    race_cat |
+      Black  |  -.4806438   .2289972    -2.10   0.036    -.9295413   -.0317463
+   Hispanic  |  -.3998516   .2290191    -1.75   0.081     -.848792    .0490888
+Native/Ot~r  |  -.1063739    .254487    -0.42   0.676    -.6052384    .3924907
+      White  |  -.3715953   .2236227    -1.66   0.097    -.8099573    .0667666
+             |
+       _cons |  -.6901077   .2949315    -2.34   0.019    -1.268255    -.111961
+------------------------------------------------------------------------------
+
+ ( 1)  potexp = 0
+
+       F(  1,  7630) =  172.04
+            Prob > F =    0.0000
+
+added scalar:
+         e(excluded_F) =  172.03681
+
+added scalar:
+         e(partial_r2) =  .1767816
+(sum of wgt is   3.6771e+07)
+note: 1979.year identifies no observations in the sample.
+note: 1980.year identifies no observations in the sample.
+note: 1981.year identifies no observations in the sample.
+note: 1982.year identifies no observations in the sample.
+note: 1983.year identifies no observations in the sample.
+note: 1984.year identifies no observations in the sample.
+note: 1985.year identifies no observations in the sample.
+note: 1986.year identifies no observations in the sample.
+note: 1987.year identifies no observations in the sample.
+note: 1988.year identifies no observations in the sample.
+note: 1989.year identifies no observations in the sample.
+note: 1990.year identifies no observations in the sample.
+note: 1991.year identifies no observations in the sample.
+note: 1992.year identifies no observations in the sample.
+note: 1993.year identifies no observations in the sample.
+note: 1994.year identifies no observations in the sample.
+note: 1996.year identifies no observations in the sample.
+note: 2023.year omitted because of collinearity.
+note: 1.race_cat identifies no observations in the sample.
+note: 5.race_cat identifies no observations in the sample.
+note: 6.race_cat omitted because of collinearity.
+note: 7.race_cat identifies no observations in the sample.
+
+Instrumental variables 2SLS regression            Number of obs   =     11,438
+                                                  Wald chi2(30)   =     794.34
+                                                  Prob > chi2     =     0.0000
+                                                  R-squared       =     0.2725
+                                                  Root MSE        =     47.895
+
+                                 (Std. err. adjusted for 2,889 clusters in id)
+------------------------------------------------------------------------------
+             |               Robust
+   lnwage100 | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         exp |   3.393607   .9866588     3.44   0.001     1.459791    5.327423
+        educ |   5.834954   .8155003     7.16   0.000     4.236603    7.433305
+       asvab |   1.563951   .5730558     2.73   0.006      .440782    2.687119
+      tenure |   1.156647   .7361538     1.57   0.116    -.2861875    2.599482
+             |
+     job_num |
+          2  |   3.608722   3.673857     0.98   0.326    -3.591906    10.80935
+          3  |   3.096309   3.976645     0.78   0.436    -4.697773    10.89039
+             |
+        year |
+       1979  |          0  (empty)
+       1980  |          0  (empty)
+       1981  |          0  (empty)
+       1982  |          0  (empty)
+       1983  |          0  (empty)
+       1984  |          0  (empty)
+       1985  |          0  (empty)
+       1986  |          0  (empty)
+       1987  |          0  (empty)
+       1988  |          0  (empty)
+       1989  |          0  (empty)
+       1990  |          0  (empty)
+       1991  |          0  (empty)
+       1992  |          0  (empty)
+       1993  |          0  (empty)
+       1994  |          0  (empty)
+       1996  |          0  (empty)
+       1997  |   8.838502   16.67707     0.53   0.596    -23.84795    41.52495
+       1998  |  -.7569693   17.88686    -0.04   0.966    -35.81458    34.30064
+       1999  |   2.898799   14.75782     0.20   0.844      -26.026    31.82359
+       2000  |   8.618629   14.22165     0.61   0.545     -19.2553    36.49256
+       2001  |   11.15041     15.349     0.73   0.468    -18.93308    41.23389
+       2002  |   3.842662   14.65849     0.26   0.793    -24.88745    32.57278
+       2003  |   3.791463   12.77009     0.30   0.767    -21.23745    28.82038
+       2004  |   5.125329   12.31676     0.42   0.677    -19.01507    29.26573
+       2005  |   6.473321   11.83489     0.55   0.584    -16.72264    29.66928
+       2006  |   10.26857   11.38292     0.90   0.367    -12.04154    32.57868
+       2007  |   12.69385   10.88007     1.17   0.243    -8.630696     34.0184
+       2008  |   14.17176   10.34705     1.37   0.171    -6.108091     34.4516
+       2009  |   15.70417   9.415665     1.67   0.095    -2.750195    34.15853
+       2010  |   17.36416   8.616382     2.02   0.044     .4763656    34.25196
+       2011  |   15.64477   8.040713     1.95   0.052    -.1147357    31.40428
+       2013  |     9.5489    7.54738     1.27   0.206    -5.243693    24.34149
+       2015  |    9.61252   6.371003     1.51   0.131    -2.874417    22.09946
+       2017  |  -1.672824   5.856625    -0.29   0.775     -13.1516     9.80595
+       2019  |  -2.027872   4.959646    -0.41   0.683     -11.7486    7.692855
+       2021  |    3.26191   3.693213     0.88   0.377    -3.976654    10.50047
+       2023  |          0  (omitted)
+             |
+     sex_cat |
+       Male  |   12.16428   2.171054     5.60   0.000     7.909091    16.41947
+             |
+    race_cat |
+   Asian/PI  |          0  (empty)
+      Black  |  -7.411784   3.054383    -2.43   0.015    -13.39827   -1.425303
+   Hispanic  |   4.448122    2.79961     1.59   0.112    -1.039012    9.935256
+ Mixed Race  |  -14.58349    14.9325    -0.98   0.329    -43.85065    14.68367
+Native/Ot~r  |          0  (empty)
+Non-black~c  |          0  (omitted)
+      White  |          0  (empty)
+             |
+       _cons |   171.4481   17.39368     9.86   0.000     137.3571     205.539
+------------------------------------------------------------------------------
+Endogenous: exp
+Exogenous:  educ asvab tenure 2.job_num 3.job_num 1997.year 1998.year
+            1999.year 2000.year 2001.year 2002.year 2003.year 2004.year
+            2005.year 2006.year 2007.year 2008.year 2009.year 2010.year
+            2011.year 2013.year 2015.year 2017.year 2019.year 2021.year
+            2.sex_cat 2.race_cat 3.race_cat 4.race_cat potexp
+
+  First-stage regression summary statistics
+  --------------------------------------------------------------------------
+               |            Adjusted      Partial       Robust
+      Variable |   R-sq.       R-sq.        R-sq.     F(1,2888)   Prob > F
+  -------------+------------------------------------------------------------
+           exp |  0.8757      0.8754       0.3338       385.022    0.0000
+  --------------------------------------------------------------------------
+  (F statistic adjusted for 2889 clusters in id)
+
+(sum of wgt is 36,770,887.231323)
+
+Linear regression                               Number of obs     =     11,438
+                                                F(30, 2888)       =     465.19
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.8757
+                                                Root MSE          =     1.9085
+
+                                 (Std. err. adjusted for 2,889 clusters in id)
+------------------------------------------------------------------------------
+             |               Robust
+         exp | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      potexp |   .7067795   .0360198    19.62   0.000     .6361524    .7774065
+        educ |   .0978403   .0333562     2.93   0.003      .032436    .1632447
+       asvab |  -.0396292   .0229704    -1.73   0.085    -.0846692    .0054109
+      tenure |   .3986068   .0387951    10.27   0.000     .3225379    .4746757
+             |
+     job_num |
+          2  |  -.1082702   .1173671    -0.92   0.356     -.338402    .1218615
+          3  |  -.1292231   .1608142    -0.80   0.422    -.4445453    .1860992
+             |
+        year |
+       1998  |  -.1027612   .4756092    -0.22   0.829    -1.035329    .8298066
+       1999  |  -.2279833   .4475771    -0.51   0.611    -1.105586    .6496195
+       2000  |   -.216585   .4579352    -0.47   0.636    -1.114498    .6813279
+       2001  |  -.2299421   .4610038    -0.50   0.618    -1.133872    .6739876
+       2002  |   -.333981   .4695064    -0.71   0.477    -1.254583    .5866205
+       2003  |  -.3815589   .4347675    -0.88   0.380    -1.234045    .4709269
+       2004  |   -.369391   .4405715    -0.84   0.402    -1.233257    .4944754
+       2005  |  -.3329708   .4483356    -0.74   0.458    -1.212061    .5461193
+       2006  |  -.4359603   .4549673    -0.96   0.338    -1.328054    .4561331
+       2007  |  -.4642932   .4676848    -0.99   0.321    -1.381323    .4527365
+       2008  |  -.4048206   .4761654    -0.85   0.395    -1.338479    .5288377
+       2009  |   -.478816    .487239    -0.98   0.326    -1.434187    .4765554
+       2010  |  -.5718761   .5001677    -1.14   0.253    -1.552598    .4088457
+       2011  |   -.798554   .5156199    -1.55   0.122    -1.809574    .2124661
+       2013  |  -1.174025   .5510743    -2.13   0.033    -2.254564   -.0934867
+       2015  |  -1.437635    .583403    -2.46   0.014    -2.581563   -.2937069
+       2017  |  -1.289843   .6459082    -2.00   0.046    -2.556331   -.0233556
+       2019  |  -1.537634   .7006545    -2.19   0.028    -2.911467   -.1638009
+       2021  |  -1.531753   .7669797    -2.00   0.046    -3.035636     -.02787
+       2023  |   -1.76037   .8487054    -2.07   0.038      -3.4245   -.0962406
+             |
+     sex_cat |
+       Male  |    .069558    .095059     0.73   0.464    -.1168323    .2559484
+             |
+    race_cat |
+   Hispanic  |   .4628804   .1503507     3.08   0.002     .1680749     .757686
+ Mixed Race  |  -.7378743   .8180501    -0.90   0.367    -2.341895    .8661468
+Non-black~c  |   .6697225   .1296045     5.17   0.000     .4155959    .9238491
+             |
+       _cons |  -1.682804    .531883    -3.16   0.002    -2.725713   -.6398956
+------------------------------------------------------------------------------
+
+ ( 1)  potexp = 0
+
+       F(  1,  2888) =  385.02
+            Prob > F =    0.0000
+
+added scalar:
+         e(excluded_F) =  385.02236
+
+added scalar:
+         e(partial_r2) =  .33381415
+
+. 
+. * Open the resulting RTF table in Word.
+. esttab FS_linear_0 FS_linear_1 using "`output'/firststage_simple.rtf", ///
+>     replace b(3) se(3) nostar nonumbers varwidth(34) modelwidth(12) ///
+>     mtitles("NLSY79" "NLSY97") ///
+>     keep(potexp) coeflabels(potexp "Potential experience (years)") ///
+>     stats(excluded_F partial_r2 r2 N N_clust, fmt(2 3 3 %12.0fc %12.0fc) ///
+>         labels("Excluded instrument F statistic" "Partial R squared" ///
+>         "R squared" "Observations" "Respondents")) ///
+>     title("First stage: Actual experience (years)") ///
+>     nonotes addnotes("Standard errors clustered by respondent are in parenthe
+> ses." ///
+>         "Both columns control for schooling, ASVAB, tenure, job number, year,
+>  sex, and race." ///
+>         "Sampling weights are applied. Each column uses its corresponding IV 
+> estimation sample." ///
+>         "Potential experience is the survey year minus the earliest observed 
+> employment entry year." ///
+>         "The F statistic tests whether the coefficient on potential experienc
+> e is zero.")
+(file /Users/wanghaiyu/Desktop/Econ681/tables/firststage_simple.rtf not
+    found)
+(output written to /Users/wanghaiyu/Desktop/Econ681/tables/firststage_simple.rt
+> f)
+
+. 
+. estimates table FS_linear_0 FS_linear_1, keep(potexp) b(%9.6f) se(%9.6f) ///
+>     stats(excluded_F partial_r2 r2 N N_clust)
+
+--------------------------------------
+    Variable | FS_line~0   FS_line~1  
+-------------+------------------------
+      potexp |  0.557872    0.706779  
+             |  0.042533    0.036020  
+-------------+------------------------
+  excluded_F |  1.72e+02    3.85e+02  
+  partial_r2 |  0.176782    0.333814  
+          r2 |  0.869080    0.875679  
+           N |     30246       11438  
+     N_clust |  7.63e+03    2.89e+03  
+--------------------------------------
+                          Legend: b/se
+
+. display "Saved: `output'/firststage_simple.rtf"
+Saved: /Users/wanghaiyu/Desktop/Econ681/tables/firststage_simple.rtf
+
+. log close fs_simple
+      name:  fs_simple
+       log:  /Users/wanghaiyu/Desktop/Econ681/tables/firststage_simple.log
+  log type:  text
+ closed on:  22 Oct 2026, 09:59:34
+-------------------------------------------------------------------------------

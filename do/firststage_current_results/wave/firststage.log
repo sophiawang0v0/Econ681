@@ -1,0 +1,253 @@
+-------------------------------------------------------------------------------
+      name:  fs_current
+       log:  /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wav
+> e/firststage.log
+  log type:  text
+ opened on:  22 Oct 2026, 09:41:08
+(encoding automatically selected: ISO-8859-1)
+(90 vars, 259,852 obs)
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_0_e
+> xp.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_0_e
+> xp_2.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_0_e
+> xp_3.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_0_e
+> duc_exp.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_0_a
+> svab_exp.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_0_o
+> ccupation1.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_0_o
+> ccupation2.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_0_o
+> ccupation3.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_0_o
+> ccupation4.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_0_o
+> ccupation5.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_0_o
+> ccupation6.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_1_e
+> xp.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_1_e
+> xp_2.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_1_e
+> xp_3.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_1_e
+> duc_exp.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_1_a
+> svab_exp.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_1_o
+> ccupation1.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_1_o
+> ccupation2.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_1_o
+> ccupation3.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_1_o
+> ccupation4.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_1_o
+> ccupation5.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/FS_1_o
+> ccupation6.ster saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/coeffi
+> cients.csv saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/diagno
+> stics.csv saved
+file /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave/sample
+> s.csv saved
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      0 |        experience |         exp | 30246 |     7631 |     0.2226 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |          81.60         |              5         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      0 |        experience |       exp_2 | 30246 |     7631 |     0.1647 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |          29.87         |              5         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      0 |        experience |       exp_3 | 30246 |     7631 |     0.0973 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |          17.90         |              5         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      0 |        experience |    educ_exp | 30246 |     7631 |     0.2527 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |          81.05         |              5         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      0 |        experience |   asvab_exp | 30246 |     7631 |     0.3931 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |          39.72         |              5         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      0 | occupation_screen | occupation1 | 15089 |     3746 |     0.4215 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |          59.56         |             53         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      0 | occupation_screen | occupation2 | 15089 |     3746 |     0.3469 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |          33.30         |             53         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      0 | occupation_screen | occupation3 | 15089 |     3746 |     0.2269 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |          11.09         |             53         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      0 | occupation_screen | occupation4 | 15089 |     3746 |     0.3830 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |          71.02         |             53         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      0 | occupation_screen | occupation5 | 15089 |     3746 |     0.3262 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |          35.37         |             53         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      0 | occupation_screen | occupation6 | 15089 |     3746 |     0.3592 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |          55.77         |             53         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      1 |        experience |         exp | 11438 |     2889 |     0.3321 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |         138.85         |              5         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      1 |        experience |       exp_2 | 11438 |     2889 |     0.3558 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |          61.84         |              5         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      1 |        experience |       exp_3 | 11438 |     2889 |     0.3657 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |          39.18         |              5         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      1 |        experience |    educ_exp | 11438 |     2889 |     0.3681 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |         146.36         |              5         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      1 |        experience |   asvab_exp | 11438 |     2889 |     0.5191 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |          47.24         |              5         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      1 | occupation_screen | occupation1 |  4555 |     1111 |     0.7114 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |         142.63         |             52         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      1 | occupation_screen | occupation2 |  4555 |     1111 |     0.6527 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |        1354.73         |             52         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      1 | occupation_screen | occupation3 |  4555 |     1111 |     0.7087 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |        5401.60         |             52         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      1 | occupation_screen | occupation4 |  4555 |     1111 |     0.6915 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |          91.05         |             52         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      1 | occupation_screen | occupation5 |  4555 |     1111 |     0.8025 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |        3610.77         |             52         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+  +--------------------------------------------------------------------------+
+  | cohort |             model |   dependent |     N | clusters | partial_r2 |
+  |      1 | occupation_screen | occupation6 |  4555 |     1111 |     0.7407 |
+  |--------------------------------------------------------------------------|
+  |              F         |         df_num         |              p         |
+  |         371.14         |             52         |         0.0000         |
+  +--------------------------------------------------------------------------+
+
+Exported firststage_tables.pdf, complete LaTeX, and three table fragments to /U
+> sers/wanghaiyu/Desktop/Econ681/do/firststage_current_results/wave
+Presentation tables: /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_res
+> ults/wave/firststage_tables.pdf
+Completed. Results: /Users/wanghaiyu/Desktop/Econ681/do/firststage_current_resu
+> lts/wave
+occupation_screen is a prediction check, not the full Gibbons first stage syste
+> m.
+Its regressions omit the many endogenous interactions needed by the full occupa
+> tion wage model.
+partial_r2 describes ALL excluded instruments, including in the history test ro
+> ws.
+These ordinary joint F tests do not establish conditional strength or instrumen
+> t validity.
+
+. local rc = _rc
+
+. capture log close fs_current

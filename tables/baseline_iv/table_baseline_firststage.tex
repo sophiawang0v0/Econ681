@@ -1,0 +1,23 @@
+\begin{table}[p]\centering
+\caption{Baseline IV: First stage relevance}\label{tab:baseline_iv_firststage}
+\begin{threeparttable}\small
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrr@{}}
+\toprule
+& \multicolumn{3}{c}{NLSY79} & \multicolumn{3}{c}{NLSY97} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Endogenous regressor & Robust $F$ & Partial $R^2$ & Shea $R^2$ & Robust $F$ & Partial $R^2$ & Shea $R^2$ \\
+\midrule
+$E$ & 81.60 & 0.223 & 0.263 & 138.85 & 0.332 & 0.395 \\
+$E^2$ & 29.87 & 0.165 & 0.094 & 61.84 & 0.356 & 0.322 \\
+$E^3$ & 17.90 & 0.097 & 0.056 & 39.18 & 0.366 & 0.326 \\
+$S E$ & 81.05 & 0.253 & 0.389 & 146.36 & 0.368 & 0.554 \\
+$Z E$ & 39.72 & 0.393 & 0.360 & 47.24 & 0.519 & 0.517 \\
+\midrule
+Observations & \multicolumn{3}{c}{30,246} & \multicolumn{3}{c}{11,438} \\
+Respondents & \multicolumn{3}{c}{7,631} & \multicolumn{3}{c}{2,889} \\
+\bottomrule\end{tabular*}
+\begin{tablenotes}[flushleft]\footnotesize
+\item Notes. $E$ denotes actual experience, $S$ schooling, $Z$ ASVAB, and $P$ years since first observed employment. Every first stage includes all five excluded instruments $(P,P^2,P^3,SP,ZP)$.
+\item Controls include schooling, ASVAB, cubic tenure terms, schooling and ASVAB interactions with linear tenure, and job spell, year, sex, and race indicators. Sampling weights are applied.
+\item Robust $F$ statistics test the five instruments jointly, with clustering by respondent: $F(5,7630)$ for NLSY79 and $F(5,2888)$ for NLSY97. All tests have $p<0.001$. These are equation tests, not conditional $F$ tests. Shea\textquotesingle s $R^2$ is the partial measure accounting for relationships among endogenous regressors.
+\end{tablenotes}\end{threeparttable}\end{table}
