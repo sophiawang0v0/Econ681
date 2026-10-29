@@ -21,6 +21,27 @@ gen tenure_3 = tenure^3
 keep if (cohort == 0 & year <= 2004) | cohort == 1
 keep if job_num <=3
 
+** Checking age distribution
+preserve
+// keep if inrange(job_num, 1, 3) & inrange(age, 15, 38)
+keep if inrange(job_num, 1, 3)
+
+* Table: percentages within each cohort
+tab age cohort, col nofreq
+
+* Plot: two year age bins
+twoway ///
+    (histogram age if cohort == 0, percent ///
+        fcolor(blue%30) lcolor(blue)) ///
+    (histogram age if cohort == 1, percent ///
+        fcolor(orange%30) lcolor(orange)), ///
+    legend(order(1 "NLSY79" 2 "NLSY97")) ///
+    xtitle("Age") ytitle("Observations within cohort (%)") ///
+    title("Age distribution by cohort") ///
+    graphregion(color(white))
+
+restore
+
 ** Summary Table
 
 summarize exp hour tenure wage cohort age
@@ -33,6 +54,42 @@ collapse (mean) wage hour exp tenure educ ///
          by(personid)
 summarize asvab educ sex_cat race_cat
 restore
+
+** Making Plots to describe occupation percentage
+local out "/Users/wanghaiyu/Desktop/Econ681/do/occplot"
+capture mkdir "`out'"
+
+levelsof occ, local(occupations)
+
+foreach o of local occupations {
+    preserve
+    keep if inrange(job_num, 1, 3) & inrange(age, 15, 38)
+    drop if missing(occ) | missing(cohort)
+
+    gen age2 = 15 + 2 * floor((age - 15) / 2)
+    gen group = 3 * cohort + job_num
+    gen share = 100 * (occ == "`o'")
+
+    collapse (mean) share, by(age2 group)
+    reshape wide share, i(age2) j(group)
+
+    twoway line share1 share2 share3 share4 share5 share6 age2, ///
+        sort title("`o'") ///
+        lcolor(blue orange green blue orange green) ///
+        lpattern(solid solid solid dash dash dash) ///
+        xtitle("Age group") ytitle("Occupation share (%)") ///
+        xlabel(15 "15 to 16" 19 "19 to 20" 23 "23 to 24" ///
+               27 "27 to 28" 31 "31 to 32" 35 "35 to 36" ///
+               37 "37 to 38", labsize(small) angle(45)) ///
+        yscale(range(0)) ///
+        legend(order(1 "79: Job 1" 2 "79: Job 2" 3 "79: Job 3" ///
+                     4 "97: Job 1" 5 "97: Job 2" 6 "97: Job 3") ///
+               cols(3) size(small)) ///
+        graphregion(color(white))
+
+    graph export "`out'/`o'.png", width(2000) replace
+    restore
+}
 
 ** Table 2: Baseline and occupation models
 
